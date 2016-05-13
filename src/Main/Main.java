@@ -9,10 +9,11 @@ public class Main {
 		JFrame frame = new JFrame();
 		frame.add(game);
 		frame.pack();
-		frame.setBounds(1920,0,1280,720);
+		frame.setBounds(0,0,1280,720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		game.start();
+		System.out.println("hallo");
 	}
 
 }
