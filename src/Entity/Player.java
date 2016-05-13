@@ -9,29 +9,35 @@ import Main.Game;
 import Main.Handler;
 import Main.Id;
 import Tile.Tile;
+import gfx.Sprite;
 
 public class Player extends Entity{
 	int frame,framedelay;
 	public static int moving=-1;
+	public static Sprite[] mario = new Sprite[31];
 	
 	public Player(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);
 	}
 	
 	public void render(Graphics g){
-		if(moving==-1&&!jumping&&!falling){g.drawImage( Game.mario[0].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==1&&!jumping&&!falling){g.drawImage( Game.mario[frame].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==1&&jumping&&!falling){g.drawImage( Game.mario[26].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==1&&!jumping&&falling){g.drawImage( Game.mario[28].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==-1&&jumping&&!falling){g.drawImage( Game.mario[26].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==-1&&!jumping&&falling){g.drawImage( Game.mario[28].getBufferedImage(), x, y, breite,höhe,null);}
+		for(int i=0;i<mario.length;i++){
+			mario[i] =  new Sprite(Game.sheet,i+1,1,1,1);
+			}
 		
-		if(moving==-2&&!jumping&&!falling){g.drawImage( Game.mario[13].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==2&&!jumping&&!falling){g.drawImage( Game.mario[frame+14].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==2&&jumping&&!falling){g.drawImage( Game.mario[27].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==2&&!jumping&&falling){g.drawImage( Game.mario[29].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==-2&&jumping&&!falling){g.drawImage( Game.mario[27].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==-2&&!jumping&&falling){g.drawImage( Game.mario[29].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==-1&&!jumping&&!falling){g.drawImage( mario[0].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==1&&!jumping&&!falling){g.drawImage( mario[frame].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==1&&jumping&&!falling){g.drawImage( mario[26].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==1&&!jumping&&falling){g.drawImage( mario[28].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==-1&&jumping&&!falling){g.drawImage( mario[26].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==-1&&!jumping&&falling){g.drawImage( mario[28].getBufferedImage(), x, y, breite,höhe,null);}
+		
+		if(moving==-2&&!jumping&&!falling){g.drawImage( mario[13].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==2&&!jumping&&!falling){g.drawImage( mario[frame+14].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==2&&jumping&&!falling){g.drawImage( mario[27].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==2&&!jumping&&falling){g.drawImage( mario[29].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==-2&&jumping&&!falling){g.drawImage( mario[27].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==-2&&!jumping&&falling){g.drawImage( mario[29].getBufferedImage(), x, y, breite,höhe,null);}
 	}
 	
 	public void tick(){	

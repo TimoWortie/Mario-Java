@@ -103,6 +103,8 @@ public class Handler {
 				green = (pixel >> 8) & 0xff;
 				blue = (pixel) & 0xff;
 				
+				
+//				Game.handler.addEnemy(Game.test);
 				if(red==0&&green==0&&blue==1){ addTile(new Block(x*64,y*64,Spritesheet.a*60,Spritesheet.b*60,true,this,Id.wall));}
 				if(red==111&&green==0&&blue==0){ addTile(new Pipe(x*64,y*64-40,Spritesheet.a*100,Spritesheet.b*100,true,this,Id.pipe));}
 				if(red==112&&green==0&&blue==0){ addTile(new Pipe2(x*64-50,y*64-45,Spritesheet.a*100,Spritesheet.b*110,true,this,Id.pipe));}
