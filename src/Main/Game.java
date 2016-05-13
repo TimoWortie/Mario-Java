@@ -71,6 +71,8 @@ public class Game extends Canvas implements Runnable{
 		Graphics g = bs.getDrawGraphics();
 		g.drawImage(background, 0, 0, getWidth(),getHeight(),null);
 //		g.translate(cam.getX(), cam.getY()+220);
+		g.drawString("jannik ist cool", 250,250);
+		
 		handler.render(g);
 		g.dispose();
 		bs.show();
