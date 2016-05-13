@@ -38,12 +38,38 @@ public class Luigi extends Entity{
 		if(moving==2&&!jumping&&falling){g.drawImage( luigi[29].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==-2&&jumping&&!falling){g.drawImage( luigi[27].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==-2&&!jumping&&falling){g.drawImage( luigi[29].getBufferedImage(), x, y, breite,höhe,null);}
+		
+		g.setColor(Color.white);
+		g.drawRect(x+33, y+13, 38, 5);
+		g.setColor(Color.red);
+		g.drawRect(getX()+33,getY()+96,34,5);
+		g.setColor(Color.green);
+		g.drawRect(getX()+70,getY()+15,5,82);
+		g.setColor(Color.CYAN);
+		g.drawRect(getX()+26,getY()+15,5,82);
 	}
 	
 	public void tick(){	
 		x+=velX;
 		y+=velY;
-		
+		for(Entity en:handler.entity){
+			if(en.getId()==Id.player){
+				if(getLeft().intersects(en.getBounds())){
+					setVelX(0);
+					x=en.getX()+70;
+				}
+				if(getRight().intersects(en.getBounds())){
+					setVelX(0);
+					x=en.getX()-70;
+				}
+				if(getBottom().intersects(en.getBounds())){
+					setVelY(0);
+					y=en.getY()-70;
+					jumping=true;
+					falling=false;
+					gravity=15.0f;	
+				}
+		}}
 		for(Tile t:handler.tile){
 			if(t.getId()==Id.wall){
 				if(getTop().intersects(t.getBounds())){
@@ -71,6 +97,13 @@ public class Luigi extends Entity{
 					x=t.getX()-75;
 				}
 			  }
+			
+			
+			
+			
+			
+			
+			
 			}
 		
 		if(jumping){

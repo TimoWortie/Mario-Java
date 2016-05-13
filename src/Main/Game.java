@@ -25,7 +25,7 @@ public class Game extends Canvas implements Runnable{
 	public Thread thread = new Thread();
 	public static Handler handler = new Handler();
 	public static Player player = new Player(1000,500,100,100,true,handler,Id.player);
-	public static Luigi luigi = new Luigi(1000,500,100,100,true,handler,Id.Luigi);
+	public static Luigi luigi = new Luigi(500,500,100,100,true,handler,Id.Luigi);
 	public static Camera cam;
 	
 	private BufferedImage image,background;
