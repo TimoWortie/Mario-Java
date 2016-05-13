@@ -5,12 +5,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import Entity.Entity;
-import Entity.Player;
+import Entity.Luigi;
 import Main.Game;
 import Main.Handler;
 import Main.Id;
 
-public class Key implements KeyListener{
+public class KeyLuigi implements KeyListener{
 
 	public boolean sprung = false;
 	public static boolean run = false,d=false,shift=false,a=false;
@@ -18,21 +18,23 @@ public class Key implements KeyListener{
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		for(Entity en:Game.handler.entity){
-		if(key==e.VK_D){
+		if(key==e.VK_RIGHT){
 			d = true;
 		}
-		if(key==e.VK_A){
+		if(key==e.VK_LEFT){
 			a=true;
 		}
-		if(key==e.VK_W){
-			if(en.getId()!=Id.Luigi){System.out.println("nicht test");
+		if(key==e.VK_UP&&en.getId()==Id.Luigi){
+			System.out.println("test");
 			if(!en.jumping&&!en.falling){
 				en.jumping=true;
 				en.gravity=15.0f;
+				
+			
 			}
-			}
+			
 		 }
-		if(key==e.VK_SHIFT){
+		if(key==e.VK_CONTROL){
 			 shift = true;
 		}
 	   }
@@ -42,17 +44,17 @@ public class Key implements KeyListener{
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 		for(Entity en:Game.handler.entity){
-		if(key==e.VK_D){
-			Game.player.setVelX(0);
-			Player.moving=-1;
+		if(key==e.VK_RIGHT){
+			Game.luigi.setVelX(0);
+			Luigi.moving=-1;
 			d=false;
 		}
-		if(key==e.VK_A){
-			Game.player.setVelX(0);
-			Player.moving=-2;
+		if(key==e.VK_LEFT){
+			Game.luigi.setVelX(0);
+			Luigi.moving=-2;
 			a=false;
 		}
-		if(key==e.VK_SHIFT){
+		if(key==e.VK_CONTROL){
 			shift = false;
 		}
 	  }

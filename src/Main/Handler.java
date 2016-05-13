@@ -31,6 +31,9 @@ public class Handler {
 			en.render(g);
 		}
 		
+		
+	
+		
 		for(Enemy ene:enemy){
 			ene.render(g);
 		}
