@@ -34,7 +34,7 @@ public class Game extends Canvas implements Runnable{
 		sheet = new Spritesheet("/Spritesheet.png");
 		cam = new Camera();
 	
-		test = new Test(636,-10,30,30,true,handler,Id.enemy);
+		test = new Test(126,-10,30,30,true,handler,Id.enemy);
 
 		addMouseListener(new Mouse());
 		addKeyListener(new Key());
@@ -88,7 +88,6 @@ public class Game extends Canvas implements Runnable{
 	
 	 
 	public void run(){
-		
 		init();
 		long lastTime = System.nanoTime();
 		long timer = System.currentTimeMillis();
