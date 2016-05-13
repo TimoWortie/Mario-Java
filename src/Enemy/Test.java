@@ -37,7 +37,6 @@ public class Test extends Enemy{
 					y=t.getY()-28;
 					if(!schonentschieden){
 						zufallszahl = r.nextInt(2);
-						System.out.println(zufallszahl);
 						schonentschieden=true;
 						}
 					if(zufallszahl==0){
@@ -61,7 +60,6 @@ public class Test extends Enemy{
 		
 		if(velY>0){
 			zufallszahl = r.nextInt(2);
-			System.out.println(zufallszahl);
 			schonentschieden=true;
 		}
 		

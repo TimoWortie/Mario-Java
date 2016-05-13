@@ -14,7 +14,7 @@ public class Entity {
 	Handler handler;
 	Id id;
 	public float gravity = 0f;
-	public static boolean jumping = false;
+	public boolean jumping = false;
 	public boolean falling = true;
 
 	

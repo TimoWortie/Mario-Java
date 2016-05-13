@@ -12,9 +12,11 @@ import Enemy.Test;
 import Entity.Entity;
 import Entity.Player;
 import Input.Key;
+import Input.KeyLuigi;
 import Input.Mouse;
 import gfx.Sprite;
 import gfx.Spritesheet;
+import Entity.Luigi;
 
 
 public class Game extends Canvas implements Runnable{
@@ -23,6 +25,7 @@ public class Game extends Canvas implements Runnable{
 	public Thread thread = new Thread();
 	public static Handler handler = new Handler();
 	public static Player player = new Player(1000,500,100,100,true,handler,Id.player);
+	public static Luigi luigi = new Luigi(1000,500,100,100,true,handler,Id.Luigi);
 	public static Camera cam;
 	
 	private BufferedImage image,background;
@@ -33,11 +36,12 @@ public class Game extends Canvas implements Runnable{
 		handler.addEntity(player);
 		sheet = new Spritesheet("/Spritesheet.png");
 		cam = new Camera();
-	
+		handler.addEntity(luigi);
 		test = new Test(126,-10,30,30,true,handler,Id.enemy);
 
 		addMouseListener(new Mouse());
 		addKeyListener(new Key());
+		addKeyListener(new KeyLuigi());
 		try {
 			image = ImageIO.read(getClass().getResource("/level.png"));
 			background = ImageIO.read(getClass().getResource("/Background1.png"));
@@ -65,6 +69,9 @@ public class Game extends Canvas implements Runnable{
 		
 		for(Entity e:handler.entity){
 			if(e.getId()==Id.player){
+				cam.tick(e);
+			}
+			if(e.getId()==Id.Luigi){
 				cam.tick(e);
 			}
 		}
