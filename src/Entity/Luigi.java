@@ -27,17 +27,13 @@ public class Luigi extends Entity{
 		
 		if(moving==-1&&!jumping&&!falling){g.drawImage( luigi[0].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==1&&!jumping&&!falling){g.drawImage( luigi[frame].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==1&&jumping&&!falling){g.drawImage( luigi[26].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==1&&!jumping&&falling){g.drawImage( luigi[28].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==-1&&jumping&&!falling){g.drawImage( luigi[26].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==-1&&!jumping&&falling){g.drawImage( luigi[28].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( luigi[11].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( luigi[13].getBufferedImage(), x, y, breite,höhe,null);}
 		
-		if(moving==-2&&!jumping&&!falling){g.drawImage( luigi[13].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==2&&!jumping&&!falling){g.drawImage( luigi[frame+14].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==2&&jumping&&!falling){g.drawImage( luigi[27].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==2&&!jumping&&falling){g.drawImage( luigi[29].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==-2&&jumping&&!falling){g.drawImage( luigi[27].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==-2&&!jumping&&falling){g.drawImage( luigi[29].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==-2&&!jumping&&!falling){g.drawImage( luigi[5].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==2&&!jumping&&!falling){g.drawImage( luigi[frame+6].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( luigi[12].getBufferedImage(), x, y, breite,höhe,null);}
+		if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi[14].getBufferedImage(), x, y, breite,höhe,null);}
 		
 		g.setColor(Color.white);
 		g.drawRect(x+33, y+13, 38, 5);

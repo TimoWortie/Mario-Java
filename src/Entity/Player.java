@@ -31,18 +31,11 @@ public class Player extends Entity{
 		if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( mario[11].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( mario[13].getBufferedImage(), x, y, breite,höhe,null);}
 		
-<<<<<<< HEAD
 		if(moving==-2&&!jumping&&!falling){g.drawImage( mario[5].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==2&&!jumping&&!falling){g.drawImage( mario[frame+6].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario[12].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario[14].getBufferedImage(), x, y, breite,höhe,null);}
-=======
-		if(moving==-2&&!jumping&&!falling){g.drawImage( mario[13].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==2&&!jumping&&!falling){g.drawImage( mario[frame+14].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==2&&jumping&&!falling){g.drawImage( mario[27].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==2&&!jumping&&falling){g.drawImage( mario[29].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==-2&&jumping&&!falling){g.drawImage( mario[27].getBufferedImage(), x, y, breite,höhe,null);}
-		if(moving==-2&&!jumping&&falling){g.drawImage( mario[29].getBufferedImage(), x, y, breite,höhe,null);}
+	
 		
 		g.setColor(Color.white);
 		g.drawRect(x+33, y+13, 38, 5);
@@ -52,7 +45,6 @@ public class Player extends Entity{
 		g.drawRect(getX()+70,getY()+15,5,82);
 		g.setColor(Color.CYAN);
 		g.drawRect(getX()+26,getY()+15,5,82);
->>>>>>> origin/master
 	}
 	
 	public void tick(){	
