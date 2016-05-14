@@ -8,7 +8,7 @@ import Entity.Mario;
 import Main.Game;
 
 public class Mouse implements MouseListener{
-
+	
 	public static boolean playergetroffen = false;
      
 	public void mouseClicked(MouseEvent e) {

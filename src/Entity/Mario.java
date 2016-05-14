@@ -17,7 +17,7 @@ public class Mario extends Entity{
 	int frame,framedelay;
 	public static int moving=-1;
 	public static Sprite[] mario = new Sprite[15];
-	
+	public static Sprite[] mario2 = new Sprite[15];
 	public Mario(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);
 	}
@@ -25,6 +25,7 @@ public class Mario extends Entity{
 	public void render(Graphics g){
 		for(int i=0;i<mario.length;i++){
 			mario[i] =  new Sprite(Game.sheet,i+1,1,1,1);
+			mario2[i]=new Sprite(Game.sheet,i+15,2,1,1);
 			}
 		if(klein==false){
 		if(moving==-1&&!jumping&&!falling){g.drawImage( mario[0].getBufferedImage(), x, y, breite,höhe,null);}
@@ -36,6 +37,16 @@ public class Mario extends Entity{
 		if(moving==2&&!jumping&&!falling){g.drawImage( mario[frame+6].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario[12].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario[14].getBufferedImage(), x, y, breite,höhe,null);}
+		}else{
+			if(moving==-1&&!jumping&&!falling){g.drawImage( mario2[0].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==1&&!jumping&&!falling){g.drawImage( mario2[frame].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( mario2[11].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( mario2[13].getBufferedImage(), x, y, breite,höhe,null);}
+			
+			if(moving==-2&&!jumping&&!falling){g.drawImage( mario2[5].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==2&&!jumping&&!falling){g.drawImage( mario2[frame+6].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario2[12].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario2[14].getBufferedImage(), x, y, breite,höhe,null);}
 		}
 		
 		g.setColor(Color.white);
