@@ -98,11 +98,11 @@ public class Mario extends Entity{
 			if(en.getId()==Id.Luigi){
 				if(getLeft().intersects(en.getBounds())){
 					setVelX(0);
-					x=en.getX()+70;
+					x=en.getX()+60;
 				}
 				if(getRight().intersects(en.getBounds())){
 					setVelX(0);
-					x=en.getX()-70;
+					x=en.getX()-60;
 				}
 				
 				if(getBottom().intersects(en.getBounds())){
@@ -203,7 +203,7 @@ public class Mario extends Entity{
 			System.out.println("hallo");
 			x=Game.getFrameBreite();
 		}
-		if(x<2){
+		if(x<0){
 			int y2=y;
 			x=1262;
 			y=y2;

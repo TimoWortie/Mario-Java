@@ -25,15 +25,12 @@ public class Key implements KeyListener{
 			a=true;
 		}
 		if(key==e.VK_W){
-<<<<<<< HEAD
 			if(!en.jumping&&!en.falling&&en.getId()!=Id.Luigi){
-=======
 			if(en.getId()!=Id.Luigi){
 			if(!en.jumping&&!en.falling){
->>>>>>> origin/master
 				en.jumping=true;
 				en.gravity=15.0f;
-			}
+			}}}
 		 }
 		if(key==e.VK_SHIFT){
 			 shift = true;

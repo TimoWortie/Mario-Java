@@ -37,13 +37,13 @@ public class Luigi extends Entity{
 		if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi[14].getBufferedImage(), x, y, breite,höhe,null);}
 		}
 		g.setColor(Color.white);
-		g.drawRect(x+33, y+13, 38, 5);
+		g.drawRect(x+33, y+13, 38, 5);  //TOP
 		g.setColor(Color.red);
-		g.drawRect(getX()+33,getY()+96,34,5);
+		g.drawRect(getX()+33,getY()+96,34,5); //BOTTOM
 		g.setColor(Color.green);
-		g.drawRect(getX()+70,getY()+25,5,62);
+		g.drawRect(getX()+70,getY()+25,5,62); //RIGHT
 		g.setColor(Color.CYAN);
-		g.drawRect(getX()+26,getY()+25,5,62);
+		g.drawRect(getX()+26,getY()+25,5,62); //LEFT
 	}
 	
 	public void tick(){	
@@ -53,13 +53,13 @@ public class Luigi extends Entity{
 			if(this.klein==false){
 				if(getLeft().intersects(ene.getBounds())){
 					setVelX(0);
-					x=ene.getX()+70;
+					x=ene.getX()+60;
 					klein=true;
 					System.out.println("tot");
 				}
 				if(getRight().intersects(ene.getBounds())){
 					setVelX(0);
-					x=ene.getX()-70;
+					x=ene.getX()-60;
 					klein=true;
 					System.out.println("tot");
 				}
