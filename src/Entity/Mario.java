@@ -46,6 +46,8 @@ public class Mario extends Entity{
 		g.drawRect(getX()+70,getY()+25,5,62);
 		g.setColor(Color.CYAN);
 		g.drawRect(getX()+26,getY()+25,5,62);
+		g.setColor(Color.MAGENTA);
+		g.drawRect(getX()+26,getY()+10,49,höhe-10);
 	}
 	
 	public void tick(){	
@@ -96,13 +98,13 @@ public class Mario extends Entity{
 		}}}
 		for(Entity en:handler.entity){
 			if(en.getId()==Id.Luigi){
-				if(getLeft().intersects(en.getBounds())){
+				if(getLeft().intersects(en.getRight())){
 					setVelX(0);
-					x=en.getX()+70;
+					x=en.getX()+50;
 				}
-				if(getRight().intersects(en.getBounds())){
+				if(getRight().intersects(en.getLeft())){
 					setVelX(0);
-					x=en.getX()-70;
+					x=en.getX()-50;
 				}
 				
 				if(getBottom().intersects(en.getBounds())){
