@@ -224,15 +224,9 @@ public class Mario extends Entity{
 			System.out.println("hallo");
 			x=Game.getFrameBreite();
 		}
-		if(x<0){
+		if(x==3){
 			int y3=y;
-			x=1262;
-			y=y3;
-		}
-		if(x>1260){
-			int y2=y;
-			x=3;
-			y=y2;
+			System.out.println(y3);
 		}
 	  }
 	}
