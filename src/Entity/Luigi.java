@@ -3,6 +3,7 @@ package Entity;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import Enemy.Enemy;
 import Input.KeyLuigi;
 import Input.Mouse;
 import Main.Game;
@@ -24,7 +25,7 @@ public class Luigi extends Entity{
 		for(int i=0;i<luigi.length;i++){
 			luigi[i] =  new Sprite(Game.sheet,i+1,3,1,1);
 			}
-		
+		if(klein==false){
 		if(moving==-1&&!jumping&&!falling){g.drawImage( luigi[0].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==1&&!jumping&&!falling){g.drawImage( luigi[frame].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( luigi[11].getBufferedImage(), x, y, breite,höhe,null);}
@@ -34,20 +35,85 @@ public class Luigi extends Entity{
 		if(moving==2&&!jumping&&!falling){g.drawImage( luigi[frame+6].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( luigi[12].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi[14].getBufferedImage(), x, y, breite,höhe,null);}
-		
+		}
 		g.setColor(Color.white);
 		g.drawRect(x+33, y+13, 38, 5);
 		g.setColor(Color.red);
 		g.drawRect(getX()+33,getY()+96,34,5);
 		g.setColor(Color.green);
-		g.drawRect(getX()+70,getY()+15,5,82);
+		g.drawRect(getX()+70,getY()+25,5,62);
 		g.setColor(Color.CYAN);
-		g.drawRect(getX()+26,getY()+15,5,82);
+		g.drawRect(getX()+26,getY()+25,5,62);
 	}
 	
 	public void tick(){	
 		x+=velX;
 		y+=velY;
+		for(Enemy ene:handler.enemy){
+			if(this.klein==false){
+				if(getLeft().intersects(ene.getBounds())){
+					setVelX(0);
+					x=ene.getX()+70;
+					klein=true;
+					System.out.println("tot");
+				}
+				if(getRight().intersects(ene.getBounds())){
+					setVelX(0);
+					x=ene.getX()-70;
+					klein=true;
+					System.out.println("tot");
+				}
+				if(getBottom().intersects(ene.getBounds())){
+					setVelY(0);
+					y=y-40;
+					jumping=true;
+					falling=false;
+					gravity=5.0f;
+					ene.setAsRemoved();
+				}
+		}else{
+			
+				if(getLeft().intersects(ene.getBounds())){
+					setVelX(0);
+					x=ene.getX()+70;
+					
+				}
+				if(getRight().intersects(ene.getBounds())){
+					setVelX(0);
+					x=ene.getX()-70;
+					
+				}
+				if(getBottom().intersects(ene.getBounds())){
+					setVelY(0);
+					y=y-40;
+					jumping=true;
+					falling=false;
+					gravity=5.0f;
+					ene.setAsRemoved();
+				
+		}}
+			
+			
+			
+			if(getBottom().intersects(ene.getBounds())){
+				setVelY(0);
+				y=y-40;
+				jumping=true;
+				falling=false;
+				gravity=5.0f;
+				ene.setAsRemoved();
+			}	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		}
+		
 		for(Entity en:handler.entity){
 			if(en.getId()==Id.player){
 				if(getLeft().intersects(en.getBounds())){
@@ -60,10 +126,10 @@ public class Luigi extends Entity{
 				}
 				if(getBottom().intersects(en.getBounds())){
 					setVelY(0);
-					y=en.getY()-70;
+					y=y-40;
 					jumping=true;
 					falling=false;
-					gravity=15.0f;	
+					gravity=5.0f;	
 				}
 		}}
 		for(Tile t:handler.tile){

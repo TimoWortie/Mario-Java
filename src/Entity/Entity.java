@@ -16,6 +16,8 @@ public class Entity {
 	public float gravity = 0f;
 	public boolean jumping = false;
 	public boolean falling = true;
+	public boolean klein=false;
+	public boolean invincible=false;
 
 	
 	public Entity(int x,int y,int breite,int höhe,boolean solid,Handler handler,Id id){
@@ -78,23 +80,43 @@ public class Entity {
 	}
 	
 	public Rectangle getBounds(){
-		return new Rectangle(getX(),getY(),breite,höhe);
+		if(klein==false){
+			return new Rectangle(getX(),getY(),breite,höhe);
+		}else{
+			return new Rectangle(getX(),getY(),breite,höhe);	
+		}
 	}
 	
 	public Rectangle getTop(){
-		return new Rectangle(x+33, y+13, 38, 5);
+		if(klein==false){
+			return new Rectangle(x+33, y+13, 38, 5);
+		}else{
+			return new Rectangle(x+33, y+13, 38, 5);
+		}
 	}
 	
 	public Rectangle getBottom(){
-		return new Rectangle(getX()+33,getY()+96,34,5);
+		if(klein==false){
+			return new Rectangle(getX()+33,getY()+96,34,5);
+		}else{
+			return new Rectangle(getX()+33,getY()+96,34,5);
+			}
 	}
 	
 	public Rectangle getRight(){
-		return new Rectangle(getX()+70,getY()+15,5,82);
+		if(klein==false){
+			return new Rectangle(getX()+70,getY()+25,5,62);
+		}else{
+			return new Rectangle(getX()+70,getY()+25,5,62);
+		}
 	}
 	
 	public Rectangle getLeft(){
-		return new Rectangle(getX()+26,getY()+15,5,82);
+		if(klein==false){
+			return new Rectangle(getX()+26,getY()+25,5,62);
+		}else{
+			return new Rectangle(getX()+26,getY()+25,5,62);
+		}
 	}
 	
 	public boolean shouldRemove() {

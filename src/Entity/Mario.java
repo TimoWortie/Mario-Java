@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+import Enemy.Enemy;
 import Input.Key;
 import Input.Mouse;
 import Main.Game;
@@ -25,7 +26,7 @@ public class Mario extends Entity{
 		for(int i=0;i<mario.length;i++){
 			mario[i] =  new Sprite(Game.sheet,i+1,1,1,1);
 			}
-		
+		if(klein==false){
 		if(moving==-1&&!jumping&&!falling){g.drawImage( mario[0].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==1&&!jumping&&!falling){g.drawImage( mario[frame].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( mario[11].getBufferedImage(), x, y, breite,höhe,null);}
@@ -35,25 +36,67 @@ public class Mario extends Entity{
 		if(moving==2&&!jumping&&!falling){g.drawImage( mario[frame+6].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario[12].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario[14].getBufferedImage(), x, y, breite,höhe,null);}
-	
+		}
 		
 		g.setColor(Color.white);
 		g.drawRect(x+33, y+13, 38, 5);
 		g.setColor(Color.red);
 		g.drawRect(getX()+33,getY()+96,34,5);
 		g.setColor(Color.green);
-		g.drawRect(getX()+70,getY()+15,5,82);
+		g.drawRect(getX()+70,getY()+25,5,62);
 		g.setColor(Color.CYAN);
-		g.drawRect(getX()+26,getY()+15,5,82);
+		g.drawRect(getX()+26,getY()+25,5,62);
 	}
 	
 	public void tick(){	
 		x+=velX;
 		y+=velY;
-		
+		for(Enemy ene:handler.enemy){
+			if(this.klein==false){
+				if(getLeft().intersects(ene.getBounds())){
+					setVelX(0);
+					x=ene.getX()+70;
+					klein=true;
+					System.out.println("tot");
+				}
+				if(getRight().intersects(ene.getBounds())){
+					setVelX(0);
+					x=ene.getX()-70;
+					klein=true;
+					System.out.println("tot");
+				}
+				if(getBottom().intersects(ene.getBounds())){
+					setVelY(0);
+					y=y-40;
+					jumping=true;
+					falling=false;
+					gravity=5.0f;
+					ene.setAsRemoved();
+				}
+		}else{
+			
+				if(getLeft().intersects(ene.getBounds())){
+					setVelX(0);
+					x=ene.getX()+70;
+					
+				}
+				if(getRight().intersects(ene.getBounds())){
+					setVelX(0);
+					x=ene.getX()-70;
+					
+				}
+				if(getBottom().intersects(ene.getBounds())){
+					setVelY(0);
+					y=y-40;
+					jumping=true;
+					falling=false;
+					gravity=5.0f;
+					ene.setAsRemoved();
+				
+		}}}
 		for(Entity en:handler.entity){
 			if(en.getId()==Id.Luigi){
-				if(getLeft().intersects(en.getBounds())&&!getBottom().intersects(en.getBounds())){
+				if(getLeft().intersects(en.getBounds())){
 					setVelX(0);
 					x=en.getX()+70;
 				}
@@ -64,10 +107,10 @@ public class Mario extends Entity{
 				
 				if(getBottom().intersects(en.getBounds())){
 					setVelY(0);
-					y=en.getY()-70;
+					y=y-40;
 					jumping=true;
 					falling=false;
-					gravity=15.0f;	
+					gravity=5.0f;
 				}
 		}}
 		
