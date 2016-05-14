@@ -81,9 +81,9 @@ public class Entity {
 	
 	public Rectangle getBounds(){
 		if(klein==false){
-			return new Rectangle(getX(),getY(),breite,höhe);
+			return new Rectangle(getX()+26,getY()+10,49,höhe-10);
 		}else{
-			return new Rectangle(getX(),getY(),breite,höhe);	
+			return new Rectangle(getX()+26,getY()+10,49,höhe-10);	
 		}
 	}
 	
