@@ -100,19 +100,13 @@ public class Mario extends Entity{
 			if(en.getId()==Id.Luigi){
 				if(getLeft().intersects(en.getRight())){
 					setVelX(0);
-<<<<<<< HEAD
 					x=en.getX()+60;
-=======
 					x=en.getX()+50;
->>>>>>> origin/master
 				}
 				if(getRight().intersects(en.getLeft())){
 					setVelX(0);
-<<<<<<< HEAD
 					x=en.getX()-60;
-=======
 					x=en.getX()-50;
->>>>>>> origin/master
 				}
 				
 				if(getBottom().intersects(en.getBounds())){

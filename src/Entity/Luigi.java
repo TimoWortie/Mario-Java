@@ -43,13 +43,10 @@ public class Luigi extends Entity{
 		g.setColor(Color.green);
 		g.drawRect(getX()+70,getY()+25,5,62); //RIGHT
 		g.setColor(Color.CYAN);
-<<<<<<< HEAD
 		g.drawRect(getX()+26,getY()+25,5,62); //LEFT
-=======
 		g.drawRect(getX()+26,getY()+25,5,62);
 		g.setColor(Color.MAGENTA);
 		g.drawRect(getX()+26,getY()+10,49,höhe-10);
->>>>>>> origin/master
 	}
 	
 	public void tick(){	
