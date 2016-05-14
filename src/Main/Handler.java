@@ -9,7 +9,7 @@ import javax.sound.sampled.Clip;
 
 import Enemy.Enemy;
 import Entity.Entity;
-import Entity.Player;
+import Entity.Mario;
 import Tile.Block;
 import Tile.Pipe;
 import Tile.Pipe2;
@@ -27,6 +27,10 @@ public class Handler {
 	public static int red,green,blue;
 	
 	public void render(Graphics g){
+		for(Tile ti:tile){
+			ti.render(g);
+		}
+		
 		for(Entity en:entity){
 			en.render(g);
 		}
@@ -38,9 +42,6 @@ public class Handler {
 			ene.render(g);
 		}
 		
-		for(Tile ti:tile){
-			ti.render(g);
-		}
 		
 	}
 	

@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 
 import Enemy.Test;
 import Entity.Entity;
-import Entity.Player;
+import Entity.Mario;
 import Input.Key;
 import Input.KeyLuigi;
 import Input.Mouse;
@@ -24,7 +24,7 @@ public class Game extends Canvas implements Runnable{
 	public boolean running = false;
 	public Thread thread = new Thread();
 	public static Handler handler = new Handler();
-	public static Player player = new Player(1000,500,100,100,true,handler,Id.player);
+	public static Mario player = new Mario(1000,500,100,100,true,handler,Id.player);
 	public static Luigi luigi = new Luigi(500,500,100,100,true,handler,Id.Luigi);
 	public static Camera cam;
 	

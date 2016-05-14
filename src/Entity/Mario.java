@@ -12,12 +12,12 @@ import Main.Id;
 import Tile.Tile;
 import gfx.Sprite;
 
-public class Player extends Entity{
+public class Mario extends Entity{
 	int frame,framedelay;
 	public static int moving=-1;
 	public static Sprite[] mario = new Sprite[15];
 	
-	public Player(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
+	public Mario(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);
 	}
 	
@@ -141,18 +141,34 @@ public class Player extends Entity{
 		
 		if(Key.d&&Key.shift){
 			setVelX(8);
-			Player.moving=1;
+			Mario.moving=1;
 		}else if(Key.d&&!Key.shift){
 			setVelX(5);
-			Player.moving=1;
+			Mario.moving=1;
 		}
 		
 		if(Key.a&&Key.shift){
 			setVelX(-8);
-			Player.moving=2;
+			Mario.moving=2;
 		}else if(Key.a&&!Key.shift){
 			setVelX(-5);
-			Player.moving=2;
+			Mario.moving=2;
+		}
+		
+		if(x+breite<10){
+			falling=false;
+			System.out.println("hallo");
+			x=Game.getFrameBreite();
+		}
+		if(x<2){
+			int y2=y;
+			x=1262;
+			y=y2;
+		}
+		if(x>1260){
+			int y2=y;
+			x=0;
+			y=y2;
 		}
 	  }
 	}

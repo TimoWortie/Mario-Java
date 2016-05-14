@@ -1,7 +1,7 @@
 package Main;
 
 import Entity.Entity;
-import Entity.Player;
+import Entity.Mario;
 
 public class Camera {
 
@@ -9,10 +9,10 @@ public class Camera {
 	
 	public void tick(Entity player){
 		setX(-Game.player.getX()+Game.getFrameBreite()/3);
-		if(Player.moving==1){
+		if(Mario.moving==1){
 			setX(-Game.player.getX()+Game.getFrameBreite()/3);
 		}
-		if(Player.moving==2){
+		if(Mario.moving==2){
 			setX(-Game.player.getX()+Game.getFrameBreite()/3);
 		}
 	}

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import Entity.Player;
+import Entity.Mario;
 import Main.Game;
 
 public class Mouse implements MouseListener{

@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import Entity.Entity;
-import Entity.Player;
+import Entity.Mario;
 import Main.Game;
 import Main.Handler;
 import Main.Id;
@@ -25,11 +25,9 @@ public class Key implements KeyListener{
 			a=true;
 		}
 		if(key==e.VK_W){
-			if(en.getId()!=Id.Luigi){System.out.println("nicht test");
-			if(!en.jumping&&!en.falling){
+			if(!en.jumping&&!en.falling&&en.getId()!=Id.Luigi){
 				en.jumping=true;
 				en.gravity=15.0f;
-			}
 			}
 		 }
 		if(key==e.VK_SHIFT){
@@ -44,12 +42,12 @@ public class Key implements KeyListener{
 		for(Entity en:Game.handler.entity){
 		if(key==e.VK_D){
 			Game.player.setVelX(0);
-			Player.moving=-1;
+			Mario.moving=-1;
 			d=false;
 		}
 		if(key==e.VK_A){
 			Game.player.setVelX(0);
-			Player.moving=-2;
+			Mario.moving=-2;
 			a=false;
 		}
 		if(key==e.VK_SHIFT){
