@@ -83,7 +83,7 @@ public class Entity {
 		if(klein==false){
 			return new Rectangle(getX()+26,getY()+10,49,höhe-10);
 		}else{
-			return new Rectangle(getX()+26,getY()+10,49,höhe-10);	
+			return new Rectangle(getX()+26,getY()+30,49,höhe-30);	
 		}
 	}
 	
@@ -91,23 +91,21 @@ public class Entity {
 		if(klein==false){
 			return new Rectangle(x+33, y+13, 38, 5);
 		}else{
-			return new Rectangle(x+33, y+13, 38, 5);
+			return new Rectangle(x+33, y+33, 38, 5);
 		}
 	}
 	
 	public Rectangle getBottom(){
-		if(klein==false){
+		
 			return new Rectangle(getX()+33,getY()+96,34,5);
-		}else{
-			return new Rectangle(getX()+33,getY()+96,34,5);
-			}
+		
 	}
 	
 	public Rectangle getRight(){
 		if(klein==false){
 			return new Rectangle(getX()+70,getY()+25,5,62);
 		}else{
-			return new Rectangle(getX()+70,getY()+25,5,62);
+			return new Rectangle(getX()+70,getY()+45,5,42);
 		}
 	}
 	
@@ -115,7 +113,7 @@ public class Entity {
 		if(klein==false){
 			return new Rectangle(getX()+26,getY()+25,5,62);
 		}else{
-			return new Rectangle(getX()+26,getY()+25,5,62);
+			return new Rectangle(getX()+26,getY()+45,5,42);
 		}
 	}
 	
