@@ -90,11 +90,11 @@ public class Entity {
 	}
 	
 	public Rectangle getRight(){
-		return new Rectangle(getX()+70,getY()+15,5,82);
+		return new Rectangle(getX()+70,getY()+25,5,62);
 	}
 	
 	public Rectangle getLeft(){
-		return new Rectangle(getX()+26,getY()+15,5,82);
+		return new Rectangle(getX()+26,getY()+25,5,62);
 	}
 	
 	public boolean shouldRemove() {

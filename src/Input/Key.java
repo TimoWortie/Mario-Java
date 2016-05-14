@@ -25,7 +25,7 @@ public class Key implements KeyListener{
 			a=true;
 		}
 		if(key==e.VK_W){
-			if(en.getId()!=Id.Luigi){System.out.println("nicht test");
+			if(en.getId()!=Id.Luigi){
 			if(!en.jumping&&!en.falling){
 				en.jumping=true;
 				en.gravity=15.0f;

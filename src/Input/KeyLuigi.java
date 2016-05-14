@@ -25,7 +25,6 @@ public class KeyLuigi implements KeyListener{
 			a=true;
 		}
 		if(key==e.VK_UP&&en.getId()==Id.Luigi){
-			System.out.println("test");
 			if(!en.jumping&&!en.falling){
 				en.jumping=true;
 				en.gravity=15.0f;

@@ -42,9 +42,9 @@ public class Player extends Entity{
 		g.setColor(Color.red);
 		g.drawRect(getX()+33,getY()+96,34,5);
 		g.setColor(Color.green);
-		g.drawRect(getX()+70,getY()+15,5,82);
+		g.drawRect(getX()+70,getY()+25,5,62);
 		g.setColor(Color.CYAN);
-		g.drawRect(getX()+26,getY()+15,5,82);
+		g.drawRect(getX()+26,getY()+25,5,62);
 	}
 	
 	public void tick(){	
@@ -53,21 +53,21 @@ public class Player extends Entity{
 		
 		for(Entity en:handler.entity){
 			if(en.getId()==Id.Luigi){
-				if(getLeft().intersects(en.getBounds())&&!getBottom().intersects(en.getBounds())){
+				if(getLeft().intersects(en.getBounds())){
 					setVelX(0);
 					x=en.getX()+70;
 				}
 				if(getRight().intersects(en.getBounds())){
 					setVelX(0);
-					x=en.getX()-70;
+					x=en.getX()-60;
 				}
 				
 				if(getBottom().intersects(en.getBounds())){
 					setVelY(0);
-					y=en.getY()-70;
+					y=y-40;
 					jumping=true;
 					falling=false;
-					gravity=15.0f;	
+					gravity=5.0f;
 				}
 		}}
 		
