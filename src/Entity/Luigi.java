@@ -15,8 +15,8 @@ import gfx.Sprite;
 public class Luigi extends Entity{
 	int frame,framedelay;
 	public static int moving=-1;
-	public static Sprite[] luigi = new Sprite[31];
-	
+	public static Sprite[] luigi = new Sprite[15];
+	public static Sprite[] luigi2 = new Sprite[15];
 	public Luigi(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);
 	}
@@ -25,6 +25,14 @@ public class Luigi extends Entity{
 		for(int i=0;i<luigi.length;i++){
 			luigi[i] =  new Sprite(Game.sheet,i+1,3,1,1);
 			}
+		
+		
+		for(int i=0;i<luigi2.length-3;i++){
+			luigi2[i] =  new Sprite(Game.sheet,i+5,2,1,1);
+			}
+		for(int i=luigi2.length-3;i<luigi2.length;i++){
+			luigi2[i]= new Sprite(Game.sheet,i+5,2,1,1);
+		}
 		if(klein==false){
 		if(moving==-1&&!jumping&&!falling){g.drawImage( luigi[0].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==1&&!jumping&&!falling){g.drawImage( luigi[frame].getBufferedImage(), x, y, breite,höhe,null);}
@@ -35,20 +43,43 @@ public class Luigi extends Entity{
 		if(moving==2&&!jumping&&!falling){g.drawImage( luigi[frame+6].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( luigi[12].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi[14].getBufferedImage(), x, y, breite,höhe,null);}
-		}
+		
 		g.setColor(Color.white);
-		g.drawRect(x+33, y+13, 38, 5);  //TOP
+		g.drawRect(x+33, y+13, 38, 5);
 		g.setColor(Color.red);
-		g.drawRect(getX()+33,getY()+96,34,5); //BOTTOM
+		g.drawRect(getX()+33,getY()+96,34,5);
 		g.setColor(Color.green);
-		g.drawRect(getX()+70,getY()+25,5,62); //RIGHT
+		g.drawRect(getX()+70,getY()+25,5,62);
 		g.setColor(Color.CYAN);
-
-		g.drawRect(getX()+26,getY()+25,5,62); //LEFT
-
 		g.drawRect(getX()+26,getY()+25,5,62);
 		g.setColor(Color.MAGENTA);
 		g.drawRect(getX()+26,getY()+10,49,höhe-10);
+		
+		}else{
+			if(moving==-1&&!jumping&&!falling){g.drawImage( luigi2[0].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==1&&!jumping&&!falling){g.drawImage( luigi2[frame].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( luigi2[11].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( luigi2[13].getBufferedImage(), x, y, breite,höhe,null);}
+			
+			if(moving==-2&&!jumping&&!falling){g.drawImage( luigi2[5].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==2&&!jumping&&!falling){g.drawImage( luigi2[frame+6].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( luigi2[12].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi2[14].getBufferedImage(), x, y, breite,höhe,null);}
+			g.setColor(Color.white);
+			g.drawRect(x+33, y+33, 38, 5);
+			g.setColor(Color.red);
+			g.drawRect(getX()+33,getY()+96,34,5);
+			g.setColor(Color.green);
+			g.drawRect(getX()+70,getY()+45,5,42);
+			g.setColor(Color.CYAN);
+			g.drawRect(getX()+26,getY()+45,5,42);
+			g.setColor(Color.MAGENTA);
+			g.drawRect(getX()+26,getY()+30,49,höhe-30);
+			
+			
+			
+		}
+		
 
 	}
 	
@@ -142,7 +173,7 @@ public class Luigi extends Entity{
 			if(t.getId()==Id.wall){
 				if(getTop().intersects(t.getBounds())){
 					setVelY(0);
-					y=t.getY()+47;
+					y=t.getY()+27;
 					jumping=false;
 					falling=true;
 					gravity=0;	
