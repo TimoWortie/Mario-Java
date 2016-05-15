@@ -167,7 +167,7 @@ public class Luigi extends Entity{
 			if(t.getId()==Id.wall){
 				if(getTop().intersects(t.getBounds())){
 					setVelY(0);
-					y=t.getY()+27;
+					y=t.getY()+50;
 					jumping=false;
 					falling=true;
 					gravity=0;	
