@@ -17,7 +17,7 @@ public class Luigi extends Entity{
 	public static int moving=-1;
 	public static Sprite[] luigi = new Sprite[15];
 	public static Sprite[] luigi2 = new Sprite[15];
-	private Sprite leer;
+	private Sprite leer,tot2,tot3;
 	
 	public Luigi(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);
@@ -36,7 +36,10 @@ public class Luigi extends Entity{
 		luigi2[11]=new Sprite(Game.sheet,30,2,1,1);
 		luigi2[12]=new Sprite(Game.sheet,31,2,1,1);
 		luigi2[13]=new Sprite(Game.sheet,16,3,1,1);
+		tot2=new Sprite(Game.sheet,17,1,1,1);
+		tot3=new Sprite(Game.sheet,16,1,1,1);
 		leer=new Sprite(Game.sheet,25,3,1,1);
+		if(tot==false){
 		if(hit==false){
 		if(klein==false){
 		if(moving==-1&&!jumping&&!falling){g.drawImage( luigi[0].getBufferedImage(), x, y, breite,höhe,null);}
@@ -169,7 +172,13 @@ public class Luigi extends Entity{
 				if(moving==2&&!jumping&&!falling){g.drawImage( luigi2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
 				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( luigi2[11].getBufferedImage(), x, y, breite,höhe,null);}
 				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi2[13].getBufferedImage(), x, y, breite,höhe,null);}
-		}}
+		}}}else{
+			if(timertot<20){
+				g.drawImage(tot2.getBufferedImage(), x, y, breite, höhe, null);
+			}else if(timertot<40){
+				g.drawImage(tot3.getBufferedImage(), x, y, breite, höhe, null);
+			}
+		}
 	}
 	
 	public void tick(){	
@@ -356,6 +365,10 @@ public class Luigi extends Entity{
 			setVelX(-5);
 			Luigi.moving=2;
 		}}else{
+			timertot++;
+			  if(timertot>=40){
+				  timertot=0;
+			  }
 			  if(tot1==false){
 				  jumping=true;
 				  gravity=10.0f;

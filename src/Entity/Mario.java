@@ -20,7 +20,7 @@ public class Mario extends Entity{
 	private Sprite[] mario = new Sprite[15];
 	private Sprite[] mario2 = new Sprite[14];
 	private int y2,y3;
-	private Sprite leer;
+	private Sprite leer,tot3,tot2;
 	
 	
 	public Mario(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
@@ -35,6 +35,9 @@ public class Mario extends Entity{
 		mario2[i]=new Sprite(Game.sheet,i+15,2,1,1);
 		}
 		leer=new Sprite(Game.sheet,25,3,1,1);
+		tot2=new Sprite(Game.sheet,18,1,1,1);
+		tot3=new Sprite(Game.sheet,19,1,1,1);
+		if(tot==false){
 		if(hit==false){
 		if(klein==false){
 		if(moving==-1&&!jumping&&!falling){g.drawImage( mario[0].getBufferedImage(), x, y, breite,höhe,null);}
@@ -167,7 +170,13 @@ public class Mario extends Entity{
 				if(moving==2&&!jumping&&!falling){g.drawImage( mario2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
 				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario2[11].getBufferedImage(), x, y, breite,höhe,null);}
 				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario2[13].getBufferedImage(), x, y, breite,höhe,null);}
-		}}
+		}}}else{
+			if(timertot<20){
+				g.drawImage(tot2.getBufferedImage(), x, y, breite, höhe, null);
+			}else if(timertot<40){
+				g.drawImage(tot3.getBufferedImage(), x, y, breite, höhe, null);
+			}
+		}
 		
 	}
 	
@@ -367,6 +376,11 @@ public class Mario extends Entity{
 			y=y2;
 		}
 	  }else{
+		  
+		 timertot++;
+		  if(timertot>=40){
+			  timertot=0;
+		  }
 		  if(tot1==false){
 			  jumping=true;
 			  gravity=10.0f;
