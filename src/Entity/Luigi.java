@@ -13,7 +13,7 @@ import Tile.Tile;
 import gfx.Sprite;
 
 public class Luigi extends Entity{
-	int frame,framedelay;
+	int frame,framedelay,framedelayklein,frameklein;
 	public static int moving=-1;
 	public static Sprite[] luigi = new Sprite[15];
 	public static Sprite[] luigi2 = new Sprite[15];
@@ -31,9 +31,10 @@ public class Luigi extends Entity{
 		for(int i=0;i<luigi2.length-3;i++){
 			luigi2[i] =  new Sprite(Game.sheet,i+5,2,1,1);
 			}
-		for(int i=luigi2.length-3;i<luigi2.length;i++){
-			luigi2[i]= new Sprite(Game.sheet,i+5,2,1,1);
-		}
+		luigi2[10]=new Sprite(Game.sheet,29,2,1,1);
+		luigi2[11]=new Sprite(Game.sheet,30,2,1,1);
+		luigi2[12]=new Sprite(Game.sheet,31,2,1,1);
+		luigi2[13]=new Sprite(Game.sheet,16,3,1,1);
 		leer=new Sprite(Game.sheet,25,3,1,1);
 		if(hit==false){
 		if(klein==false){
@@ -60,14 +61,14 @@ public class Luigi extends Entity{
 		
 		}else{
 			if(moving==-1&&!jumping&&!falling){g.drawImage( luigi2[0].getBufferedImage(), x, y, breite,höhe,null);}
-			if(moving==1&&!jumping&&!falling){g.drawImage( luigi2[frame].getBufferedImage(), x, y, breite,höhe,null);}
-			if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( luigi2[11].getBufferedImage(), x, y, breite,höhe,null);}
-			if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( luigi2[13].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==1&&!jumping&&!falling){g.drawImage( luigi2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( luigi2[10].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( luigi2[12].getBufferedImage(), x, y, breite,höhe,null);}
 			
 			if(moving==-2&&!jumping&&!falling){g.drawImage( luigi2[5].getBufferedImage(), x, y, breite,höhe,null);}
-			if(moving==2&&!jumping&&!falling){g.drawImage( luigi2[frame+6].getBufferedImage(), x, y, breite,höhe,null);}
-			if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( luigi2[12].getBufferedImage(), x, y, breite,höhe,null);}
-			if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi2[14].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==2&&!jumping&&!falling){g.drawImage( luigi2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( luigi2[11].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi2[13].getBufferedImage(), x, y, breite,höhe,null);}
 			g.setColor(Color.white);
 			g.drawRect(x+33, y+33, 38, 5);
 			g.setColor(Color.red);
@@ -88,37 +89,85 @@ public class Luigi extends Entity{
 			g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
 			}
 			else if(timer2<60){
-				g.drawImage(luigi2[1].getBufferedImage(),x,y,breite,höhe,null);
+				if(moving==-1&&!jumping&&!falling){g.drawImage( luigi2[0].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&!falling){g.drawImage( luigi2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( luigi2[10].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( luigi2[12].getBufferedImage(), x, y, breite,höhe,null);}
+				
+				if(moving==-2&&!jumping&&!falling){g.drawImage( luigi2[5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&!falling){g.drawImage( luigi2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( luigi2[11].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi2[13].getBufferedImage(), x, y, breite,höhe,null);}
 				
 			}else if(timer2<90){
 				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
 				
 			}else if(timer2<120){
-				g.drawImage(luigi2[1].getBufferedImage(),x,y,breite,höhe,null);
+				if(moving==-1&&!jumping&&!falling){g.drawImage( luigi2[0].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&!falling){g.drawImage( luigi2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( luigi2[10].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( luigi2[12].getBufferedImage(), x, y, breite,höhe,null);}
+				
+				if(moving==-2&&!jumping&&!falling){g.drawImage( luigi2[5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&!falling){g.drawImage( luigi2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( luigi2[11].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi2[13].getBufferedImage(), x, y, breite,höhe,null);}
 				
 			}else if(timer2<150){
 				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
 				
 			}else if(timer2<180){
-				g.drawImage(luigi2[1].getBufferedImage(),x,y,breite,höhe,null);
+				if(moving==-1&&!jumping&&!falling){g.drawImage( luigi2[0].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&!falling){g.drawImage( luigi2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( luigi2[10].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( luigi2[12].getBufferedImage(), x, y, breite,höhe,null);}
+				
+				if(moving==-2&&!jumping&&!falling){g.drawImage( luigi2[5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&!falling){g.drawImage( luigi2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( luigi2[11].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi2[13].getBufferedImage(), x, y, breite,höhe,null);}
 				
 			}else if(timer2<210){
 				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
 				
 			}else if(timer2<240){
-				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				if(moving==-1&&!jumping&&!falling){g.drawImage( luigi2[0].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&!falling){g.drawImage( luigi2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( luigi2[10].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( luigi2[12].getBufferedImage(), x, y, breite,höhe,null);}
+				
+				if(moving==-2&&!jumping&&!falling){g.drawImage( luigi2[5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&!falling){g.drawImage( luigi2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( luigi2[11].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi2[13].getBufferedImage(), x, y, breite,höhe,null);}
 				
 			}else if(timer2<270){
-				g.drawImage(luigi2[1].getBufferedImage(),x,y,breite,höhe,null);
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
 				
 			}else if(timer2<300){
-				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				if(moving==-1&&!jumping&&!falling){g.drawImage( luigi2[0].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&!falling){g.drawImage( luigi2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( luigi2[10].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( luigi2[12].getBufferedImage(), x, y, breite,höhe,null);}
+				
+				if(moving==-2&&!jumping&&!falling){g.drawImage( luigi2[5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&!falling){g.drawImage( luigi2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( luigi2[11].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi2[13].getBufferedImage(), x, y, breite,höhe,null);}
 				
 			}else if(timer2<330){
-				g.drawImage(luigi2[1].getBufferedImage(),x,y,breite,höhe,null);
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
 				
 			}else if(timer2<350){
-				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				if(moving==-1&&!jumping&&!falling){g.drawImage( luigi2[0].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&!falling){g.drawImage( luigi2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( luigi2[10].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( luigi2[12].getBufferedImage(), x, y, breite,höhe,null);}
+				
+				if(moving==-2&&!jumping&&!falling){g.drawImage( luigi2[5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&!falling){g.drawImage( luigi2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( luigi2[11].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( luigi2[13].getBufferedImage(), x, y, breite,höhe,null);}
 		}}
 	}
 	
@@ -257,7 +306,10 @@ public class Luigi extends Entity{
 			setVelY((int)gravity);
 		}
 		framedelay++;
+		framedelayklein++;
+		if(klein==false){
 		if(KeyLuigi.d&&KeyLuigi.shift||KeyLuigi.a&&KeyLuigi.shift){
+
 			if(framedelay>=5){
 				frame++;
 				if(frame>=5){
@@ -271,7 +323,23 @@ public class Luigi extends Entity{
 				frame=0;
 			}
 			framedelay=0;
-		}
+		}}else{
+		if(KeyLuigi.d&&KeyLuigi.shift||KeyLuigi.a&&KeyLuigi.shift){
+
+			if(framedelayklein>=4){
+				frameklein++;
+				if(frameklein>=4){
+					frameklein=0;
+				}
+				framedelay=0;
+			}
+		}else if(framedelayklein>=5){
+			frameklein++;
+			if(frameklein>=4){
+				frameklein=0;
+			}
+			framedelayklein=0;
+		}}
 		
 		if(KeyLuigi.d&&KeyLuigi.shift){
 			setVelX(8);

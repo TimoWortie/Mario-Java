@@ -6,6 +6,7 @@ import java.awt.Rectangle;
 
 import Enemy.Enemy;
 import Input.Key;
+import Input.KeyLuigi;
 import Input.Mouse;
 import Main.Game;
 import Main.Handler;
@@ -14,10 +15,10 @@ import Tile.Tile;
 import gfx.Sprite;
 
 public class Mario extends Entity{
-	int frame,framedelay;
+	int frame,framedelay,framedelayklein,frameklein;
 	public static int moving=-1;
 	private Sprite[] mario = new Sprite[15];
-	private Sprite[] mario2 = new Sprite[15];
+	private Sprite[] mario2 = new Sprite[14];
 	private int y2,y3;
 	private Sprite leer;
 	
@@ -58,14 +59,14 @@ public class Mario extends Entity{
 		g.drawRect(getX()+26,getY()+10,49,höhe-10);
 		}else{
 			if(moving==-1&&!jumping&&!falling){g.drawImage( mario2[0].getBufferedImage(), x, y, breite,höhe,null);}
-			if(moving==1&&!jumping&&!falling){g.drawImage( mario2[frame].getBufferedImage(), x, y, breite,höhe,null);}
-			if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( mario2[11].getBufferedImage(), x, y, breite,höhe,null);}
-			if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( mario2[13].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==1&&!jumping&&!falling){g.drawImage( mario2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( mario2[10].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( mario2[12].getBufferedImage(), x, y, breite,höhe,null);}
 			
 			if(moving==-2&&!jumping&&!falling){g.drawImage( mario2[5].getBufferedImage(), x, y, breite,höhe,null);}
-			if(moving==2&&!jumping&&!falling){g.drawImage( mario2[frame+6].getBufferedImage(), x, y, breite,höhe,null);}
-			if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario2[12].getBufferedImage(), x, y, breite,höhe,null);}
-			if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario2[14].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==2&&!jumping&&!falling){g.drawImage( mario2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario2[11].getBufferedImage(), x, y, breite,höhe,null);}
+			if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario2[13].getBufferedImage(), x, y, breite,höhe,null);}
 			g.setColor(Color.white);
 			g.drawRect(x+33, y+33, 38, 5);
 			g.setColor(Color.red);
@@ -86,37 +87,85 @@ public class Mario extends Entity{
 			g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
 			}
 			else if(timer2<60){
-				g.drawImage(mario2[1].getBufferedImage(),x,y,breite,höhe,null);
+				if(moving==-1&&!jumping&&!falling){g.drawImage( mario2[0].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&!falling){g.drawImage( mario2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( mario2[10].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( mario2[12].getBufferedImage(), x, y, breite,höhe,null);}
+				
+				if(moving==-2&&!jumping&&!falling){g.drawImage( mario2[5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&!falling){g.drawImage( mario2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario2[11].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario2[13].getBufferedImage(), x, y, breite,höhe,null);}
 				
 			}else if(timer2<90){
 				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
 				
 			}else if(timer2<120){
-				g.drawImage(mario2[1].getBufferedImage(),x,y,breite,höhe,null);
+				if(moving==-1&&!jumping&&!falling){g.drawImage( mario2[0].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&!falling){g.drawImage( mario2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( mario2[10].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( mario2[12].getBufferedImage(), x, y, breite,höhe,null);}
+				
+				if(moving==-2&&!jumping&&!falling){g.drawImage( mario2[5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&!falling){g.drawImage( mario2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario2[11].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario2[13].getBufferedImage(), x, y, breite,höhe,null);}
 				
 			}else if(timer2<150){
 				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
 				
 			}else if(timer2<180){
-				g.drawImage(mario2[1].getBufferedImage(),x,y,breite,höhe,null);
+				if(moving==-1&&!jumping&&!falling){g.drawImage( mario2[0].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&!falling){g.drawImage( mario2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( mario2[10].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( mario2[12].getBufferedImage(), x, y, breite,höhe,null);}
+				
+				if(moving==-2&&!jumping&&!falling){g.drawImage( mario2[5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&!falling){g.drawImage( mario2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario2[11].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario2[13].getBufferedImage(), x, y, breite,höhe,null);}
 				
 			}else if(timer2<210){
 				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
 				
 			}else if(timer2<240){
-				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				if(moving==-1&&!jumping&&!falling){g.drawImage( mario2[0].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&!falling){g.drawImage( mario2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( mario2[10].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( mario2[12].getBufferedImage(), x, y, breite,höhe,null);}
+				
+				if(moving==-2&&!jumping&&!falling){g.drawImage( mario2[5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&!falling){g.drawImage( mario2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario2[11].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario2[13].getBufferedImage(), x, y, breite,höhe,null);}
 				
 			}else if(timer2<270){
-				g.drawImage(mario2[1].getBufferedImage(),x,y,breite,höhe,null);
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
 				
 			}else if(timer2<300){
-				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				if(moving==-1&&!jumping&&!falling){g.drawImage( mario2[0].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&!falling){g.drawImage( mario2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( mario2[10].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( mario2[12].getBufferedImage(), x, y, breite,höhe,null);}
+				
+				if(moving==-2&&!jumping&&!falling){g.drawImage( mario2[5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&!falling){g.drawImage( mario2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario2[11].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario2[13].getBufferedImage(), x, y, breite,höhe,null);}
 				
 			}else if(timer2<330){
-				g.drawImage(mario2[1].getBufferedImage(),x,y,breite,höhe,null);
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
 				
 			}else if(timer2<350){
-				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				if(moving==-1&&!jumping&&!falling){g.drawImage( mario2[0].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&!falling){g.drawImage( mario2[frameklein].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&jumping&&!falling||moving==-1&&jumping&&!falling){g.drawImage( mario2[10].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==1&&!jumping&&falling||moving==-1&&!jumping&&falling){g.drawImage( mario2[12].getBufferedImage(), x, y, breite,höhe,null);}
+				
+				if(moving==-2&&!jumping&&!falling){g.drawImage( mario2[5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&!falling){g.drawImage( mario2[frameklein+5].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario2[11].getBufferedImage(), x, y, breite,höhe,null);}
+				if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario2[13].getBufferedImage(), x, y, breite,höhe,null);}
 		}}
 		
 	}
@@ -251,7 +300,10 @@ public class Mario extends Entity{
 			setVelY((int)gravity);
 		}
 		framedelay++;
-		if(Key.d&&Key.shift||Key.a&&Key.shift){
+		framedelayklein++;
+		if(klein==false){
+		if(KeyLuigi.d&&KeyLuigi.shift||KeyLuigi.a&&KeyLuigi.shift){
+
 			if(framedelay>=5){
 				frame++;
 				if(frame>=5){
@@ -265,7 +317,23 @@ public class Mario extends Entity{
 				frame=0;
 			}
 			framedelay=0;
-		}
+		}}else{
+		if(KeyLuigi.d&&KeyLuigi.shift||KeyLuigi.a&&KeyLuigi.shift){
+
+			if(framedelayklein>=4){
+				frameklein++;
+				if(frameklein>=4){
+					frameklein=0;
+				}
+				framedelay=0;
+			}
+		}else if(framedelayklein>=5){
+			frameklein++;
+			if(frameklein>=4){
+				frameklein=0;
+			}
+			framedelayklein=0;
+		}}
 		
 		if(Key.d&&Key.shift){
 			setVelX(8);
