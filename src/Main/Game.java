@@ -8,7 +8,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import Enemy.Test;
+import Enemy.Cooper;
+import Enemy.Goomba;
 import Entity.Entity;
 import Entity.Mario;
 import Input.Key;
@@ -30,14 +31,13 @@ public class Game extends Canvas implements Runnable{
 	
 	private BufferedImage image,background;
 	public static Spritesheet sheet;
-	public static Test test;
+
 	
 	public void init(){
 		handler.addEntity(player);
 		sheet = new Spritesheet("/Spritesheet.png");
 		cam = new Camera();
 		handler.addEntity(luigi);
-		test = new Test(126,-10,30,30,true,handler,Id.enemy);
 
 		addMouseListener(new Mouse());
 		addKeyListener(new Key());
@@ -47,7 +47,6 @@ public class Game extends Canvas implements Runnable{
 			background = ImageIO.read(getClass().getResource("/Background1.png"));
 		} catch (IOException e) {}
 		handler.createlevel(image);
-		handler.addEnemy(test);
 	}
 	
 	public void render(){
@@ -76,6 +75,8 @@ public class Game extends Canvas implements Runnable{
 			}
 		}
 		
+//		Cooper.Coopersinit();
+		Goomba.Goombasinit();
 	}
 	
 	public synchronized void start(){

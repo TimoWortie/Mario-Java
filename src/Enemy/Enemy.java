@@ -15,6 +15,8 @@ public class Enemy {
 	Id id;
 	public float gravity = 0f;
 	public boolean falling = false;
+	
+	
 
 	
 	public Enemy(int x,int y,int breite,int höhe,boolean solid,Handler handler,Id id){

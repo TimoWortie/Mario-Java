@@ -8,6 +8,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 import Enemy.Enemy;
+import Enemy.Goomba;
 import Entity.Entity;
 import Entity.Mario;
 import Tile.Block;
@@ -27,6 +28,10 @@ public class Handler {
 	public static int red,green,blue;
 	
 	public void render(Graphics g){
+		for(Enemy ene:enemy){
+			ene.render(g);
+		}
+		
 		for(Tile ti:tile){
 			ti.render(g);
 		}
@@ -34,19 +39,7 @@ public class Handler {
 		for(Entity en:entity){
 			en.render(g);
 		}
-		
-		
-	
-		
-		for(Enemy ene:enemy){
-			ene.render(g);
-		}
-		
-		
 	}
-	
-	
-	
 	
 	public void tick(){
 		for(Entity en:entity){
