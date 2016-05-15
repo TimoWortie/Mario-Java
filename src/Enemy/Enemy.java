@@ -86,6 +86,16 @@ public class Enemy {
 		return new Rectangle(x,y+höhe-6,breite,5);
 	}
 	
+	public Rectangle getTop(){
+		return new Rectangle(x+10,y,breite-20,20);
+	}
+	public Rectangle getRight(){
+		return new Rectangle(x+breite-10,y+10,10,höhe-20);
+	}
+	public Rectangle getLeft(){
+		return new Rectangle(x,y+10,10,höhe-20);
+	}
+	
 	public boolean shouldRemove() {
 		return shouldRemove;
 	}

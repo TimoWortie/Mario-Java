@@ -80,27 +80,31 @@ public class Luigi extends Entity{
 			
 		}
 		
-
+		if(hit==true){
+			g.setColor(Color.MAGENTA);
+			g.fillRect(getX()+26,getY()+30,49,höhe-30);
+		}
 	}
 	
 	public void tick(){	
 		x+=velX;
 		y+=velY;
 		for(Enemy ene:handler.enemy){
+			if(hit==false){
 			if(this.klein==false){
-				if(getLeft().intersects(ene.getBounds())){
+				if(getLeft().intersects(ene.getRight())){
 					setVelX(0);
 					x=ene.getX()+60;
 					klein=true;
-					System.out.println("tot");
+					hit=true;
 				}
-				if(getRight().intersects(ene.getBounds())){
+				if(getRight().intersects(ene.getLeft())){
 					setVelX(0);
-					x=ene.getX()-60;
+					x=ene.getX()-30;
 					klein=true;
-					System.out.println("tot");
+					hit=true;
 				}
-				if(getBottom().intersects(ene.getBounds())){
+				if(getBottom().intersects(ene.getTop())){
 					setVelY(0);
 					y=y-40;
 					jumping=true;
@@ -110,17 +114,17 @@ public class Luigi extends Entity{
 				}
 		}else{
 			
-				if(getLeft().intersects(ene.getBounds())){
+				if(getLeft().intersects(ene.getRight())){
 					setVelX(0);
-					x=ene.getX()+70;
+					x=ene.getX()+61;
 					
 				}
-				if(getRight().intersects(ene.getBounds())){
+				if(getRight().intersects(ene.getLeft())){
 					setVelX(0);
-					x=ene.getX()-70;
+					x=ene.getX()-50;
 					
 				}
-				if(getBottom().intersects(ene.getBounds())){
+				if(getBottom().intersects(ene.getTop())){
 					setVelY(0);
 					y=y-40;
 					jumping=true;
@@ -130,24 +134,14 @@ public class Luigi extends Entity{
 				
 		}}
 			
-			
-			
-			if(getBottom().intersects(ene.getBounds())){
-				setVelY(0);
-				y=y-40;
-				jumping=true;
-				falling=false;
-				gravity=5.0f;
-				ene.setAsRemoved();
-			}	
-		
-		
-		
-		
-		
-		
-		
-		
+			}else{ if(timer<300){
+				
+				timer+=1;
+			}else{
+			hit=false;
+			}
+			}
+
 		
 		}
 		

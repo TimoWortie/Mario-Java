@@ -8,7 +8,7 @@ import Main.Id;
 
 public class Entity {
 	
-	int x,y,breite,höhe,velX,velY;
+	int x,y,breite,höhe,velX,velY,timer;
 	boolean solid;
 	boolean shouldRemove = false;
 	Handler handler;
@@ -17,7 +17,7 @@ public class Entity {
 	public boolean jumping = false;
 	public boolean falling = true;
 	public boolean klein=false;
-	public boolean invincible=false;
+	public boolean hit=false;
 
 	
 	public Entity(int x,int y,int breite,int höhe,boolean solid,Handler handler,Id id){
@@ -124,4 +124,15 @@ public class Entity {
 	public void setAsRemoved() {
 		this.shouldRemove = true;
 	}
+	
+	
+	public void pause(int time){
+        try{
+            Thread.sleep(time);
+        }
+        catch(InterruptedException e){
+        	e.printStackTrace();
+     }}                  
+
+
 }

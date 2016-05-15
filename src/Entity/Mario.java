@@ -17,6 +17,7 @@ public class Mario extends Entity{
 	int frame,framedelay;
 	public static int moving=-1;
 	private Sprite[] mario = new Sprite[15];
+	private Sprite[] mario2 = new Sprite[15];
 	private int y2,y3;
 	
 	public Mario(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
@@ -26,10 +27,6 @@ public class Mario extends Entity{
 	public void render(Graphics g){
 		for(int i=0;i<mario.length;i++){
 			mario[i] =  new Sprite(Game.sheet,i+1,1,1,1);
-<<<<<<< HEAD
-=======
-			
->>>>>>> origin/master
 			}
 		for(int i=0;i<mario2.length;i++){
 		mario2[i]=new Sprite(Game.sheet,i+15,2,1,1);
@@ -44,8 +41,7 @@ public class Mario extends Entity{
 		if(moving==2&&!jumping&&!falling){g.drawImage( mario[frame+6].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==2&&jumping&&!falling||moving==-2&&jumping&&!falling){g.drawImage( mario[12].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==2&&!jumping&&falling||moving==-2&&!jumping&&falling){g.drawImage( mario[14].getBufferedImage(), x, y, breite,höhe,null);}
-<<<<<<< HEAD
-=======
+
 		
 		g.setColor(Color.white);
 		g.drawRect(x+33, y+13, 38, 5);
@@ -80,9 +76,12 @@ public class Mario extends Entity{
 		
 		
 		
->>>>>>> origin/master
+
 		}
-		
+		if(hit==true){
+			g.setColor(Color.MAGENTA);
+			g.fillRect(getX()+26,getY()+30,49,höhe-30);
+		}
 		
 	}
 	
@@ -90,48 +89,57 @@ public class Mario extends Entity{
 		x+=velX;
 		y+=velY;
 		for(Enemy ene:handler.enemy){
-			if(this.klein==false){
-				if(getLeft().intersects(ene.getBounds())){
-					setVelX(0);
-					x=ene.getX()+70;
-					klein=true;
-					System.out.println("tot");
-				}
-				if(getRight().intersects(ene.getBounds())){
-					setVelX(0);
-					x=ene.getX()-70;
-					klein=true;
-					System.out.println("tot");
-				}
-				if(getBottom().intersects(ene.getBounds())){
-					setVelY(0);
-					y=y-40;
-					jumping=true;
-					falling=false;
-					gravity=5.0f;
-					ene.setAsRemoved();
-				}
-		}else{
-			
-				if(getLeft().intersects(ene.getBounds())){
-					setVelX(0);
-					x=ene.getX()+70;
-					
-				}
-				if(getRight().intersects(ene.getBounds())){
-					setVelX(0);
-					x=ene.getX()-70;
-					
-				}
-				if(getBottom().intersects(ene.getBounds())){
-					setVelY(0);
-					y=y-40;
-					jumping=true;
-					falling=false;
-					gravity=5.0f;
-					ene.setAsRemoved();
+			if(hit==false){
+				if(this.klein==false){
+					if(getLeft().intersects(ene.getRight())){
+						setVelX(0);
+						x=ene.getX()+61;
+						klein=true;
+						hit=true;
+					}
+					if(getRight().intersects(ene.getLeft())){
+						setVelX(0);
+						x=ene.getX()-50;
+						klein=true;
+						hit=true;
+					}
+					if(getBottom().intersects(ene.getTop())){
+						setVelY(0);
+						y=y-40;
+						jumping=true;
+						falling=false;
+						gravity=5.0f;
+						ene.setAsRemoved();
+					}
+			}else{
 				
-		}}}
+					if(getLeft().intersects(ene.getRight())){
+						setVelX(0);
+						x=ene.getX()+61;
+						
+					}
+					if(getRight().intersects(ene.getLeft())){
+						setVelX(0);
+						x=ene.getX()-50;
+						
+					}
+					if(getBottom().intersects(ene.getTop())){
+						setVelY(0);
+						y=y-40;
+						jumping=true;
+						falling=false;
+						gravity=5.0f;
+						ene.setAsRemoved();
+					
+			}}
+				
+				}else{ if(timer<300){
+					
+					timer+=1;
+				}else{
+				hit=false;
+				}
+				}}
 		for(Entity en:handler.entity){
 			if(en.getId()==Id.Luigi){
 				if(getLeft().intersects(en.getRight())){
