@@ -9,26 +9,27 @@ import Main.Id;
 import Tile.Tile;
 import gfx.Sprite;
 
-public class Cooper extends Enemy{
+public class Koopa extends Enemy{
 
 	public static Random r = new Random();
-	public static Sprite[] coopersprite = new Sprite[4];
-	public static Cooper[] cooper = new Cooper[5];
+	public static Sprite[] koopasprite = new Sprite[4];
+	public static Koopa[] koopa = new Koopa[5];
 	private static int b;
 	public static int spawnzeit;
 	public static boolean gecountet=false;
 	
-	public Cooper(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
+	public Koopa(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);
 	}
 	
 	public void render(Graphics g){
-		for(int i=0;i<coopersprite.length;i++){
-			coopersprite[i] = new Sprite(Game.sheet,i+21,3,1,1);
+		for(int i=0;i<koopasprite.length;i++){
+			koopasprite[i] = new Sprite(Game.sheet,i+21,3,1,1);
 		}
-		if(getZufallszahl()==1){g.drawImage(coopersprite[getFrame()+2].getBufferedImage(),x,y,breite,höhe,null);}
-		if(getZufallszahl()==0){g.drawImage(coopersprite[getFrame()].getBufferedImage(),x,y,breite,höhe,null);}
+		if(getZufallszahl()==1){g.drawImage(koopasprite[getFrame()+2].getBufferedImage(),x,y,breite,höhe,null);}
+		if(getZufallszahl()==0){g.drawImage(koopasprite[getFrame()].getBufferedImage(),x,y,breite,höhe,null);}
 	}
+	
 	public void tick(){
 		x+=velX;
 		y+=velY;
@@ -99,7 +100,7 @@ public class Cooper extends Enemy{
 		}
 	}
 	
-	public static void Coopersinit(){
+	public static void koopasinit(){
 		setCounter2(getCounter2()+1);
 		if(!gecountet){
 			spawnzeit = r.nextInt(10)+5;
@@ -107,14 +108,14 @@ public class Cooper extends Enemy{
 			System.out.println(spawnzeit);
 		}
 		if(getCounter2()/60==spawnzeit){
-			if(b<cooper.length){
-				for(int i=0;i<cooper.length;i++){
+			if(b<koopa.length){
+				for(int i=0;i<koopa.length;i++){
 					setSpawnpoint2(r.nextInt(2));
-					if(getSpawnpoint2()==0){cooper[i] = new Cooper(1100,5,60,60,true,Game.handler,Id.enemy);}
-					if(getSpawnpoint2()==1){cooper[i] = new Cooper(150,5,60,60,true,Game.handler,Id.enemy);}
+					if(getSpawnpoint2()==0){koopa[i] = new Koopa(1100,5,60,60,true,Game.handler,Id.enemy);}
+					if(getSpawnpoint2()==1){koopa[i] = new Koopa(150,5,60,60,true,Game.handler,Id.enemy);}
 					gecountet=false;
 					}
-			Game.handler.addEnemy(cooper[b]);
+			Game.handler.addEnemy(koopa[b]);
 			b++;
 			}
 			setCounter2(0);
