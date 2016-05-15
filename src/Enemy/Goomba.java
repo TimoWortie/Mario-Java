@@ -12,15 +12,10 @@ import gfx.Sprite;
 
 public class Goomba extends Enemy{
 	
-	public static int spawnpoint;
-	public static int counter;
 	public static Random r = new Random();
-	private int framedelay,framedelay2,frame,frame2,zufallszahl;
-	private static int j;
+	public static int j;
 	private Sprite[] goombasprite = new Sprite[4];
 	public static Goomba[] goomba = new Goomba[5];
-	private boolean erscheinen=false;
-	protected boolean schonentschieden=false;
 	
 	
 	public Goomba(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
@@ -31,8 +26,8 @@ public class Goomba extends Enemy{
 		for(int i=0;i<goombasprite.length;i++){
 			goombasprite[i] = new Sprite(Game.sheet,i+17,3,1,1);
 		}
-		if(zufallszahl==1){g.drawImage(goombasprite[frame].getBufferedImage(),x,y,breite,höhe,null);}
-		if(zufallszahl==0){g.drawImage(goombasprite[frame+2].getBufferedImage(),x,y,breite,höhe,null);}
+		if(getZufallszahl()==1){g.drawImage(goombasprite[getFrame()].getBufferedImage(),x,y,breite,höhe,null);}
+		if(getZufallszahl()==0){g.drawImage(goombasprite[getFrame()+2].getBufferedImage(),x,y,breite,höhe,null);}
 		g.setColor(Color.red);
 		g.drawRect(getX(),getY(),breite,höhe);
 		g.setColor(Color.green);
@@ -54,32 +49,32 @@ public class Goomba extends Enemy{
 				if(getBottom().intersects(t.getBounds())){
 					setVelY(0);
 					y=t.getY()-50;
-					if(!schonentschieden){
-						zufallszahl=r.nextInt(2);
-						schonentschieden = true;
+					if(!isSchonentschieden()){
+						setZufallszahl(r.nextInt(2));
+						setSchonentschieden(true);
 						}
-					if(zufallszahl==0){
+					if(getZufallszahl()==0){
 						setVelX(1);
 					}
-					if(zufallszahl==1){
+					if(getZufallszahl()==1){
 						setVelX(-1);
 					}
 					if(x+breite>=Game.getFrameBreite()&&y<520){
-						zufallszahl=1;
+						setZufallszahl(1);
 					}
 					if(x<=0&&y<520){
-						zufallszahl=0;
+						setZufallszahl(0);
 					}
 					falling = false;
-					}else if(erscheinen){
+					}else if(isErscheinen()){
 						falling=true;
 					}
 			}
 		}
 		
 		if(velY==1){
-			zufallszahl=r.nextInt(2);
-			schonentschieden=true;
+			setZufallszahl(r.nextInt(2));
+			setSchonentschieden(true);
 		}
 		
 		
@@ -96,37 +91,37 @@ public class Goomba extends Enemy{
 			setVelY((int)gravity);
 		}
 		
-		framedelay2++;
-		if(framedelay2>=10){
-			frame2++;
-			framedelay2=0;
-			if(frame2==10){
+		setFramedelay2(getFramedelay2()+1);
+		if(getFramedelay2()>=10){
+			setFrame2(getFrame2() + 1);
+			setFramedelay2(0);
+			if(getFrame2()==10){
 				erscheinen=true;
 			}
 		}
-		framedelay++;
-		if(framedelay>=9){
-			frame++;
-			framedelay=0;
-			if(frame==2){
-				frame=0;
+		setFramedelay(getFramedelay() + 1);
+		if(getFramedelay()>=9){
+			setFrame(getFrame() + 1);
+			setFramedelay(0);
+			if(getFrame()==2){
+				setFrame(0);
 			}
 		}
 	}
-	
+
 	public static void Goombasinit(){
-		Goomba.counter++;
-		if(Goomba.counter==300){
+		setCounter(getCounter()+1);
+		if(getCounter()==300){
 			if(j<goomba.length){
 				for(int i=0;i<goomba.length;i++){
-					spawnpoint = r.nextInt(2);
-					if(spawnpoint==0){goomba[i] = new Goomba(110,5,60,60,true,Game.handler,Id.enemy);}
-					if(spawnpoint==1){goomba[i] = new Goomba(1189,5,60,60,true,Game.handler,Id.enemy);}
+					setSpawnpoint(r.nextInt(2));
+					if(getSpawnpoint()==0){goomba[i] = new Goomba(110,5,60,60,true,Game.handler,Id.enemy);}
+					if(getSpawnpoint()==1){goomba[i] = new Goomba(1189,5,60,60,true,Game.handler,Id.enemy);}
 					}
 			Game.handler.addEnemy(goomba[j]);
 			j++;
 			}
-			Goomba.counter=0;
+			setCounter(0);
 		}
 	}
 }

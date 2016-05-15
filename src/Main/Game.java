@@ -75,8 +75,8 @@ public class Game extends Canvas implements Runnable{
 			}
 		}
 		
-//		Cooper.Coopersinit();
 		Goomba.Goombasinit();
+		Cooper.Coopersinit();
 	}
 	
 	public synchronized void start(){
