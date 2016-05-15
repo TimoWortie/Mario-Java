@@ -18,6 +18,7 @@ public class Key implements KeyListener{
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		for(Entity en:Game.handler.entity){
+			if(en.tot==false){
 		if(key==e.VK_D){
 			d = true;
 		}
@@ -40,7 +41,7 @@ public class Key implements KeyListener{
 		if(key==e.VK_SHIFT){
 			 shift = true;
 		}
-		}	
+		}	}
 	}
 	
 	

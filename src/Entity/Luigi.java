@@ -18,6 +18,7 @@ public class Luigi extends Entity{
 	public static Sprite[] luigi = new Sprite[15];
 	public static Sprite[] luigi2 = new Sprite[15];
 	private Sprite leer;
+	
 	public Luigi(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);
 	}
@@ -174,18 +175,17 @@ public class Luigi extends Entity{
 	public void tick(){	
 		x+=velX;
 		y+=velY;
+		if(tot==false){
 		for(Enemy ene:handler.enemy){
 			if(hit==false){
 			if(this.klein==false){
 				if(getLeft().intersects(ene.getRight())){
 					setVelX(0);
-					x=ene.getX()+60;
 					klein=true;
 					hit=true;
 				}
 				if(getRight().intersects(ene.getLeft())){
 					setVelX(0);
-					x=ene.getX()-30;
 					klein=true;
 					hit=true;
 				}
@@ -201,12 +201,12 @@ public class Luigi extends Entity{
 			
 				if(getLeft().intersects(ene.getRight())){
 					setVelX(0);
-					x=ene.getX()+61;
+					tot=true;
 					
 				}
 				if(getRight().intersects(ene.getLeft())){
 					setVelX(0);
-					x=ene.getX()-50;
+					tot=true;
 					
 				}
 				if(getBottom().intersects(ene.getTop())){
@@ -355,6 +355,32 @@ public class Luigi extends Entity{
 		}else if(KeyLuigi.a&&!KeyLuigi.shift){
 			setVelX(-5);
 			Luigi.moving=2;
-		}
+		}}else{
+			  if(tot1==false){
+				  jumping=true;
+				  gravity=10.0f;
+				  tot1=true;
+			  }
+			  
+		  
+			  if(jumping){
+					gravity-=0.5f;
+					setVelY((int)-gravity);
+					if(gravity<=0.0f){
+						falling=true;
+						jumping=false;
+			}
+			  
+			  }
+					if(falling){
+						gravity+=0.3f;
+						
+						setVelY((int)gravity);
+					}
+			  
+			  
+			  
+			  
+			  }
 	  }
 	}
