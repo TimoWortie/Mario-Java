@@ -8,7 +8,7 @@ import Main.Id;
 
 public class Entity {
 	
-	int x,y,breite,höhe,velX,velY,timer;
+	int x,y,breite,höhe,velX,velY,timer,timer2;
 	boolean solid;
 	boolean shouldRemove = false;
 	Handler handler;

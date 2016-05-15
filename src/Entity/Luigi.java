@@ -17,6 +17,7 @@ public class Luigi extends Entity{
 	public static int moving=-1;
 	public static Sprite[] luigi = new Sprite[15];
 	public static Sprite[] luigi2 = new Sprite[15];
+	private Sprite leer;
 	public Luigi(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);
 	}
@@ -33,6 +34,8 @@ public class Luigi extends Entity{
 		for(int i=luigi2.length-3;i<luigi2.length;i++){
 			luigi2[i]= new Sprite(Game.sheet,i+5,2,1,1);
 		}
+		leer=new Sprite(Game.sheet,25,3,1,1);
+		if(hit==false){
 		if(klein==false){
 		if(moving==-1&&!jumping&&!falling){g.drawImage( luigi[0].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==1&&!jumping&&!falling){g.drawImage( luigi[frame].getBufferedImage(), x, y, breite,höhe,null);}
@@ -78,12 +81,45 @@ public class Luigi extends Entity{
 			
 			
 			
-		}
+		}}
 		
 		if(hit==true){
-			g.setColor(Color.MAGENTA);
-			g.fillRect(getX()+26,getY()+30,49,höhe-30);
-		}
+			if(timer2<30){
+			g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+			}
+			else if(timer2<60){
+				g.drawImage(luigi2[1].getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<90){
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<120){
+				g.drawImage(luigi2[1].getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<150){
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<180){
+				g.drawImage(luigi2[1].getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<210){
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<240){
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<270){
+				g.drawImage(luigi2[1].getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<300){
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<330){
+				g.drawImage(luigi2[1].getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<350){
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+		}}
 	}
 	
 	public void tick(){	
@@ -135,7 +171,7 @@ public class Luigi extends Entity{
 		}}
 			
 			}else{ if(timer<300){
-				
+				timer2++;
 				timer+=1;
 			}else{
 			hit=false;

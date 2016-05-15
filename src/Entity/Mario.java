@@ -19,6 +19,7 @@ public class Mario extends Entity{
 	private Sprite[] mario = new Sprite[15];
 	private Sprite[] mario2 = new Sprite[15];
 	private int y2,y3;
+	private Sprite leer;
 	
 	public Mario(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);
@@ -31,6 +32,8 @@ public class Mario extends Entity{
 		for(int i=0;i<mario2.length;i++){
 		mario2[i]=new Sprite(Game.sheet,i+15,2,1,1);
 		}
+		leer=new Sprite(Game.sheet,25,3,1,1);
+		if(hit==false){
 		if(klein==false){
 		if(moving==-1&&!jumping&&!falling){g.drawImage( mario[0].getBufferedImage(), x, y, breite,höhe,null);}
 		if(moving==1&&!jumping&&!falling){g.drawImage( mario[frame].getBufferedImage(), x, y, breite,höhe,null);}
@@ -77,11 +80,44 @@ public class Mario extends Entity{
 		
 		
 
-		}
+		}}
 		if(hit==true){
-			g.setColor(Color.MAGENTA);
-			g.fillRect(getX()+26,getY()+30,49,höhe-30);
-		}
+			if(timer2<30){
+			g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+			}
+			else if(timer2<60){
+				g.drawImage(mario2[1].getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<90){
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<120){
+				g.drawImage(mario2[1].getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<150){
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<180){
+				g.drawImage(mario2[1].getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<210){
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<240){
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<270){
+				g.drawImage(mario2[1].getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<300){
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<330){
+				g.drawImage(mario2[1].getBufferedImage(),x,y,breite,höhe,null);
+				
+			}else if(timer2<350){
+				g.drawImage(leer.getBufferedImage(),x,y,breite,höhe,null);
+		}}
 		
 	}
 	
@@ -133,9 +169,10 @@ public class Mario extends Entity{
 					
 			}}
 				
-				}else{ if(timer<300){
+				}else{ if(timer<350){
 					
 					timer+=1;
+					timer2++;
 				}else{
 				hit=false;
 				}
