@@ -30,16 +30,6 @@ public class Koopa extends Enemy{
 		}
 		if(getZufallszahl()==1){g.drawImage(koopasprite[getFrame()+2].getBufferedImage(),x-10,y-20,breite+20,höhe+20,null);}
 		if(getZufallszahl()==0){g.drawImage(koopasprite[getFrame()].getBufferedImage(),x-10,y-20,breite+20,höhe+20,null);}
-		g.setColor(Color.red);
-		g.drawRect(getX(),getY(),breite,höhe);
-		g.setColor(Color.green);
-		g.drawRect(x,y+höhe-6,breite,5);
-		g.setColor(Color.magenta);
-		g.drawRect(x+10,y,breite-20,20);
-		g.setColor(Color.white);
-		g.drawRect(x+breite-30,y+10,30,höhe-20);
-		g.setColor(Color.CYAN);
-		g.drawRect(x,y+10,30,höhe-20);
 	}
 	
 	public void tick(){
@@ -122,6 +112,9 @@ public class Koopa extends Enemy{
 				setFrame(0);
 			}
 		}
+		if(x+breite<0||x>1262){
+			setAsRemoved();
+			}
 	}
 	
 	public static void koopasinit(){

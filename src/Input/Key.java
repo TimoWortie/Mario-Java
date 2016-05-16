@@ -32,16 +32,7 @@ public class Key implements KeyListener{
 				Game.handler.ChangeMusic(4, 1, false);
 				en.jumping=true;
 				en.gravity=17.0f;
-			
-			
-			
-			
-			
-			
 			}
-			
-			
-			
 			}
 		 }
 
@@ -75,8 +66,13 @@ public class Key implements KeyListener{
 	}
 	
 	
-	public void keyTyped(KeyEvent arg0) {
-		
+	public void keyTyped(KeyEvent e) {
+		int key = e.getKeyCode();
+		for(Entity en:Game.handler.entity){
+			if(key==e.VK_F){
+				
+			}
+			}
 	}
 
 }

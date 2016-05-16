@@ -1,5 +1,6 @@
 package Main;
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -36,7 +37,7 @@ public class Game extends Canvas implements Runnable{
 	public static Launcher launcher = new Launcher();
 	
 	
-	public static BufferedImage image,image2;
+	public static BufferedImage image,image2,endscreenmario,endscreenluigi;
 	private BufferedImage background;
 	public static Spritesheet sheet;
 
@@ -54,6 +55,8 @@ public class Game extends Canvas implements Runnable{
 			image = ImageIO.read(getClass().getResource("/level.png"));
 			image2 = ImageIO.read(getClass().getResource("/level2.png"));
 			background = ImageIO.read(getClass().getResource("/Background.png"));
+			endscreenmario = ImageIO.read(getClass().getResource("/Mariogewinnt.png"));
+			endscreenluigi = ImageIO.read(getClass().getResource("/Luigigewinnt.png"));
 		} catch (IOException e) {}
 		
 		handler.ChangeMusic(1, 1, false);
@@ -68,10 +71,15 @@ public class Game extends Canvas implements Runnable{
 		Graphics g = bs.getDrawGraphics();
 		if(launcher.launching){
 			launcher.render(g);
-		}else{
+		}else {
 		g.drawImage(background, 0, 0, getWidth(),getHeight(),null);
-//		g.translate(cam.getX(), cam.getY()+220);
 		handler.render(g);
+		}
+		if(player.tot&&player.getY()>Game.getFrameHöhe()){
+			g.drawImage(endscreenluigi,0,0,getWidth(),getHeight(),null);
+		}
+		if(luigi.tot&&luigi.getY()>Game.getFrameHöhe()){
+			g.drawImage(endscreenmario,0,0,getWidth(),getHeight(),null);
 		}
 		g.dispose();
 		bs.show();
@@ -79,24 +87,17 @@ public class Game extends Canvas implements Runnable{
 	
 	public void tick(){
 		if(launcher.launching){
+		}else if(player.tot&&player.getY()>Game.getFrameHöhe()||luigi.tot&&luigi.getY()>Game.getFrameHöhe()){
+			
 		}else{
 		handler.tick();
 		Goomba.Goombasinit();
 		Koopa.koopasinit();
 //		Kugelwilli.kugelwillisinit();
 		Monty.Montysinit();
-		
 		Flower.flowersinit();
-//		for(Entity e:handler.entity){
-//			if(e.getId()==Id.player){
-//				cam.tick(e);
-//			}
-//			if(e.getId()==Id.Luigi){
-//				cam.tick(e);
-//			}
 		Pilz.Pilzsinit();
 		}
-//		}
 	}
 	
 	public synchronized void start(){
