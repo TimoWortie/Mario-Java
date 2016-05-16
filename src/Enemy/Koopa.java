@@ -13,7 +13,7 @@ public class Koopa extends Enemy{
 
 	public static Random r = new Random();
 	public static Sprite[] koopasprite = new Sprite[4];
-	public static Koopa[] koopa = new Koopa[5];
+	public static Koopa[] koopa = new Koopa[100];
 	private static int b;
 	public static int spawnzeit;
 	public static boolean gecountet=false;
@@ -111,8 +111,8 @@ public class Koopa extends Enemy{
 			if(b<koopa.length){
 				for(int i=0;i<koopa.length;i++){
 					setSpawnpoint2(r.nextInt(2));
-					if(getSpawnpoint2()==0){koopa[i] = new Koopa(1100,5,60,60,true,Game.handler,Id.enemy);}
-					if(getSpawnpoint2()==1){koopa[i] = new Koopa(150,5,60,60,true,Game.handler,Id.enemy);}
+					if(getSpawnpoint2()==0){koopa[i] = new Koopa(1189,5,60,60,true,Game.handler,Id.enemy);}
+					if(getSpawnpoint2()==1){koopa[i] = new Koopa(110,5,60,60,true,Game.handler,Id.enemy);}
 					gecountet=false;
 					}
 			Game.handler.addEnemy(koopa[b]);
