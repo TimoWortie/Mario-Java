@@ -29,16 +29,6 @@ public class Goomba extends Enemy{
 		}
 		if(getZufallszahl()==1){g.drawImage(goombasprite[getFrame()].getBufferedImage(),x,y,breite,höhe,null);}
 		if(getZufallszahl()==0){g.drawImage(goombasprite[getFrame()+2].getBufferedImage(),x,y,breite,höhe,null);}
-		g.setColor(Color.red);
-		g.drawRect(getX(),getY(),breite,höhe);
-		g.setColor(Color.green);
-		g.drawRect(x,y+höhe-6,breite,5);
-		g.setColor(Color.magenta);
-		g.drawRect(x+10,y,breite-20,20);
-		g.setColor(Color.white);
-		g.drawRect(x+breite-30,y+10,30,höhe-20);
-		g.setColor(Color.CYAN);
-		g.drawRect(x,y+10,30,höhe-20);
 	}
 	
 	public void tick(){
@@ -90,7 +80,7 @@ public class Goomba extends Enemy{
 			setSchonentschieden(true);
 		}
 		
-		if(x<0||x>1262){
+		if(x+breite<0||x>1262){
 			setAsRemoved();
 			}
 		

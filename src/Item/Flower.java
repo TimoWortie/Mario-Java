@@ -3,6 +3,7 @@ package Item;
 import java.awt.Graphics;
 import java.util.Random;
 
+import Entity.Entity;
 import Input.Mouse;
 import Main.Game;
 import Main.Handler;
@@ -45,16 +46,14 @@ public class Flower extends Item{
 						}
 					}
 			}
+		}
 		
-		setFramedelay2(getFramedelay2() + 1);
-		if(getFramedelay2()>=10){
-			setFrame2(getFrame2() + 1);
-			setFramedelay2(0);
-			if(getFrame2()==10){
-				erscheinen=true;
+		for(Entity en:handler.entity){
+			if(getBounds().intersects(en.getBounds())){
+				en.flowershoot+=5;
+				setAsRemoved();
 			}
 		}
-	}
 		
 		if(falling){
 			gravity+=0.5f;

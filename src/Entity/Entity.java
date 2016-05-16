@@ -14,6 +14,7 @@ public class Entity {
 	boolean shouldRemove = false;
 	Handler handler;
 	Id id;
+	public int flowershoot=0;
 	public float gravity = 0f;
 	public boolean jumping = false;
 	public boolean falling = true;
