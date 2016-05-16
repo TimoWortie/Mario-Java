@@ -14,7 +14,7 @@ import gfx.Sprite;
 public class Koopa extends Enemy{
 
 	public static Random r = new Random();
-	public static Sprite[] koopasprite = new Sprite[4];
+	private Sprite[] koopasprite = new Sprite[4];
 	public static Koopa[] koopa = new Koopa[100];
 	public static int b;
 	public static int spawnzeit;

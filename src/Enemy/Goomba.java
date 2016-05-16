@@ -90,6 +90,11 @@ public class Goomba extends Enemy{
 			setSchonentschieden(true);
 		}
 		
+		if(x<0||x>1262){
+			setAsRemoved();
+			}
+		
+		
 		
 		if(falling){
 			gravity+=0.5f;
