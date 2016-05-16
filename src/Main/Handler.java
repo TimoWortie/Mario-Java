@@ -61,10 +61,8 @@ public class Handler {
 	}
 	
 	public void tick(){
-		for(Entity en:entity){
-			en.tick();
-		}
-		
+		Game.player.tick();
+		Game.luigi.tick();
 		for(Tile ti:tile){
 			ti.tick();
 		}

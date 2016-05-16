@@ -407,9 +407,10 @@ public class Luigi extends Entity {
 					}
 
 				} else {
-					if (timer < 400) {
+					if (timer3 < 400) {
+						
 						timer2++;
-						timer += 1;
+						timer3 += 1;
 					} else {
 						hit = false;
 					}
@@ -584,6 +585,7 @@ public class Luigi extends Entity {
 			}
 
 		}
+		
 
 	}
 

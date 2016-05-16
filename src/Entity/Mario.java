@@ -408,9 +408,9 @@ public class Mario extends Entity {
 					}
 
 				} else {
-					if (timer < 350) {
-
-						timer += 1;
+					if (timer3 < 400) {
+						System.out.println(timer3/60+" "+timer2/60);
+						timer3 ++;
 						timer2++;
 					} else {
 						hit = false;
@@ -493,7 +493,7 @@ public class Mario extends Entity {
 							gravity = 0f;
 							jumping = false;
 							falling = false;
-						}
+						} 
 					}
 				}
 				setVelY((int) gravity);
