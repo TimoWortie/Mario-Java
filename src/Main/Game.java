@@ -19,7 +19,7 @@ import Input.KeyLuigi;
 import Input.Mouse;
 import Item.Pilz;
 import Launcher.Launcher;
-import audio.SoundManager;
+import Audio.SoundManager;
 import gfx.Spritesheet;
 
 
@@ -53,7 +53,7 @@ public class Game extends Canvas implements Runnable{
 			image2 = ImageIO.read(getClass().getResource("/level2.png"));
 			background = ImageIO.read(getClass().getResource("/Background.png"));
 		} catch (IOException e) {}
-
+		
 		handler.ChangeMusic(1, 1, false);
 	}
 	

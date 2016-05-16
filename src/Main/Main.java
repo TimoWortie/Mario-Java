@@ -3,7 +3,7 @@ package Main;
 import javax.swing.JFrame;
 
 import Launcher.Launcher;
-import audio.SoundManager;
+import Audio.SoundManager;
 
 public class Main {
 
