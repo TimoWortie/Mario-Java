@@ -376,7 +376,6 @@ public class Mario extends Entity{
 			x=-3;
 			y=y2;
 		}
-<<<<<<< HEAD
 		if(y>500||Monty.montywirdlosgeschicktluigi){
 			Monty.montylosschicken++;
 			if(Monty.montylosschicken==500){
@@ -392,8 +391,7 @@ public class Mario extends Entity{
 		}
 		System.out.println(Monty.montylosschicken);
 	  }
-=======
-	  }else{
+//	  }else{
 		  
 		 timertot++;
 		  if(timertot>=40){
@@ -420,19 +418,6 @@ public class Mario extends Entity{
 					
 					setVelY((int)gravity);
 				}
-		  
-		  
-		  
-		  
-		  }
-		  
-		  
-		  
-	  
-	
-	
+//		  }
 	}
-		  
-	  
->>>>>>> origin/master
 	}

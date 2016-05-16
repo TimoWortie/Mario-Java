@@ -2,6 +2,8 @@ package Main;
 
 import javax.swing.JFrame;
 
+import Launcher.Launcher;
+
 public class Main {
 
 	public static void main(String[] args){

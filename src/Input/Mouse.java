@@ -9,7 +9,6 @@ import Main.Game;
 
 public class Mouse implements MouseListener{
 	
-	public static boolean playergetroffen = false;
      
 	public void mouseClicked(MouseEvent e) {
 		int xmouse =e.getX();
@@ -32,6 +31,13 @@ public class Mouse implements MouseListener{
 		int x = e.getX();
 		int y = e.getY();
 		System.out.println(x+" "+y);
+		if(x>116&&x<516&&y>226&&y<270){
+			Game.launcher.launching=false;
+		}
+		if(x>178&&x<451&&y>516&&y<559){
+			Game.running=false;
+			System.out.println("Beendet");
+		}
 	}
 
 	

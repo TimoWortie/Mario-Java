@@ -365,15 +365,13 @@ public class Luigi extends Entity{
 		}else if(KeyLuigi.a&&!KeyLuigi.shift){
 			setVelX(-5);
 			Luigi.moving=2;
-<<<<<<< HEAD
 		}
 		if(y>500){
 			Monty.montywirdlosgeschicktluigi=true;
 		}else{
 			Monty.montywirdlosgeschicktluigi=false;
 		}
-=======
-		}}else{
+//		}}else{
 			timertot++;
 			  if(timertot>=40){
 				  timertot=0;
@@ -403,7 +401,6 @@ public class Luigi extends Entity{
 			  
 			  
 			  
-			  }
->>>>>>> origin/master
+//			  }
 	  }
-	}
+	}}
