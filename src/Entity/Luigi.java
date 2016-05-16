@@ -40,6 +40,8 @@ public class Luigi extends Entity {
 		tot2 = new Sprite(Game.sheet, 17, 1, 1, 1);
 		tot3 = new Sprite(Game.sheet, 16, 1, 1, 1);
 		leer = new Sprite(Game.sheet, 26, 3, 1, 1);
+		stunned2 = new Sprite(Game.sheet, 29, 3, 1, 1);
+		stunned1 = new Sprite(Game.sheet, 30, 3, 1, 1);
 		if (tot == false) {
 			if (hit == false) {
 				if (stunned == false) {

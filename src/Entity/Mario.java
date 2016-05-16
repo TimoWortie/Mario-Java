@@ -36,6 +36,8 @@ public class Mario extends Entity {
 		for (int i = 0; i < mario2.length; i++) {
 			mario2[i] = new Sprite(Game.sheet, i + 15, 2, 1, 1);
 		}
+		stunned2 = new Sprite(Game.sheet, 27, 3, 1, 1);
+		stunned1 = new Sprite(Game.sheet, 28, 3, 1, 1);
 		leer = new Sprite(Game.sheet, 26, 3, 1, 1);
 		tot2 = new Sprite(Game.sheet, 18, 1, 1, 1);
 		tot3 = new Sprite(Game.sheet, 19, 1, 1, 1);
