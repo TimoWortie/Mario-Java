@@ -17,6 +17,7 @@ public class Flower extends Item{
 	public static Flower[] flower = new Flower[10];
 	public static int f;
 	private int richtung;
+	private boolean playsound;
 	
 	public Flower(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);
@@ -38,6 +39,10 @@ public class Flower extends Item{
 					falling = false;
 					}else if(isErscheinen()){
 						falling=true;
+						if(playsound==false){
+							Game.handler.ChangeMusic(9, 1, false);
+							playsound=true;
+						}
 					}
 			}
 		
@@ -63,22 +68,25 @@ public class Flower extends Item{
 			}
 			setVelY((int)gravity);
 		}
+		
+		if(x+breite<0||x>1262){
+			setAsRemoved();
+			}
 	}
 	
 	public static void flowersinit(){
 		setCounter(getCounter()+1);
-		System.out.println(getCounter());
-		if(getCounter()==500){
+		if(getCounter()==10000){
 			if(f<flower.length){
 				for(int i=0;i<flower.length;i++){
 					setSpawnpoint(ra.nextInt(2));
 					if(Mouse.map==1){
 					if(getSpawnpoint()==0){
-						flower[i] = new Flower(396,5,60,60,true,Game.handler,Id.flower);
+						flower[i] = new Flower(396,25,60,60,true,Game.handler,Id.flower);
 						flower[i].setVelX(2);
 					}
 					if(getSpawnpoint()==1){
-						flower[i] = new Flower(851,5,60,60,true,Game.handler,Id.flower);
+						flower[i] = new Flower(851,25,60,60,true,Game.handler,Id.flower);
 						flower[i].setVelX(-2);
 					}
 					}
