@@ -9,7 +9,7 @@ import gfx.Sprite;
 
 public class Williblaster extends Enemy{
 
-	private Sprite williblastersprite = new Sprite(Game.sheet,31,3,1,1);
+	private Sprite williblastersprite = new Sprite(Game.sheet,31,3,1,3);
 	
 	public Williblaster(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);

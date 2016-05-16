@@ -113,8 +113,8 @@ public class Pilz extends Item{
 			if(j<Pilz.length){
 				for(int i=0;i<Pilz.length;i++){
 					setSpawnpoint(r.nextInt(2));
-					if(getSpawnpoint()==0){Pilz[i] = new Pilz(396,5,60,60,true,Game.handler,Id.Item);}
-					if(getSpawnpoint()==1){Pilz[i] = new Pilz(851,5,60,60,true,Game.handler,Id.Item);}
+					if(getSpawnpoint()==0){Pilz[i] = new Pilz(396,5,60,60,true,Game.handler,Id.pilz);}
+					if(getSpawnpoint()==1){Pilz[i] = new Pilz(851,5,60,60,true,Game.handler,Id.pilz);}
 					}
 			Game.handler.addItem(Pilz[j]);
 			j++;

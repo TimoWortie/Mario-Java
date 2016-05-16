@@ -133,7 +133,7 @@ public class Goomba extends Enemy{
 					}
 					if(Mouse.map==2){
 						if(getSpawnpoint()==0){goomba[i] = new Goomba(16,155,60,60,true,Game.handler,Id.enemy);}
-						if(getSpawnpoint()==1){goomba[i] = new Goomba(1155,500,60,60,true,Game.handler,Id.enemy);}
+						if(getSpawnpoint()==1){goomba[i] = new Goomba(1155,535,60,60,true,Game.handler,Id.enemy);}
 						}
 				}
 			Game.handler.addEnemy(goomba[j]);

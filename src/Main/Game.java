@@ -77,7 +77,6 @@ public class Game extends Canvas implements Runnable{
 	
 	public void tick(){
 		if(launcher.launching){
-			
 		}else{
 		handler.tick();
 		Goomba.Goombasinit();

@@ -1,5 +1,6 @@
 package Enemy;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
@@ -15,7 +16,7 @@ public class Koopa extends Enemy{
 	public static Random r = new Random();
 	public static Sprite[] koopasprite = new Sprite[4];
 	public static Koopa[] koopa = new Koopa[100];
-	private static int b;
+	public static int b;
 	public static int spawnzeit;
 	public static boolean gecountet=false;
 	
@@ -27,8 +28,18 @@ public class Koopa extends Enemy{
 		for(int i=0;i<koopasprite.length;i++){
 			koopasprite[i] = new Sprite(Game.sheet,i+21,3,1,1);
 		}
-		if(getZufallszahl()==1){g.drawImage(koopasprite[getFrame()+2].getBufferedImage(),x,y,breite,höhe,null);}
-		if(getZufallszahl()==0){g.drawImage(koopasprite[getFrame()].getBufferedImage(),x,y,breite,höhe,null);}
+		if(getZufallszahl()==1){g.drawImage(koopasprite[getFrame()+2].getBufferedImage(),x-10,y-20,breite+20,höhe+20,null);}
+		if(getZufallszahl()==0){g.drawImage(koopasprite[getFrame()].getBufferedImage(),x-10,y-20,breite+20,höhe+20,null);}
+		g.setColor(Color.red);
+		g.drawRect(getX(),getY(),breite,höhe);
+		g.setColor(Color.green);
+		g.drawRect(x,y+höhe-6,breite,5);
+		g.setColor(Color.magenta);
+		g.drawRect(x+10,y,breite-20,20);
+		g.setColor(Color.white);
+		g.drawRect(x+breite-30,y+10,30,höhe-20);
+		g.setColor(Color.CYAN);
+		g.drawRect(x,y+10,30,höhe-20);
 	}
 	
 	public void tick(){
@@ -129,7 +140,7 @@ public class Koopa extends Enemy{
 					}
 					if(Mouse.map==2){
 						if(getSpawnpoint2()==0){koopa[i] = new Koopa(16,155,60,60,true,Game.handler,Id.enemy);}
-						if(getSpawnpoint2()==1){koopa[i] = new Koopa(1155,500,60,60,true,Game.handler,Id.enemy);}
+						if(getSpawnpoint2()==1){koopa[i] = new Koopa(1155,535,60,60,true,Game.handler,Id.enemy);}
 					}
 					gecountet=false;
 					}
