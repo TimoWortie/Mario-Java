@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import Enemy.Koopa;
+import Enemy.Monty;
 import Enemy.Goomba;
 import Entity.Entity;
 import Entity.Mario;
@@ -77,6 +78,7 @@ public class Game extends Canvas implements Runnable{
 		
 		Goomba.Goombasinit();
 		Koopa.koopasinit();
+		Monty.Montysinit();
 	}
 	
 	public synchronized void start(){

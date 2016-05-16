@@ -15,7 +15,7 @@ public class Goomba extends Enemy{
 	public static Random r = new Random();
 	public static int j;
 	private Sprite[] goombasprite = new Sprite[4];
-	public static Goomba[] goomba = new Goomba[5];
+	public static Goomba[] goomba = new Goomba[100];
 	
 	
 	public Goomba(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
@@ -111,7 +111,7 @@ public class Goomba extends Enemy{
 
 	public static void Goombasinit(){
 		setCounter(getCounter()+1);
-		if(getCounter()==300){
+		if(getCounter()==500){
 			if(j<goomba.length){
 				for(int i=0;i<goomba.length;i++){
 					setSpawnpoint(r.nextInt(2));

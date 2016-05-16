@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import Enemy.Enemy;
+import Enemy.Monty;
 import Input.Key;
 import Input.KeyLuigi;
 import Input.Mouse;
@@ -375,6 +376,23 @@ public class Mario extends Entity{
 			x=-3;
 			y=y2;
 		}
+<<<<<<< HEAD
+		if(y>500||Monty.montywirdlosgeschicktluigi){
+			Monty.montylosschicken++;
+			if(Monty.montylosschicken==500){
+				if(x<1262/2){
+					Monty.montyfacing=1;
+				}else{
+					Monty.montyfacing=2;
+				}
+				Monty.montywirdlosgeschickt=true;
+			}
+		}else{
+			Monty.montylosschicken=0;
+		}
+		System.out.println(Monty.montylosschicken);
+	  }
+=======
 	  }else{
 		  
 		 timertot++;
@@ -416,4 +434,5 @@ public class Mario extends Entity{
 	}
 		  
 	  
+>>>>>>> origin/master
 	}
