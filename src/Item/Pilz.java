@@ -27,17 +27,6 @@ public class Pilz extends Item{
 	public void render(Graphics g){
 		Pilzsprite=new Sprite(Game.sheet,24 , 1, 1, 1);
 		g.drawImage(Pilzsprite.getBufferedImage(),x,y,breite,höhe,null);
-		
-		g.setColor(Color.red);
-		g.drawRect(getX(),getY(),breite,höhe);
-		g.setColor(Color.green);
-		g.drawRect(x,y+höhe-6,breite,5);
-		g.setColor(Color.magenta);
-		g.drawRect(x+10,y,breite-20,20);
-		g.setColor(Color.white);
-		g.drawRect(x+breite-30,y+10,30,höhe-20);
-		g.setColor(Color.CYAN);
-		g.drawRect(x,y+10,30,höhe-20);
 	}
 	
 	public void tick(){
@@ -115,7 +104,7 @@ public class Pilz extends Item{
 
 	public static void Pilzsinit(){
 		setCounter2(getCounter2()+1);
-		if(getCounter2()==300){
+		if(getCounter2()==5000){
 			if(j<pilz.length){
 				for(int i=0;i<pilz.length;i++){
 					setSpawnpoint(r.nextInt(2));

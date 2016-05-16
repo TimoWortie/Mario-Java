@@ -65,6 +65,10 @@ public class Tile {
 		return new Rectangle(x,y,breite,höhe);
 	}
 	
+	public Rectangle getBottom(){
+		return new Rectangle(x,y+höhe-15,breite,15);
+	}
+	
 	public boolean shouldRemove() {
 		return shouldRemove;
 	}

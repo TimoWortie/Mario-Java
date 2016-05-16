@@ -16,6 +16,7 @@ public class Main {
 		frame.setBounds(0,0,1280,790);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		frame.setAlwaysOnTop(true);
 		game.start();
 	}
 

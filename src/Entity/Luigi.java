@@ -460,7 +460,7 @@ public class Luigi extends Entity {
 			
 			for (Tile t : handler.tile) {
 				if (t.getId() == Id.wall) {
-					if (getTop().intersects(t.getBounds())) {
+					if (getTop().intersects(t.getBottom())) {
 						setVelY(0);
 						y = t.getY() + 50;
 						jumping = false;
@@ -481,6 +481,23 @@ public class Luigi extends Entity {
 					if (getLeft().intersects(t.getBounds())) {
 						setVelX(0);
 						x = t.getX() + 40;
+					}
+					if (getRight().intersects(t.getBounds())) {
+						setVelX(0);
+						x = t.getX() - 75;
+					}
+				}if (t.getId() == Id.pipe) {
+					if (getTop().intersects(t.getBottom())) {
+						setVelY(0);
+						y = t.getY() + 80;
+						jumping = false;
+						falling = true;
+						gravity = 0;
+					}
+					
+					if (getLeft().intersects(t.getBounds())) {
+						setVelX(0);
+						x = t.getX() +t.getBreite()-30;
 					}
 					if (getRight().intersects(t.getBounds())) {
 						setVelX(0);
