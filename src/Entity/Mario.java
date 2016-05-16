@@ -21,10 +21,12 @@ public class Mario extends Entity {
 	private Sprite[] mario = new Sprite[15];
 	private Sprite[] mario2 = new Sprite[14];
 	private int y2, y3;
-	private Sprite leer, tot3, tot2;
+	private Sprite leer, tot3, tot2, stunned1, stunned2;
+	public boolean stunned = false;
 
 	public Mario(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);
+
 	}
 
 	public void render(Graphics g) {
@@ -39,86 +41,94 @@ public class Mario extends Entity {
 		tot3 = new Sprite(Game.sheet, 19, 1, 1, 1);
 		if (tot == false) {
 			if (hit == false) {
-				if (klein == false) {
-					if(stunned==false){
-					if (moving == -1 && !jumping && !falling) {
-						g.drawImage(mario[0].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && !falling) {
-						g.drawImage(mario[frame].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
-						g.drawImage(mario[11].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
-						g.drawImage(mario[13].getBufferedImage(), x, y, breite, höhe, null);
-					}
+				if (stunned == false) {
+					if (klein == false) {
 
-					if (moving == -2 && !jumping && !falling) {
-						g.drawImage(mario[5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && !falling) {
-						g.drawImage(mario[frame + 6].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
-						g.drawImage(mario[12].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
-						g.drawImage(mario[14].getBufferedImage(), x, y, breite, höhe, null);
-					}
+						if (moving == -1 && !jumping && !falling) {
+							g.drawImage(mario[0].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 1 && !jumping && !falling) {
+							g.drawImage(mario[frame].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
+							g.drawImage(mario[11].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
+							g.drawImage(mario[13].getBufferedImage(), x, y, breite, höhe, null);
+						}
 
-					g.setColor(Color.white);
-					g.drawRect(x + 33, y + 13, 38, 5);
-					g.setColor(Color.red);
-					g.drawRect(getX() + 33, getY() + 96, 34, 5);
-					g.setColor(Color.green);
-					g.drawRect(getX() + 70, getY() + 25, 5, 62);
-					g.setColor(Color.CYAN);
-					g.drawRect(getX() + 26, getY() + 25, 5, 62);
-					g.setColor(Color.MAGENTA);
-					g.drawRect(getX() + 26, getY() + 10, 49, höhe - 10);
-					}else{
-						
+						if (moving == -2 && !jumping && !falling) {
+							g.drawImage(mario[5].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 2 && !jumping && !falling) {
+							g.drawImage(mario[frame + 6].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
+							g.drawImage(mario[12].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
+							g.drawImage(mario[14].getBufferedImage(), x, y, breite, höhe, null);
+						}
+
+						g.setColor(Color.white);
+						g.drawRect(x + 33, y + 13, 38, 5);
+						g.setColor(Color.red);
+						g.drawRect(getX() + 33, getY() + 96, 34, 5);
+						g.setColor(Color.green);
+						g.drawRect(getX() + 70, getY() + 25, 5, 62);
+						g.setColor(Color.CYAN);
+						g.drawRect(getX() + 26, getY() + 25, 5, 62);
+						g.setColor(Color.MAGENTA);
+						g.drawRect(getX() + 26, getY() + 10, 49, höhe - 10);
+
+					} else {
+						if (moving == -1 && !jumping && !falling) {
+							g.drawImage(mario2[0].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 1 && !jumping && !falling) {
+							g.drawImage(mario2[frameklein].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
+							g.drawImage(mario2[10].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
+							g.drawImage(mario2[12].getBufferedImage(), x, y, breite, höhe, null);
+						}
+
+						if (moving == -2 && !jumping && !falling) {
+							g.drawImage(mario2[5].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 2 && !jumping && !falling) {
+							g.drawImage(mario2[frameklein + 5].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
+							g.drawImage(mario2[11].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
+							g.drawImage(mario2[13].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						g.setColor(Color.white);
+						g.drawRect(x + 33, y + 33, 38, 5);
+						g.setColor(Color.red);
+						g.drawRect(getX() + 33, getY() + 96, 34, 5);
+						g.setColor(Color.green);
+						g.drawRect(getX() + 70, getY() + 45, 5, 42);
+						g.setColor(Color.CYAN);
+						g.drawRect(getX() + 26, getY() + 45, 5, 42);
+						g.setColor(Color.MAGENTA);
+						g.drawRect(getX() + 26, getY() + 30, 49, höhe - 30);
+
 					}
 				} else {
-					if (moving == -1 && !jumping && !falling) {
-						g.drawImage(mario2[0].getBufferedImage(), x, y, breite, höhe, null);
+					if (moving == 2 || moving == -2) {
+						g.drawImage(stunned1.getBufferedImage(), x, y, breite, höhe, null);
 					}
-					if (moving == 1 && !jumping && !falling) {
-						g.drawImage(mario2[frameklein].getBufferedImage(), x, y, breite, höhe, null);
+					if (moving == 1 || moving == -1) {
+						g.drawImage(stunned2.getBufferedImage(), x, y, breite, höhe, null);
 					}
-					if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
-						g.drawImage(mario2[10].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
-						g.drawImage(mario2[12].getBufferedImage(), x, y, breite, höhe, null);
-					}
-
-					if (moving == -2 && !jumping && !falling) {
-						g.drawImage(mario2[5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && !falling) {
-						g.drawImage(mario2[frameklein + 5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
-						g.drawImage(mario2[11].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
-						g.drawImage(mario2[13].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					g.setColor(Color.white);
-					g.drawRect(x + 33, y + 33, 38, 5);
-					g.setColor(Color.red);
-					g.drawRect(getX() + 33, getY() + 96, 34, 5);
-					g.setColor(Color.green);
-					g.drawRect(getX() + 70, getY() + 45, 5, 42);
-					g.setColor(Color.CYAN);
-					g.drawRect(getX() + 26, getY() + 45, 5, 42);
-					g.setColor(Color.MAGENTA);
-					g.drawRect(getX() + 26, getY() + 30, 49, höhe - 30);
-
 				}
 			}
+
 			if (hit == true) {
 				if (timer2 < 30) {
 					g.drawImage(leer.getBufferedImage(), x, y, breite, höhe, null);
@@ -315,15 +325,17 @@ public class Mario extends Entity {
 		y += velY;
 		if (tot == false) {
 
-			if (getStunned() == true) {
+			if (stunned == true) {
+				klein2 = true;
 				if (getTimerstunned() < 35) {
 					timerstunned++;
-				} else {
-					timerstunned = 0;
+				} else if (timerstunned >= 35) {
+
 					stunned = false;
 				}
+			} else {
+				klein2 = false;
 			}
-
 			for (Enemy ene : handler.enemy) {
 				if (hit == false) {
 					if (this.klein == false) {
@@ -402,9 +414,10 @@ public class Mario extends Entity {
 					}
 
 					if (getBottom().intersects(en.getBounds())) {
-						Game.handler.ChangeMusic(7, 1, false);
-						en.setStunned(true);
 						en.setTimerstunned(0);
+						Game.handler.ChangeMusic(7, 1, false);
+						Game.luigi.setStunned(true);
+
 						setVelY(0);
 						y = y - 40;
 						jumping = true;
@@ -582,5 +595,14 @@ public class Mario extends Entity {
 				setVelY((int) gravity);
 			}
 		}
+	}
+
+	public void setStunned(boolean stunned) {
+		this.stunned = stunned;
+	}
+
+	public boolean getStunned() {
+		// TODO Auto-generated method stub
+		return stunned;
 	}
 }

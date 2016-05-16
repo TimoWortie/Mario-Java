@@ -18,7 +18,8 @@ public class Luigi extends Entity {
 	public static int moving = -1;
 	public static Sprite[] luigi = new Sprite[15];
 	public static Sprite[] luigi2 = new Sprite[15];
-	private Sprite leer, tot2, tot3;
+	private Sprite leer, tot2, tot3, stunned1, stunned2;
+	public boolean stunned;
 
 	public Luigi(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);
@@ -41,81 +42,90 @@ public class Luigi extends Entity {
 		leer = new Sprite(Game.sheet, 26, 3, 1, 1);
 		if (tot == false) {
 			if (hit == false) {
-				if (klein == false) {
-					if (moving == -1 && !jumping && !falling) {
-						g.drawImage(luigi[0].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && !falling) {
-						g.drawImage(luigi[frame].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
-						g.drawImage(luigi[11].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
-						g.drawImage(luigi[13].getBufferedImage(), x, y, breite, höhe, null);
-					}
+				if (stunned == false) {
+					if (klein == false) {
+						if (moving == -1 && !jumping && !falling) {
+							g.drawImage(luigi[0].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 1 && !jumping && !falling) {
+							g.drawImage(luigi[frame].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
+							g.drawImage(luigi[11].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
+							g.drawImage(luigi[13].getBufferedImage(), x, y, breite, höhe, null);
+						}
 
-					if (moving == -2 && !jumping && !falling) {
-						g.drawImage(luigi[5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && !falling) {
-						g.drawImage(luigi[frame + 6].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
-						g.drawImage(luigi[12].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
-						g.drawImage(luigi[14].getBufferedImage(), x, y, breite, höhe, null);
-					}
+						if (moving == -2 && !jumping && !falling) {
+							g.drawImage(luigi[5].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 2 && !jumping && !falling) {
+							g.drawImage(luigi[frame + 6].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
+							g.drawImage(luigi[12].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
+							g.drawImage(luigi[14].getBufferedImage(), x, y, breite, höhe, null);
+						}
 
-					g.setColor(Color.white);
-					g.drawRect(x + 33, y + 13, 38, 5);
-					g.setColor(Color.red);
-					g.drawRect(getX() + 33, getY() + 96, 34, 5);
-					g.setColor(Color.green);
-					g.drawRect(getX() + 70, getY() + 25, 5, 62);
-					g.setColor(Color.CYAN);
-					g.drawRect(getX() + 26, getY() + 25, 5, 62);
-					g.setColor(Color.MAGENTA);
-					g.drawRect(getX() + 26, getY() + 10, 49, höhe - 10);
+						g.setColor(Color.white);
+						g.drawRect(x + 33, y + 13, 38, 5);
+						g.setColor(Color.red);
+						g.drawRect(getX() + 33, getY() + 96, 34, 5);
+						g.setColor(Color.green);
+						g.drawRect(getX() + 70, getY() + 25, 5, 62);
+						g.setColor(Color.CYAN);
+						g.drawRect(getX() + 26, getY() + 25, 5, 62);
+						g.setColor(Color.MAGENTA);
+						g.drawRect(getX() + 26, getY() + 10, 49, höhe - 10);
 
+					} else {
+						if (moving == -1 && !jumping && !falling) {
+							g.drawImage(luigi2[0].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 1 && !jumping && !falling) {
+							g.drawImage(luigi2[frameklein].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
+							g.drawImage(luigi2[10].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
+							g.drawImage(luigi2[12].getBufferedImage(), x, y, breite, höhe, null);
+						}
+
+						if (moving == -2 && !jumping && !falling) {
+							g.drawImage(luigi2[5].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 2 && !jumping && !falling) {
+							g.drawImage(luigi2[frameklein + 5].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
+							g.drawImage(luigi2[11].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
+							g.drawImage(luigi2[13].getBufferedImage(), x, y, breite, höhe, null);
+						}
+						g.setColor(Color.white);
+						g.drawRect(x + 33, y + 33, 38, 5);
+						g.setColor(Color.red);
+						g.drawRect(getX() + 33, getY() + 96, 34, 5);
+						g.setColor(Color.green);
+						g.drawRect(getX() + 70, getY() + 45, 5, 42);
+						g.setColor(Color.CYAN);
+						g.drawRect(getX() + 26, getY() + 45, 5, 42);
+						g.setColor(Color.MAGENTA);
+						g.drawRect(getX() + 26, getY() + 30, 49, höhe - 30);
+
+					}
 				} else {
-					if (moving == -1 && !jumping && !falling) {
-						g.drawImage(luigi2[0].getBufferedImage(), x, y, breite, höhe, null);
+					if (moving == 2 || moving == -2) {
+						g.drawImage(stunned1.getBufferedImage(), x, y, breite, höhe, null);
 					}
-					if (moving == 1 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein].getBufferedImage(), x, y, breite, höhe, null);
+					if (moving == 1 || moving == -1) {
+						g.drawImage(stunned2.getBufferedImage(), x, y, breite, höhe, null);
 					}
-					if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
-						g.drawImage(luigi2[10].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
-						g.drawImage(luigi2[12].getBufferedImage(), x, y, breite, höhe, null);
-					}
-
-					if (moving == -2 && !jumping && !falling) {
-						g.drawImage(luigi2[5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein + 5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
-						g.drawImage(luigi2[11].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
-						g.drawImage(luigi2[13].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					g.setColor(Color.white);
-					g.drawRect(x + 33, y + 33, 38, 5);
-					g.setColor(Color.red);
-					g.drawRect(getX() + 33, getY() + 96, 34, 5);
-					g.setColor(Color.green);
-					g.drawRect(getX() + 70, getY() + 45, 5, 42);
-					g.setColor(Color.CYAN);
-					g.drawRect(getX() + 26, getY() + 45, 5, 42);
-					g.setColor(Color.MAGENTA);
-					g.drawRect(getX() + 26, getY() + 30, 49, höhe - 30);
-
 				}
 			}
 
@@ -312,15 +322,19 @@ public class Luigi extends Entity {
 	public void tick() {
 		x += velX;
 		y += velY;
-		if (getStunned() == true) {
-			if (timerstunned < 35) {
-				timerstunned++;
-			} else {
-				timerstunned = 0;
-				stunned = false;
-			}
-		}
+
 		if (tot == false) {
+			if (stunned == true) {
+				klein2 = true;
+				if (getTimerstunned() < 35) {
+					timerstunned++;
+				} else if (timerstunned >= 35) {
+
+					stunned = false;
+				}
+			} else {
+				klein2 = false;
+			}
 			for (Enemy ene : handler.enemy) {
 				if (hit == false) {
 					if (this.klein == false) {
@@ -397,9 +411,9 @@ public class Luigi extends Entity {
 						x = en.getX() - 50;
 					}
 					if (getBottom().intersects(en.getBounds())) {
-						en.setStunned(true);
+						Game.player.setStunned(true);
 						en.setTimerstunned(0);
-						;
+
 						Game.handler.ChangeMusic(7, 1, false);
 						setVelY(0);
 						y = y - 60;
@@ -554,5 +568,14 @@ public class Luigi extends Entity {
 
 		}
 
+	}
+
+	public void setStunned(boolean stunned) {
+		this.stunned = stunned;
+	}
+
+	public boolean getStunned() {
+		// TODO Auto-generated method stub
+		return stunned;
 	}
 }

@@ -1,4 +1,4 @@
-package Audio;
+package audio;
 
 public enum SoundID {
     //template      (   id, name,           vol),

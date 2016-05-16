@@ -8,7 +8,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import Audio.SoundManager;
 import Enemy.Goomba;
 import Enemy.Koopa;
 import Enemy.Monty;
@@ -20,6 +19,7 @@ import Input.KeyLuigi;
 import Input.Mouse;
 import Item.Pilz;
 import Launcher.Launcher;
+import audio.SoundManager;
 import gfx.Spritesheet;
 
 
@@ -82,7 +82,7 @@ public class Game extends Canvas implements Runnable{
 		handler.tick();
 		Goomba.Goombasinit();
 		Koopa.koopasinit();
-		Monty.Montysinit();
+		//Monty.Montysinit();
 		Pilz.Pilzsinit();
 //		for(Entity e:handler.entity){
 //			if(e.getId()==Id.player){

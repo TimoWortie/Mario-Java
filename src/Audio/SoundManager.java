@@ -1,4 +1,4 @@
-package Audio;
+package audio;
 
 import java.io.File;
 
