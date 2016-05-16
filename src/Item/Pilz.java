@@ -1,4 +1,4 @@
-package Enemy;
+package Item;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -10,24 +10,22 @@ import Main.Id;
 import Tile.Tile;
 import gfx.Sprite;
 
-public class Goomba extends Enemy{
+public class Pilz extends Item{
 	
 	public static Random r = new Random();
 	public static int j;
-	private Sprite[] goombasprite = new Sprite[4];
-	public static Goomba[] goomba = new Goomba[100];
+	private Sprite Pilzsprite;
+	public static Pilz[] Pilz = new Pilz[5];
 	
 	
-	public Goomba(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
+	public Pilz(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		super(x, y, breite, höhe, solid, handler, id);
 	}
 
 	public void render(Graphics g){
-		for(int i=0;i<goombasprite.length;i++){
-			goombasprite[i] = new Sprite(Game.sheet,i+17,3,1,1);
-		}
-		if(getZufallszahl()==1){g.drawImage(goombasprite[getFrame()].getBufferedImage(),x,y,breite,höhe,null);}
-		if(getZufallszahl()==0){g.drawImage(goombasprite[getFrame()+2].getBufferedImage(),x,y,breite,höhe,null);}
+		
+		if(getZufallszahl()==1){g.drawImage(Pilzsprite.getBufferedImage(),x,y,breite,höhe,null);}
+		
 		g.setColor(Color.red);
 		g.drawRect(getX(),getY(),breite,höhe);
 		g.setColor(Color.green);
@@ -109,16 +107,16 @@ public class Goomba extends Enemy{
 		}
 	}
 
-	public static void Goombasinit(){
+	public static void Pilzsinit(){
 		setCounter(getCounter()+1);
-		if(getCounter()==500){
-			if(j<goomba.length){
-				for(int i=0;i<goomba.length;i++){
+		if(getCounter()==300){
+			if(j<Pilz.length){
+				for(int i=0;i<Pilz.length;i++){
 					setSpawnpoint(r.nextInt(2));
-					if(getSpawnpoint()==0){goomba[i] = new Goomba(110,5,60,60,true,Game.handler,Id.enemy);}
-					if(getSpawnpoint()==1){goomba[i] = new Goomba(1189,5,60,60,true,Game.handler,Id.enemy);}
+					if(getSpawnpoint()==0){Pilz[i] = new Pilz(110,5,60,60,true,Game.handler,Id.Item);}
+					if(getSpawnpoint()==1){Pilz[i] = new Pilz(1189,5,60,60,true,Game.handler,Id.Item);}
 					}
-			Game.handler.addEnemy(goomba[j]);
+			Game.handler.addItem(Pilz[j]);
 			j++;
 			}
 			setCounter(0);
