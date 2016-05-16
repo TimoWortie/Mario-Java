@@ -9,7 +9,7 @@ import Main.Game;
 
 public class Mouse implements MouseListener{
     	
-		public static int map=0;
+		public static int map=1;
 		private boolean mapausgewählt;
 		
 	

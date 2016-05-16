@@ -18,6 +18,7 @@ import Entity.Mario;
 import Input.Key;
 import Input.KeyLuigi;
 import Input.Mouse;
+import Item.Flower;
 import Item.Pilz;
 import Launcher.Launcher;
 import Audio.SoundManager;
@@ -82,10 +83,10 @@ public class Game extends Canvas implements Runnable{
 		handler.tick();
 		Goomba.Goombasinit();
 		Koopa.koopasinit();
-		Kugelwilli.kugelwillisinit();
-		//Monty.Montysinit();
-		System.out.println("test");
+//		Kugelwilli.kugelwillisinit();
+		Monty.Montysinit();
 		Pilz.Pilzsinit();
+		Flower.flowersinit();
 //		for(Entity e:handler.entity){
 //			if(e.getId()==Id.player){
 //				cam.tick(e);

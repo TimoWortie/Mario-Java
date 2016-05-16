@@ -1,4 +1,4 @@
-package Enemy;
+package Tile;
 
 import java.awt.Graphics;
 
@@ -7,7 +7,7 @@ import Main.Handler;
 import Main.Id;
 import gfx.Sprite;
 
-public class Williblaster extends Enemy{
+public class Williblaster extends Tile{
 
 	private Sprite williblastersprite = new Sprite(Game.sheet,31,3,1,3);
 	

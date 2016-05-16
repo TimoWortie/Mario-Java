@@ -62,7 +62,7 @@ public class Koopa extends Enemy{
 					if(getZufallszahl()==1){
 						setVelX(-1);
 					}
-					if(x+breite>=Game.getFrameBreite()&&y<520){
+					if(x+breite>=1263&&y<520){
 						setZufallszahl(1);
 					}
 					if(x<=0&&y<520){
