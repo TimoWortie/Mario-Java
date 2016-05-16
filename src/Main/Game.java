@@ -8,27 +8,29 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import Enemy.Goomba;
 import Enemy.Koopa;
 import Enemy.Monty;
-import Enemy.Goomba;
 import Entity.Entity;
+import Entity.Luigi;
 import Entity.Mario;
 import Input.Key;
 import Input.KeyLuigi;
 import Input.Mouse;
-import gfx.Sprite;
+import Launcher.Launcher;
 import gfx.Spritesheet;
-import Entity.Luigi;
 
 
 public class Game extends Canvas implements Runnable{
 	public static int breite = 270,höhe = breite/14*10,scale = 4;
-	public boolean running = false;
-	public Thread thread = new Thread();
+	public static boolean running = false;
+	public static Thread thread = new Thread();
 	public static Handler handler = new Handler();
 	public static Mario player = new Mario(1000,500,100,100,true,handler,Id.player);
 	public static Luigi luigi = new Luigi(500,500,100,100,true,handler,Id.Luigi);
 	public static Camera cam;
+	public static Launcher launcher = new Launcher();
+	
 	
 	private BufferedImage image,background;
 	public static Spritesheet sheet;
@@ -45,7 +47,7 @@ public class Game extends Canvas implements Runnable{
 		addKeyListener(new KeyLuigi());
 		try {
 			image = ImageIO.read(getClass().getResource("/level.png"));
-			background = ImageIO.read(getClass().getResource("/Background1.png"));
+			background = ImageIO.read(getClass().getResource("/Background.png"));
 		} catch (IOException e) {}
 		handler.createlevel(image);
 	}
@@ -57,28 +59,34 @@ public class Game extends Canvas implements Runnable{
 			return;
 		}
 		Graphics g = bs.getDrawGraphics();
+//		if(launcher.launching){
+//			launcher.render(g);
+//		}else{
 		g.drawImage(background, 0, 0, getWidth(),getHeight(),null);
 //		g.translate(cam.getX(), cam.getY()+220);
 		handler.render(g);
+//		}
 		g.dispose();
 		bs.show();
 	}
 	
 	public void tick(){
+//		if(launcher.launching){
+			
+//		}else{
 		handler.tick();
-		
-		for(Entity e:handler.entity){
-			if(e.getId()==Id.player){
-				cam.tick(e);
-			}
-			if(e.getId()==Id.Luigi){
-				cam.tick(e);
-			}
-		}
-		
 		Goomba.Goombasinit();
 		Koopa.koopasinit();
 		Monty.Montysinit();
+//		for(Entity e:handler.entity){
+//			if(e.getId()==Id.player){
+//				cam.tick(e);
+//			}
+//			if(e.getId()==Id.Luigi){
+//				cam.tick(e);
+//			}
+//		}
+//		}
 	}
 	
 	public synchronized void start(){
