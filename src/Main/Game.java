@@ -18,6 +18,7 @@ import Entity.Mario;
 import Input.Key;
 import Input.KeyLuigi;
 import Input.Mouse;
+import Item.Pilz;
 import Launcher.Launcher;
 import gfx.Spritesheet;
 
@@ -82,6 +83,7 @@ public class Game extends Canvas implements Runnable{
 		Goomba.Goombasinit();
 		Koopa.koopasinit();
 		Monty.Montysinit();
+		Pilz.Pilzsinit();
 //		for(Entity e:handler.entity){
 //			if(e.getId()==Id.player){
 //				cam.tick(e);

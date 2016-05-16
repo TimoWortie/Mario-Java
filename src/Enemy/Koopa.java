@@ -105,7 +105,6 @@ public class Koopa extends Enemy{
 		if(!gecountet){
 			spawnzeit = r.nextInt(10)+5;
 			gecountet=true;
-			System.out.println(spawnzeit);
 		}
 		if(getCounter2()/60==spawnzeit){
 			if(b<koopa.length){
