@@ -8,7 +8,10 @@ import Main.Id;
 
 public class Entity {
 	
-	int x,y,breite,höhe,velX,velY,timer,timer2,timertot;
+	protected int x,y,breite,höhe,velX,velY,timer,timer2,timertot,timerstunned;
+	
+
+
 	boolean solid;
 	boolean shouldRemove = false;
 	Handler handler;
@@ -20,9 +23,12 @@ public class Entity {
 	public boolean hit=false;
 	public boolean tot=false;
 	protected boolean tot1=false;
+	protected boolean stunned=false;
+	
 	
 
-	
+
+
 	public Entity(int x,int y,int breite,int höhe,boolean solid,Handler handler,Id id){
 		this.x=x;
 		this.y=y;
@@ -30,6 +36,13 @@ public class Entity {
 		this.höhe=höhe;
 		this.handler=handler;
 		this.id=id;
+	}
+	public boolean getStunned() {
+		return stunned;
+	}
+
+	public void setStunned(boolean stunned) {
+		this.stunned = stunned;
 	}
 
 	public Id getId() {
@@ -64,6 +77,12 @@ public class Entity {
 	}
 	public int getVelX() {
 		return velX;
+	}
+	public int getTimerstunned() {
+		return timerstunned;
+	}
+	public void setTimerstunned(int timerstunned) {
+		this.timerstunned = timerstunned;
 	}
 
 	public void setVelX(int velX) {
@@ -135,7 +154,8 @@ public class Entity {
         }
         catch(InterruptedException e){
         	e.printStackTrace();
-     }}                  
+     }}
+	         
 
 
 }

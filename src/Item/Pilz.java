@@ -15,7 +15,7 @@ public class Pilz extends Item{
 	public static Random r = new Random();
 	public static int j;
 	private Sprite Pilzsprite;
-	public static Pilz[] Pilz = new Pilz[5];
+	public static Pilz[] Pilz = new Pilz[100];
 	
 	
 	public Pilz(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
@@ -23,8 +23,8 @@ public class Pilz extends Item{
 	}
 
 	public void render(Graphics g){
-		
-		if(getZufallszahl()==1){g.drawImage(Pilzsprite.getBufferedImage(),x,y,breite,höhe,null);}
+		Pilzsprite=new Sprite(Game.sheet, 3, 2, 1, 1);
+		g.drawImage(Pilzsprite.getBufferedImage(),x,y,breite,höhe,null);
 		
 		g.setColor(Color.red);
 		g.drawRect(getX(),getY(),breite,höhe);
@@ -109,12 +109,12 @@ public class Pilz extends Item{
 
 	public static void Pilzsinit(){
 		setCounter(getCounter()+1);
-		if(getCounter()==300){
+		if(getCounter()==1000){
 			if(j<Pilz.length){
 				for(int i=0;i<Pilz.length;i++){
 					setSpawnpoint(r.nextInt(2));
-					if(getSpawnpoint()==0){Pilz[i] = new Pilz(110,5,60,60,true,Game.handler,Id.Item);}
-					if(getSpawnpoint()==1){Pilz[i] = new Pilz(1189,5,60,60,true,Game.handler,Id.Item);}
+					if(getSpawnpoint()==0){Pilz[i] = new Pilz(396,5,60,60,true,Game.handler,Id.Item);}
+					if(getSpawnpoint()==1){Pilz[i] = new Pilz(851,5,60,60,true,Game.handler,Id.Item);}
 					}
 			Game.handler.addItem(Pilz[j]);
 			j++;

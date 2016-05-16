@@ -105,14 +105,13 @@ public class Koopa extends Enemy{
 		if(!gecountet){
 			spawnzeit = r.nextInt(10)+5;
 			gecountet=true;
-			System.out.println(spawnzeit);
 		}
 		if(getCounter2()/60==spawnzeit){
 			if(b<koopa.length){
 				for(int i=0;i<koopa.length;i++){
 					setSpawnpoint2(r.nextInt(2));
-					if(getSpawnpoint2()==0){koopa[i] = new Koopa(1189,5,60,60,true,Game.handler,Id.enemy);}
-					if(getSpawnpoint2()==1){koopa[i] = new Koopa(110,5,60,60,true,Game.handler,Id.enemy);}
+					if(getSpawnpoint2()==0){koopa[i] = new Koopa(396,5,60,60,true,Game.handler,Id.enemy);}
+					if(getSpawnpoint2()==1){koopa[i] = new Koopa(851,5,60,60,true,Game.handler,Id.enemy);}
 					gecountet=false;
 					}
 			Game.handler.addEnemy(koopa[b]);
