@@ -21,7 +21,8 @@ public class Entity {
 	public boolean hit = false;
 	public boolean tot = false;
 	protected boolean tot1 = false;
-	protected boolean stunned = false;
+	protected boolean klein2=false;
+	
 
 	public Entity(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
 		this.x = x;
@@ -32,13 +33,7 @@ public class Entity {
 		this.id = id;
 	}
 
-	public boolean getStunned() {
-		return stunned;
-	}
 
-	public void setStunned(boolean stunned) {
-		this.stunned = stunned;
-	}
 
 	public Id getId() {
 		return id;
@@ -101,7 +96,12 @@ public class Entity {
 
 	public Rectangle getBounds() {
 		if (klein == false) {
-			return new Rectangle(getX() + 26, getY() + 10, 49, höhe - 10);
+			if(klein2==true){
+				return new Rectangle(getX() + 26, getY() + 10, 49, höhe - 10);
+			}else{
+				return new Rectangle(getX() + 26, getY() + 30, 49, höhe - 30);
+			}
+			
 		} else {
 			return new Rectangle(getX() + 26, getY() + 30, 49, höhe - 30);
 		}
@@ -109,9 +109,9 @@ public class Entity {
 
 	public Rectangle getTop() {
 		if (klein == false) {
-			if (stunned == false) {
+			if(klein2==true){
 				return new Rectangle(x + 33, y + 13, 38, 5);
-			} else {
+			}else{
 				return new Rectangle(x + 33, y + 33, 38, 5);
 			}
 		} else {
@@ -127,9 +127,9 @@ public class Entity {
 
 	public Rectangle getRight() {
 		if (klein == false) {
-			if (stunned == false) {
-				return new Rectangle(getX() + 70, getY() + 25, 5, 62);
-			} else {
+			if(klein2==true){
+			return new Rectangle(getX() + 70, getY() + 25, 5, 62);
+			}else{
 				return new Rectangle(getX() + 70, getY() + 45, 5, 42);
 			}
 		} else {
@@ -139,9 +139,9 @@ public class Entity {
 
 	public Rectangle getLeft() {
 		if (klein == false) {
-			if (stunned = false) {
+			if(klein2==true){
 				return new Rectangle(getX() + 26, getY() + 25, 5, 62);
-			} else {
+			}else{
 				return new Rectangle(getX() + 26, getY() + 45, 5, 42);
 			}
 

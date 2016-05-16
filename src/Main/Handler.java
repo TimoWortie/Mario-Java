@@ -8,8 +8,6 @@ import java.util.LinkedList;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-import Audio.SoundManager;
-
 import Enemy.Enemy;
 import Entity.Entity;
 
@@ -22,6 +20,7 @@ import Tile.Pipe;
 import Tile.Pipe2;
 import Tile.Pipe3;
 import Tile.Tile;
+import audio.SoundManager;
 import gfx.Spritesheet;
 
 public class Handler {

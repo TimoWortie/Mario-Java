@@ -2,8 +2,8 @@ package Main;
 
 import javax.swing.JFrame;
 
-import Audio.SoundManager;
 import Launcher.Launcher;
+import audio.SoundManager;
 
 public class Main {
 
