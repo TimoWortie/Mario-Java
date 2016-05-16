@@ -1,10 +1,9 @@
 package Input;
 
-import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import Entity.Mario;
+import Launcher.Launcher;
 import Main.Game;
 
 public class Mouse implements MouseListener{
@@ -30,11 +29,17 @@ public class Mouse implements MouseListener{
 	public void mousePressed(MouseEvent e) {
 		int x = e.getX();
 		int y = e.getY();
+		System.out.println(x+" "+y);
 		if(x>555&&x<759&&y>349&&y<381){
 			Game.launcher.launching=false;
 		}
 		if(x>178&&x<451&&y>516&&y<559){
-			Game.running=false;
+		}
+		if(x>590&&x<719&&y>403&&y<437){
+			Launcher.seite=2;
+		}
+		if(x>125&&x<373&&y>639&&y<671){
+			Launcher.seite=1;
 		}
 	}
 
