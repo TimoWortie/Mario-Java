@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
+import Input.Mouse;
 import Main.Game;
 import Main.Handler;
 import Main.Id;
@@ -15,7 +16,8 @@ public class Pilz extends Item{
 	public static Random r = new Random();
 	public static int j;
 	private Sprite Pilzsprite;
-	public static Pilz[] Pilz = new Pilz[0];
+	public static Pilz[] pilz = new Pilz[10];
+	private boolean playsound;
 	
 	
 	public Pilz(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
@@ -23,7 +25,7 @@ public class Pilz extends Item{
 	}
 
 	public void render(Graphics g){
-		Pilzsprite=new Sprite(Game.sheet, 3, 2, 1, 1);
+		Pilzsprite=new Sprite(Game.sheet,24 , 1, 1, 1);
 		g.drawImage(Pilzsprite.getBufferedImage(),x,y,breite,höhe,null);
 		
 		g.setColor(Color.red);
@@ -57,7 +59,7 @@ public class Pilz extends Item{
 					if(getZufallszahl()==1){
 						setVelX(-1);
 					}
-					if(x+breite>=Game.getFrameBreite()&&y<520){
+					if(x+breite>=1263&&y<520){
 						setZufallszahl(1);
 					}
 					if(x<=0&&y<520){
@@ -66,6 +68,10 @@ public class Pilz extends Item{
 					falling = false;
 					}else if(isErscheinen()){
 						falling=true;
+						if(playsound==false){
+							Game.handler.ChangeMusic(9, 1, false);
+							playsound=true;
+						}
 					}
 			}
 		}
@@ -98,26 +104,39 @@ public class Pilz extends Item{
 			}
 		}
 		setFramedelay(getFramedelay() + 1);
-		if(getFramedelay()>=9){
+		if(getFramedelay()>=9)
 			setFrame(getFrame() + 1);
 			setFramedelay(0);
 			if(getFrame()==2){
 				setFrame(0);
 			}
 		}
-	}
+	
 
 	public static void Pilzsinit(){
-		setCounter(getCounter()+1);
-		if(getCounter()==1500){
-			if(j<Pilz.length){
-				for(int i=0;i<Pilz.length;i++){
-					System.out.println("pilz");
+		setCounter2(getCounter2()+1);
+		if(getCounter2()==300){
+			if(j<pilz.length){
+				for(int i=0;i<pilz.length;i++){
 					setSpawnpoint(r.nextInt(2));
-					if(getSpawnpoint()==0){Pilz[i] = new Pilz(396,5,60,60,true,Game.handler,Id.pilz);}
-					if(getSpawnpoint()==1){Pilz[i] = new Pilz(851,5,60,60,true,Game.handler,Id.pilz);}
+					System.out.println("test");
+					if(Mouse.map==1){
+					if(getSpawnpoint()==0){
+						pilz[i] = new Pilz(396,5,60,60,true,Game.handler,Id.pilz);
+						}
 					}
-			Game.handler.addItem(Pilz[j]);
+					if(getSpawnpoint()==1){pilz[i] = new Pilz(851,5,60,60,true,Game.handler,Id.pilz);}
+					
+					if(Mouse.map==2){
+						if(getSpawnpoint()==0){pilz[i] = new Pilz(16,155,60,60,true,Game.handler,Id.pilz);}
+						if(getSpawnpoint()==1){pilz[i] = 
+						pilz[i]=new Pilz(1155,535,60,60,true,Game.handler,Id.pilz);}
+						}
+					
+				}
+			Game.handler.addItem(pilz[j]);
+			
+			
 			j++;
 			}
 			setCounter(0);

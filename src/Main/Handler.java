@@ -47,6 +47,9 @@ public class Handler {
 		for(Enemy ene:enemy){
 			ene.render(g);
 		}
+		for(Item it:item){
+			it.render(g);
+		}
 		
 		for(Tile ti:tile){
 			ti.render(g);
@@ -55,9 +58,7 @@ public class Handler {
 		for(Entity en:entity){
 			en.render(g);
 		}
-		for(Item it:item){
-			it.render(g);
-		}
+		
 	}
 	
 	public void tick(){

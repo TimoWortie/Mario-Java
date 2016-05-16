@@ -7,6 +7,7 @@ import Enemy.Enemy;
 import Enemy.Monty;
 import Input.KeyLuigi;
 import Input.Mouse;
+import Item.Item;
 import Main.Game;
 import Main.Handler;
 import Main.Id;
@@ -442,6 +443,21 @@ public class Luigi extends Entity {
 
 				}
 			}
+			
+			for (Item it : handler.item) {
+				if (it.getId() == Id.pilz) {
+					if (getBounds().intersects(it.getBounds())) {
+						Game.handler.ChangeMusic(8, 1, false);
+						it.setAsRemoved();
+						if(klein==true){
+						klein=false;
+						}
+					}}
+				
+				
+			}
+			
+			
 			for (Tile t : handler.tile) {
 				if (t.getId() == Id.wall) {
 					if (getTop().intersects(t.getBounds())) {

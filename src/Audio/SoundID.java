@@ -14,8 +14,8 @@ public enum SoundID {
     stomp	        (   5,  "stomp",         1),
     hit     		(   6,  "hit",  1),
     bounce		    (   7,  "bounce",  1),
-    akbar           (   8,  "akbar",        1);
-	
+    item           (   8,  "item",        1),
+	appear           (  9,  "appear",        1);
      
     private int id;
     private String prefix = "res/";

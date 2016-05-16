@@ -85,7 +85,7 @@ public class Game extends Canvas implements Runnable{
 		Koopa.koopasinit();
 //		Kugelwilli.kugelwillisinit();
 		Monty.Montysinit();
-		Pilz.Pilzsinit();
+		
 		Flower.flowersinit();
 //		for(Entity e:handler.entity){
 //			if(e.getId()==Id.player){
@@ -94,6 +94,7 @@ public class Game extends Canvas implements Runnable{
 //			if(e.getId()==Id.Luigi){
 //				cam.tick(e);
 //			}
+		Pilz.Pilzsinit();
 		}
 //		}
 	}
