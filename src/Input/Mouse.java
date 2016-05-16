@@ -31,7 +31,7 @@ public class Mouse implements MouseListener{
 		int x = e.getX();
 		int y = e.getY();
 		System.out.println(x+" "+y);
-		if(x>116&&x<516&&y>226&&y<270){
+		if(x>555&&x<759&&y>349&&y<381){
 			Game.launcher.launching=false;
 		}
 		if(x>178&&x<451&&y>516&&y<559){

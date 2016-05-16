@@ -390,7 +390,6 @@ public class Mario extends Entity{
 		}else{
 			Monty.montylosschicken=0;
 		}
-		System.out.println(Monty.montylosschicken);
 	  
 
 	  }else{
@@ -420,19 +419,6 @@ public class Mario extends Entity{
 					
 					setVelY((int)gravity);
 				}
-		  
-		  
-		  
-		  
 		  }
-		  
-		  
-		  
-	  
-	
-	
 	}
-		  
-	  
-
 	}

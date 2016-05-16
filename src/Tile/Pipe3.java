@@ -18,8 +18,6 @@ public class Pipe3 extends Tile{
 	
 	public void render(Graphics g){
 		g.drawImage(pipe3.getBufferedImage(),x,y,breite,höhe,null);
-		g.setColor(Color.white);
-		g.drawRect(x, y, breite, höhe);
 	}
 
 }

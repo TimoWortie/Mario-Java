@@ -11,7 +11,7 @@ public class Main {
 		JFrame frame = new JFrame();
 		frame.add(game);
 		frame.pack();
-		frame.setBounds(0,0,1280,720);
+		frame.setBounds(0,0,1280,790);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		game.start();

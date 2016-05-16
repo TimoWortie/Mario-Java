@@ -19,9 +19,9 @@ public class Launcher extends Canvas{
 	
 	public void render(Graphics g){
 		try {
-			hintergrund = ImageIO.read(getClass().getResource("/background2.png"));
+			hintergrund = ImageIO.read(getClass().getResource("/startscreen.png"));
 		} catch (IOException e) {}
-		g.drawImage(hintergrund, 0, 0, 1280,720,null);
+		g.drawImage(hintergrund, 0, 0, 1280,760,null);
 	}
 
 }

@@ -115,8 +115,8 @@ public class Goomba extends Enemy{
 			if(j<goomba.length){
 				for(int i=0;i<goomba.length;i++){
 					setSpawnpoint(r.nextInt(2));
-					if(getSpawnpoint()==0){goomba[i] = new Goomba(110,5,60,60,true,Game.handler,Id.enemy);}
-					if(getSpawnpoint()==1){goomba[i] = new Goomba(1189,5,60,60,true,Game.handler,Id.enemy);}
+					if(getSpawnpoint()==0){goomba[i] = new Goomba(396,5,60,60,true,Game.handler,Id.enemy);}
+					if(getSpawnpoint()==1){goomba[i] = new Goomba(851,5,60,60,true,Game.handler,Id.enemy);}
 					}
 			Game.handler.addEnemy(goomba[j]);
 			j++;

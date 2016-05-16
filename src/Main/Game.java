@@ -59,21 +59,21 @@ public class Game extends Canvas implements Runnable{
 			return;
 		}
 		Graphics g = bs.getDrawGraphics();
-//		if(launcher.launching){
-//			launcher.render(g);
-//		}else{
+		if(launcher.launching){
+			launcher.render(g);
+		}else{
 		g.drawImage(background, 0, 0, getWidth(),getHeight(),null);
 //		g.translate(cam.getX(), cam.getY()+220);
 		handler.render(g);
-//		}
+		}
 		g.dispose();
 		bs.show();
 	}
 	
 	public void tick(){
-//		if(launcher.launching){
+		if(launcher.launching){
 			
-//		}else{
+		}else{
 		handler.tick();
 		Goomba.Goombasinit();
 		Koopa.koopasinit();
@@ -85,7 +85,7 @@ public class Game extends Canvas implements Runnable{
 //			if(e.getId()==Id.Luigi){
 //				cam.tick(e);
 //			}
-//		}
+		}
 //		}
 	}
 	
