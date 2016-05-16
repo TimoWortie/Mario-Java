@@ -40,6 +40,8 @@ public class Luigi extends Entity {
 		tot2 = new Sprite(Game.sheet, 17, 1, 1, 1);
 		tot3 = new Sprite(Game.sheet, 16, 1, 1, 1);
 		leer = new Sprite(Game.sheet, 26, 3, 1, 1);
+		stunned2 = new Sprite(Game.sheet, 29, 3, 1, 1);
+		stunned1 = new Sprite(Game.sheet, 30, 3, 1, 1);
 		if (tot == false) {
 			if (hit == false) {
 				if (stunned == false) {
@@ -363,6 +365,13 @@ public class Luigi extends Entity {
 							hit = true;
 							klein = true;
 						}
+						if(getTopEn().intersects(ene.getBottom())){
+							System.out.println("test");
+							setVelX(0);
+							klein = true;
+							hit = true;
+							Game.handler.ChangeMusic(6, 1, false);
+						}
 					} else {
 
 						if (getLeft().intersects(ene.getRight())) {
@@ -386,6 +395,14 @@ public class Luigi extends Entity {
 
 						} else if (ene.getId() == Id.Monty && getBottom().intersects(ene.getTop())) {
 							tot = true;
+						}
+						
+						if(getTopEn().intersects(ene.getBottom())){
+							System.out.println("test");
+							setVelX(0);
+							klein = true;
+							hit = true;
+							Game.handler.ChangeMusic(6, 1, false);
 						}
 					}
 

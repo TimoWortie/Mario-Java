@@ -110,12 +110,23 @@ public class Entity {
 	public Rectangle getTop() {
 		if (klein == false) {
 			if(klein2==true){
-				return new Rectangle(x + 33, y + 13, 38, 5);
+				return new Rectangle(x + 33, y + 13, 38, 25);
 			}else{
-				return new Rectangle(x + 33, y + 33, 38, 5);
+				return new Rectangle(x + 33, y + 33, 38, 25);
 			}
 		} else {
 			return new Rectangle(x + 33, y + 33, 38, 5);
+		}
+	}
+	public Rectangle getTopEn() {
+		if (klein == false) {
+			if(klein2==true){
+				return new Rectangle(x + 33, y + 13, 38, 25);
+			}else{
+				return new Rectangle(x + 33, y + 33, 38, 25);
+			}
+		} else {
+			return new Rectangle(x + 33, y + 33, 38, 25);
 		}
 	}
 

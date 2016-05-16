@@ -25,11 +25,11 @@ public class KeyLuigi implements KeyListener{
 		if(key==e.VK_LEFT){
 			a=true;
 		}
-		if(key==e.VK_UP&&en.getId()==Id.Luigi&&Game.player.getStunned()==false){
+		if(key==e.VK_UP&&en.getId()==Id.Luigi&&Game.luigi.getStunned()==false){
 			if(!en.jumping&&!en.falling){
 				Game.handler.ChangeMusic(4, 1, false);
 				en.jumping=true;
-				en.gravity=15.0f;
+				en.gravity=17.0f;
 			}
 			
 		 }
