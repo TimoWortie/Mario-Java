@@ -1,4 +1,4 @@
-package Enemy;
+package Item;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 import Main.Handler;
 import Main.Id;
 
-public class Enemy {
+public class Item {
 	
 	int x,y,breite,höhe,velX,velY;
 	boolean solid;
@@ -22,7 +22,7 @@ public class Enemy {
 	public static int counter,counter2;
 
 
-	public Enemy(int x,int y,int breite,int höhe,boolean solid,Handler handler,Id id){
+	public Item(int x,int y,int breite,int höhe,boolean solid,Handler handler,Id id){
 		this.x=x;
 		this.y=y;
 		this.breite=breite;
@@ -34,13 +34,13 @@ public class Enemy {
 		return spawnpoint2;
 	}
 	public static void setSpawnpoint2(int spawnpoint2) {
-		Enemy.spawnpoint2 = spawnpoint2;
+		Item.spawnpoint2 = spawnpoint2;
 	}
 	public static int getCounter2() {
 		return counter2;
 	}
 	public static void setCounter2(int counter2) {
-		Enemy.counter2 = counter2;
+		Item.counter2 = counter2;
 	}
 	
 	public static int getSpawnpoint() {
@@ -48,7 +48,7 @@ public class Enemy {
 	}
 
 	public static void setSpawnpoint(int spawnpoint) {
-		Enemy.spawnpoint = spawnpoint;
+		Item.spawnpoint = spawnpoint;
 	}
 
 	public static int getCounter() {
@@ -56,7 +56,7 @@ public class Enemy {
 	}
 
 	public static void setCounter(int counter) {
-		Enemy.counter = counter;
+		Item.counter = counter;
 	}
 	
 	public int getFramedelay() {
