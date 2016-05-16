@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 
 import Enemy.Goomba;
 import Enemy.Koopa;
+import Enemy.Kugelwilli;
 import Enemy.Monty;
 import Entity.Entity;
 import Entity.Luigi;
@@ -82,6 +83,7 @@ public class Game extends Canvas implements Runnable{
 		handler.tick();
 		Goomba.Goombasinit();
 		Koopa.koopasinit();
+		Kugelwilli.kugelwillisinit();
 		//Monty.Montysinit();
 		Pilz.Pilzsinit();
 //		for(Entity e:handler.entity){

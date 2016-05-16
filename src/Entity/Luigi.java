@@ -365,6 +365,13 @@ public class Luigi extends Entity {
 							hit = true;
 							klein = true;
 						}
+						if(getTopEn().intersects(ene.getBottom())){
+							System.out.println("test");
+							setVelX(0);
+							klein = true;
+							hit = true;
+							Game.handler.ChangeMusic(6, 1, false);
+						}
 					} else {
 
 						if (getLeft().intersects(ene.getRight())) {
@@ -388,6 +395,14 @@ public class Luigi extends Entity {
 
 						} else if (ene.getId() == Id.Monty && getBottom().intersects(ene.getTop())) {
 							tot = true;
+						}
+						
+						if(getTopEn().intersects(ene.getBottom())){
+							System.out.println("test");
+							setVelX(0);
+							klein = true;
+							hit = true;
+							Game.handler.ChangeMusic(6, 1, false);
 						}
 					}
 

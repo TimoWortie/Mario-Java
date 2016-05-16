@@ -82,6 +82,9 @@ public class Mario extends Entity {
 						g.drawRect(getX() + 26, getY() + 25, 5, 62);
 						g.setColor(Color.MAGENTA);
 						g.drawRect(getX() + 26, getY() + 10, 49, höhe - 10);
+						g.setColor(Color.YELLOW);
+						g.drawRect(x + 33, y + 13, 38, 25);
+
 
 					} else {
 						if (moving == -1 && !jumping && !falling) {
@@ -119,7 +122,7 @@ public class Mario extends Entity {
 						g.drawRect(getX() + 26, getY() + 45, 5, 42);
 						g.setColor(Color.MAGENTA);
 						g.drawRect(getX() + 26, getY() + 30, 49, höhe - 30);
-
+						
 					}
 				} else {
 					if (moving == 2 || moving == -2) {
@@ -366,6 +369,13 @@ public class Mario extends Entity {
 							klein = true;
 							Game.handler.ChangeMusic(6, 1, false);
 						}
+						if(getTopEn().intersects(ene.getBottom())){
+							System.out.println("test");
+							setVelX(0);
+							klein = true;
+							hit = true;
+							Game.handler.ChangeMusic(6, 1, false);
+						}
 					} else {
 
 						if (getLeft().intersects(ene.getRight())) {
@@ -389,6 +399,11 @@ public class Mario extends Entity {
 
 						} else if (ene.getId() == Id.Monty && getBottom().intersects(ene.getTop())) {
 							tot = true;
+						}
+						if(getTop().intersects(ene.getBounds())){
+							setVelX(0);
+							tot = true;
+
 						}
 					}
 
