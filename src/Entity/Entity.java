@@ -8,7 +8,7 @@ import Main.Id;
 
 public class Entity {
 	
-	int x,y,breite,höhe,velX,velY,timer,timer2,timertot;
+	protected int x,y,breite,höhe,velX,velY,timer,timer2,timertot;
 	boolean solid;
 	boolean shouldRemove = false;
 	Handler handler;
@@ -20,6 +20,7 @@ public class Entity {
 	public boolean hit=false;
 	public boolean tot=false;
 	protected boolean tot1=false;
+	
 	
 
 	

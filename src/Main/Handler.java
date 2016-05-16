@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+import Audio.SoundManager;
 import Enemy.Enemy;
 import Enemy.Goomba;
 import Entity.Entity;
@@ -27,6 +28,21 @@ public class Handler {
 	public LinkedList <Enemy> enemy = new LinkedList <Enemy>();
 //	public LinkedList <Item> item = new LinkedList <Item>();
 	public static int red,green,blue;
+	public static SoundManager manager = new SoundManager();
+	
+	public void ChangeMusic(int newMusicID, int oldMusicID, boolean running){
+		if(oldMusicID==0){
+			manager.playSound(newMusicID);
+		}else if(oldMusicID==newMusicID&&!running){
+			manager.playSound(newMusicID);
+		}else if(oldMusicID==newMusicID){
+			
+		}else{
+			manager.stopSound(oldMusicID);
+			manager.playSound(newMusicID);
+		}
+		//if(!Game.DEBUG) manager.fadeInSound(newMusicID);
+	}
 	
 	public void render(Graphics g){
 		for(Enemy ene:enemy){

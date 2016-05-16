@@ -39,7 +39,7 @@ public class Luigi extends Entity{
 		luigi2[13]=new Sprite(Game.sheet,16,3,1,1);
 		tot2=new Sprite(Game.sheet,17,1,1,1);
 		tot3=new Sprite(Game.sheet,16,1,1,1);
-		leer=new Sprite(Game.sheet,25,3,1,1);
+		leer=new Sprite(Game.sheet,26,3,1,1);
 		if(tot==false){
 		if(hit==false){
 		if(klein==false){
@@ -193,19 +193,26 @@ public class Luigi extends Entity{
 					setVelX(0);
 					klein=true;
 					hit=true;
+					Game.handler.ChangeMusic(6, 1, false);
 				}
 				if(getRight().intersects(ene.getLeft())){
 					setVelX(0);
 					klein=true;
 					hit=true;
+					Game.handler.ChangeMusic(6, 1, false);
 				}
-				if(getBottom().intersects(ene.getTop())){
+				if(getBottom().intersects(ene.getTop())&&ene.getId()!=Id.Monty){
 					setVelY(0);
 					y=y-40;
 					jumping=true;
 					falling=false;
 					gravity=5.0f;
 					ene.setAsRemoved();
+					Game.handler.ChangeMusic(5, 1, false);
+				}else if(ene.getId()==Id.Monty && getBottom().intersects(ene.getTop())){
+					Game.handler.ChangeMusic(6, 1, false);
+					hit=true;
+					klein=true;
 				}
 		}else{
 			
@@ -219,17 +226,21 @@ public class Luigi extends Entity{
 					tot=true;
 					
 				}
-				if(getBottom().intersects(ene.getTop())){
+				if(getBottom().intersects(ene.getTop())&&ene.getId()!=Id.Monty){
 					setVelY(0);
 					y=y-40;
 					jumping=true;
 					falling=false;
 					gravity=5.0f;
 					ene.setAsRemoved();
+					Game.handler.ChangeMusic(5, 1, false);
 				
-		}}
+		}else if(ene.getId()==Id.Monty && getBottom().intersects(ene.getTop())){
+			tot=true;
+		}
+				}
 			
-			}else{ if(timer<300){
+			}else{ if(timer<400){
 				timer2++;
 				timer+=1;
 			}else{
@@ -251,6 +262,7 @@ public class Luigi extends Entity{
 					x=en.getX()-50;
 				}
 				if(getBottom().intersects(en.getBounds())){
+					Game.handler.ChangeMusic(7, 1, false);
 					setVelY(0);
 					y=y-60;
 					jumping=true;
@@ -374,11 +386,14 @@ public class Luigi extends Entity{
 		}
 
 		}else{
+			setVelX(0);
 			timertot++;
 			  if(timertot>=40){
 				  timertot=0;
 			  }
 			  if(tot1==false){
+				  Game.handler.ChangeMusic(3, 1, false);
+				  falling=false;
 				  jumping=true;
 				  gravity=10.0f;
 				  tot1=true;

@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import Audio.SoundManager;
 import Enemy.Goomba;
 import Enemy.Koopa;
 import Enemy.Monty;
@@ -50,6 +51,8 @@ public class Game extends Canvas implements Runnable{
 			background = ImageIO.read(getClass().getResource("/Background.png"));
 		} catch (IOException e) {}
 		handler.createlevel(image);
+
+		handler.ChangeMusic(1, 1, false);
 	}
 	
 	public void render(){
