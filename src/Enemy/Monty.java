@@ -51,15 +51,13 @@ public class Monty extends Enemy{
 	public static void Montysinit(){
 				if(montywirdlosgeschickt){
 					if(montyfacing==1){
-<<<<<<< HEAD
+
 					monty = new Monty(-121,590,121,121,true,Game.handler,Id.enemy);
 					}else{
 					monty = new Monty(1262,590,121,121,true,Game.handler,Id.enemy);
-=======
-					monty = new Monty(-121,530,121,121,true,Game.handler,Id.Monty);
-					}else{
-					monty = new Monty(1262,530,121,121,true,Game.handler,Id.Monty);
->>>>>>> origin/master
+
+					
+
 					}
 					Game.handler.addEnemy(monty);
 					montywirdlosgeschickt=false;

@@ -3,21 +3,19 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 
-<<<<<<< HEAD
-=======
+
+
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 import Audio.SoundManager;
->>>>>>> origin/master
+
 import Enemy.Enemy;
 import Entity.Entity;
-<<<<<<< HEAD
-=======
+
 import Entity.Mario;
 import Item.Item;
->>>>>>> origin/master
-//import Item.Item;
+
 import Tile.Block;
 import Tile.Bodenblock;
 import Tile.Pipe;
@@ -31,12 +29,11 @@ public class Handler {
 	public LinkedList <Entity> entity = new LinkedList <Entity>();
 	public LinkedList <Tile> tile = new LinkedList <Tile>();
 	public LinkedList <Enemy> enemy = new LinkedList <Enemy>();
-<<<<<<< HEAD
+
 //	public LinkedList <Item> item = new LinkedList <Item>();
 	private int red,green,blue;
-=======
+
 	public LinkedList <Item> item = new LinkedList <Item>();
-	public static int red,green,blue;
 	public static SoundManager manager = new SoundManager();
 	
 	public void ChangeMusic(int newMusicID, int oldMusicID, boolean running){
@@ -52,7 +49,7 @@ public class Handler {
 		}
 		//if(!Game.DEBUG) manager.fadeInSound(newMusicID);
 	}
->>>>>>> origin/master
+
 	
 	public void render(Graphics g){
 		for(Enemy ene:enemy){
