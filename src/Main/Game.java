@@ -117,7 +117,7 @@ public class Game extends Canvas implements Runnable{
 		long lastTime = System.nanoTime();
 		long timer = System.currentTimeMillis();
 		double delta = 0.0;
-		double nanosecounds = 1000000000.0/60.0;
+		double nanosecounds = 1000000000.0/10.0;
 		int frames = 0;
 		int ticks = 0;
 		while(running){

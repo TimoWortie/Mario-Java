@@ -8,7 +8,7 @@ import Main.Id;
 
 public class Entity {
 
-	protected int x, y, breite, höhe, velX, velY, timer, timer2, timertot, timerstunned;
+	protected int x, y, breite, höhe, velX, velY, timer3, timer2, timertot, timerstunned;
 
 	boolean solid;
 	boolean shouldRemove = false;

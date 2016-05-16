@@ -408,9 +408,9 @@ public class Mario extends Entity {
 					}
 
 				} else {
-					if (timer < 400) {
-						System.out.println(timer+" "+timer2);
-						timer ++;
+					if (timer3 < 400) {
+						System.out.println(timer3/60+" "+timer2/60);
+						timer3 ++;
 						timer2++;
 					} else {
 						hit = false;
