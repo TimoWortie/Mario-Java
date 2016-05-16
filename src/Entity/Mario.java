@@ -192,20 +192,28 @@ public class Mario extends Entity{
 						setVelX(0);
 						klein=true;
 						hit=true;
+						Game.handler.ChangeMusic(6, 1, false);
 					}
 					if(getRight().intersects(ene.getLeft())){
 						setVelX(0);
 						klein=true;
 						hit=true;
+						Game.handler.ChangeMusic(6, 1, false);
 					}
-					if(getBottom().intersects(ene.getTop())){
+					if(getBottom().intersects(ene.getTop())&&ene.getId()!=Id.Monty){
 						setVelY(0);
 						y=y-40;
 						jumping=true;
 						falling=false;
 						gravity=5.0f;
 						ene.setAsRemoved();
+						Game.handler.ChangeMusic(5, 1, false);
 					}
+				else if(ene.getId()==Id.Monty && getBottom().intersects(ene.getTop())){
+					hit=true;
+					klein=true;
+					Game.handler.ChangeMusic(6, 1, false);
+				}
 			}else{
 				
 					if(getLeft().intersects(ene.getRight())){
@@ -218,15 +226,19 @@ public class Mario extends Entity{
 						tot=true;
 						
 					}
-					if(getBottom().intersects(ene.getTop())){
+					if(getBottom().intersects(ene.getTop())&&ene.getId()!=Id.Monty){
 						setVelY(0);
 						y=y-40;
 						jumping=true;
 						falling=false;
 						gravity=5.0f;
 						ene.setAsRemoved();
+						Game.handler.ChangeMusic(5, 1, false);
 					
-			}}
+			}else if(ene.getId()==Id.Monty&& getBottom().intersects(ene.getTop())){
+				tot=true;
+			}
+					}
 				
 				}else{ if(timer<350){
 					
@@ -250,6 +262,7 @@ public class Mario extends Entity{
 				}
 				
 				if(getBottom().intersects(en.getBounds())){
+					Game.handler.ChangeMusic(7, 1, false);
 					setVelY(0);
 					y=y-40;
 					jumping=true;
@@ -399,6 +412,8 @@ public class Mario extends Entity{
 			  timertot=0;
 		  }
 		  if(tot1==false){
+			  Game.handler.ChangeMusic(3, 1, false);
+			  falling=false;
 			  jumping=true;
 			  gravity=10.0f;
 			  tot1=true;

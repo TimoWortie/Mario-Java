@@ -2,11 +2,15 @@ package Main;
 
 import javax.swing.JFrame;
 
+import Audio.SoundManager;
 import Launcher.Launcher;
 
 public class Main {
 
 	public static void main(String[] args){
+		
+		
+		
 		Game game = new Game();
 		JFrame frame = new JFrame();
 		frame.add(game);

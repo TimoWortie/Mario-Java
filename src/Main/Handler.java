@@ -3,8 +3,20 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 
+<<<<<<< HEAD
+=======
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
+import Audio.SoundManager;
+>>>>>>> origin/master
 import Enemy.Enemy;
 import Entity.Entity;
+<<<<<<< HEAD
+=======
+import Entity.Mario;
+import Item.Item;
+>>>>>>> origin/master
 //import Item.Item;
 import Tile.Block;
 import Tile.Bodenblock;
@@ -19,8 +31,28 @@ public class Handler {
 	public LinkedList <Entity> entity = new LinkedList <Entity>();
 	public LinkedList <Tile> tile = new LinkedList <Tile>();
 	public LinkedList <Enemy> enemy = new LinkedList <Enemy>();
+<<<<<<< HEAD
 //	public LinkedList <Item> item = new LinkedList <Item>();
 	private int red,green,blue;
+=======
+	public LinkedList <Item> item = new LinkedList <Item>();
+	public static int red,green,blue;
+	public static SoundManager manager = new SoundManager();
+	
+	public void ChangeMusic(int newMusicID, int oldMusicID, boolean running){
+		if(oldMusicID==0){
+			manager.playSound(newMusicID);
+		}else if(oldMusicID==newMusicID&&!running){
+			manager.playSound(newMusicID);
+		}else if(oldMusicID==newMusicID){
+			
+		}else{
+			manager.stopSound(oldMusicID);
+			manager.playSound(newMusicID);
+		}
+		//if(!Game.DEBUG) manager.fadeInSound(newMusicID);
+	}
+>>>>>>> origin/master
 	
 	public void render(Graphics g){
 		for(Enemy ene:enemy){
@@ -34,9 +66,9 @@ public class Handler {
 		for(Entity en:entity){
 			en.render(g);
 		}
-//		for(Item it:item){
-//			it.render(g);
-//		}
+		for(Item it:item){
+			it.render(g);
+		}
 	}
 	
 	public void tick(){
@@ -50,9 +82,9 @@ public class Handler {
 		for(Enemy ene:enemy){
 			ene.tick();
 		}
-//		for(Item it:item){
-//			it.tick();
-//		}
+		for(Item it:item){
+			it.tick();
+		}
 		remove();
 	}
 	
@@ -69,9 +101,9 @@ public class Handler {
 	public void addTile(Tile ti){
 		tile.add(ti);
 	}
-//	public void addItem(Item it){
-//		item.add(it);
-//	}
+	public void addItem(Item it){
+		item.add(it);
+	}
 	
 	public void remove() {
 		for(int i = 0; i < entity.size(); i++){
@@ -91,11 +123,11 @@ public class Handler {
 			}
 		}
 		
-//		for(int i = 0; i < item.size(); i++){
-//			if(item.get(i).shouldRemove()) {
-//				item.remove(i);
-//			}
-//		}
+		for(int i = 0; i < item.size(); i++){
+			if(item.get(i).shouldRemove()) {
+				item.remove(i);
+			}
+		}
 	}
 	
 	public void createlevel(BufferedImage level){
