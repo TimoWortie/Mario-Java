@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
+import Input.Mouse;
 import Main.Game;
 import Main.Handler;
 import Main.Id;
@@ -15,7 +16,7 @@ public class Goomba extends Enemy{
 	public static Random r = new Random();
 	public static int j;
 	private Sprite[] goombasprite = new Sprite[4];
-	public static Goomba[] goomba = new Goomba[0];
+	public static Goomba[] goomba = new Goomba[10];
 	
 	
 	public Goomba(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
@@ -70,6 +71,17 @@ public class Goomba extends Enemy{
 						falling=true;
 					}
 			}
+			if(Mouse.map==1&&t.getId()==Id.pipe){
+				if(getBounds().intersects(t.getBounds())){
+					falling=false;
+					if(x<=1155){
+						setVelX(-1);
+					}
+					if(x>=16){
+						setVelX(1);
+					}
+				}
+			}
 		}
 		
 		if(velY==1){
@@ -108,16 +120,21 @@ public class Goomba extends Enemy{
 			}
 		}
 	}
-
 	public static void Goombasinit(){
 		setCounter(getCounter()+1);
 		if(getCounter()==500){
 			if(j<goomba.length){
 				for(int i=0;i<goomba.length;i++){
 					setSpawnpoint(r.nextInt(2));
+					if(Mouse.map==1){
 					if(getSpawnpoint()==0){goomba[i] = new Goomba(396,5,60,60,true,Game.handler,Id.enemy);}
 					if(getSpawnpoint()==1){goomba[i] = new Goomba(851,5,60,60,true,Game.handler,Id.enemy);}
 					}
+					if(Mouse.map==2){
+						if(getSpawnpoint()==0){goomba[i] = new Goomba(16,213,60,60,true,Game.handler,Id.enemy);}
+						if(getSpawnpoint()==1){goomba[i] = new Goomba(1155,610,60,60,true,Game.handler,Id.enemy);}
+						}
+				}
 			Game.handler.addEnemy(goomba[j]);
 			j++;
 			}

@@ -15,7 +15,7 @@ public class Pilz extends Item{
 	public static Random r = new Random();
 	public static int j;
 	private Sprite Pilzsprite;
-	public static Pilz[] Pilz = new Pilz[100];
+	public static Pilz[] Pilz = new Pilz[0];
 	
 	
 	public Pilz(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {

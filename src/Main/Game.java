@@ -34,7 +34,8 @@ public class Game extends Canvas implements Runnable{
 	public static Launcher launcher = new Launcher();
 	
 	
-	private BufferedImage image,image2,background;
+	public static BufferedImage image,image2;
+	private BufferedImage background;
 	public static Spritesheet sheet;
 
 	
@@ -52,7 +53,6 @@ public class Game extends Canvas implements Runnable{
 			image2 = ImageIO.read(getClass().getResource("/level2.png"));
 			background = ImageIO.read(getClass().getResource("/Background.png"));
 		} catch (IOException e) {}
-		handler.createlevel(image);
 
 		handler.ChangeMusic(1, 1, false);
 	}

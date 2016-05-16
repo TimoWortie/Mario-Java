@@ -22,6 +22,9 @@ public class Enemy {
 	public static int counter,counter2;
 
 
+	public void setY(int y) {
+		this.y = y;
+	}
 	public Enemy(int x,int y,int breite,int höhe,boolean solid,Handler handler,Id id){
 		this.x=x;
 		this.y=y;
