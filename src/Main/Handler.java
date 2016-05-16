@@ -12,6 +12,7 @@ import Enemy.Enemy;
 import Enemy.Goomba;
 import Entity.Entity;
 import Entity.Mario;
+import Item.Item;
 //import Item.Item;
 import Tile.Block;
 import Tile.Pipe;
@@ -26,7 +27,7 @@ public class Handler {
 	public LinkedList <Entity> entity = new LinkedList <Entity>();
 	public LinkedList <Tile> tile = new LinkedList <Tile>();
 	public LinkedList <Enemy> enemy = new LinkedList <Enemy>();
-//	public LinkedList <Item> item = new LinkedList <Item>();
+	public LinkedList <Item> item = new LinkedList <Item>();
 	public static int red,green,blue;
 	public static SoundManager manager = new SoundManager();
 	
@@ -56,9 +57,9 @@ public class Handler {
 		for(Entity en:entity){
 			en.render(g);
 		}
-//		for(Item it:item){
-//			it.render(g);
-//		}
+		for(Item it:item){
+			it.render(g);
+		}
 	}
 	
 	public void tick(){
@@ -72,9 +73,9 @@ public class Handler {
 		for(Enemy ene:enemy){
 			ene.tick();
 		}
-//		for(Item it:item){
-//			it.tick();
-//		}
+		for(Item it:item){
+			it.tick();
+		}
 		remove();
 	}
 	
@@ -91,9 +92,9 @@ public class Handler {
 	public void addTile(Tile ti){
 		tile.add(ti);
 	}
-//	public void addItem(Item it){
-//		item.add(it);
-//	}
+	public void addItem(Item it){
+		item.add(it);
+	}
 	
 	public void remove() {
 		for(int i = 0; i < entity.size(); i++){
@@ -113,11 +114,11 @@ public class Handler {
 			}
 		}
 		
-//		for(int i = 0; i < item.size(); i++){
-//			if(item.get(i).shouldRemove()) {
-//				item.remove(i);
-//			}
-//		}
+		for(int i = 0; i < item.size(); i++){
+			if(item.get(i).shouldRemove()) {
+				item.remove(i);
+			}
+		}
 	}
 	
 	public void createlevel(BufferedImage level){
