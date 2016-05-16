@@ -1,5 +1,6 @@
 package Tile;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import Main.Game;
@@ -17,5 +18,7 @@ public class Block extends Tile{
 	
 	public void render(Graphics g){
 		g.drawImage(block.getBufferedImage(),x,y,breite,höhe,null);
+		g.setColor(Color.red);
+		g.drawRect(x,y,breite,höhe);
 	}
 }

@@ -29,7 +29,7 @@ public class KeyLuigi implements KeyListener{
 			if(!en.jumping&&!en.falling){
 				Game.handler.ChangeMusic(4, 1, false);
 				en.jumping=true;
-				en.gravity=15.0f;
+				en.gravity=17.0f;
 			}
 			
 		 }
