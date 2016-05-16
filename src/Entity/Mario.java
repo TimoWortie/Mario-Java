@@ -35,7 +35,7 @@ public class Mario extends Entity{
 		for(int i=0;i<mario2.length;i++){
 		mario2[i]=new Sprite(Game.sheet,i+15,2,1,1);
 		}
-		leer=new Sprite(Game.sheet,25,3,1,1);
+		leer=new Sprite(Game.sheet,26,3,1,1);
 		tot2=new Sprite(Game.sheet,18,1,1,1);
 		tot3=new Sprite(Game.sheet,19,1,1,1);
 		if(tot==false){
@@ -185,6 +185,16 @@ public class Mario extends Entity{
 		x+=velX;
 		y+=velY;
 		if(tot==false){
+			
+			if(getStunned()==true){
+				if(getTimerstunned()<35){
+					timerstunned++;
+				}else{
+					timerstunned=0;
+					stunned=false;
+				}
+			}
+			
 		for(Enemy ene:handler.enemy){
 			if(hit==false){
 				if(this.klein==false){
@@ -263,12 +273,17 @@ public class Mario extends Entity{
 				
 				if(getBottom().intersects(en.getBounds())){
 					Game.handler.ChangeMusic(7, 1, false);
+					en.setStunned(true);
+					en.setTimerstunned(0);
 					setVelY(0);
 					y=y-40;
 					jumping=true;
 					falling=false;
 					gravity=5.0f;
 				}
+				
+				
+				
 		}}
 		
 		for(Tile t:handler.tile){
@@ -406,6 +421,7 @@ public class Mario extends Entity{
 	  
 
 	  }else{
+		  setVelX(0);
 		  
 		 timertot++;
 		  if(timertot>=40){

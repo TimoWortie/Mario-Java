@@ -185,6 +185,14 @@ public class Luigi extends Entity{
 	public void tick(){	
 		x+=velX;
 		y+=velY;
+		if(getStunned()==true){
+			if(timerstunned<35){
+				timerstunned++;
+			}else{
+				timerstunned=0;
+				stunned=false;
+			}
+		}
 		if(tot==false){
 		for(Enemy ene:handler.enemy){
 			if(hit==false){
@@ -262,6 +270,8 @@ public class Luigi extends Entity{
 					x=en.getX()-50;
 				}
 				if(getBottom().intersects(en.getBounds())){
+					en.setStunned(true);
+					en.setTimerstunned(0);;
 					Game.handler.ChangeMusic(7, 1, false);
 					setVelY(0);
 					y=y-60;
@@ -269,6 +279,8 @@ public class Luigi extends Entity{
 					falling=false;
 					gravity=5.0f;	
 				}
+				
+				
 		}}
 		for(Tile t:handler.tile){
 			if(t.getId()==Id.wall){
