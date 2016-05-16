@@ -3,13 +3,11 @@ package Main;
 import javax.swing.JFrame;
 
 import Launcher.Launcher;
-import audio.SoundManager;
+import Audio.SoundManager;
 
 public class Main {
 
 	public static void main(String[] args){
-		
-		
 		
 		Game game = new Game();
 		JFrame frame = new JFrame();

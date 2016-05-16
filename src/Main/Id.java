@@ -1,5 +1,5 @@
 package Main;
 
 public enum Id {
-	wall,player,pipe,enemy, Luigi,Item,Monty;
+	wall,player,pipe,enemy, Luigi,Monty,flower,pilz;
 }

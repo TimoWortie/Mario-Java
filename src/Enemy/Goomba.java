@@ -71,13 +71,14 @@ public class Goomba extends Enemy{
 						falling=true;
 					}
 			}
-			if(Mouse.map==1&&t.getId()==Id.pipe){
+			if(Mouse.map==2&&t.getId()==Id.pipe){
 				if(getBounds().intersects(t.getBounds())){
 					falling=false;
-					if(x<=1155){
+					if(x>=1155){
+						setZufallszahl(1);
 						setVelX(-1);
 					}
-					if(x>=16){
+					if(x<=16){
 						setVelX(1);
 					}
 				}
@@ -131,8 +132,8 @@ public class Goomba extends Enemy{
 					if(getSpawnpoint()==1){goomba[i] = new Goomba(851,5,60,60,true,Game.handler,Id.enemy);}
 					}
 					if(Mouse.map==2){
-						if(getSpawnpoint()==0){goomba[i] = new Goomba(16,213,60,60,true,Game.handler,Id.enemy);}
-						if(getSpawnpoint()==1){goomba[i] = new Goomba(1155,610,60,60,true,Game.handler,Id.enemy);}
+						if(getSpawnpoint()==0){goomba[i] = new Goomba(16,155,60,60,true,Game.handler,Id.enemy);}
+						if(getSpawnpoint()==1){goomba[i] = new Goomba(1155,535,60,60,true,Game.handler,Id.enemy);}
 						}
 				}
 			Game.handler.addEnemy(goomba[j]);
