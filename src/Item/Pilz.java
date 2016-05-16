@@ -109,9 +109,10 @@ public class Pilz extends Item{
 
 	public static void Pilzsinit(){
 		setCounter(getCounter()+1);
-		if(getCounter()==1000){
+		if(getCounter()==1500){
 			if(j<Pilz.length){
 				for(int i=0;i<Pilz.length;i++){
+					System.out.println("pilz");
 					setSpawnpoint(r.nextInt(2));
 					if(getSpawnpoint()==0){Pilz[i] = new Pilz(396,5,60,60,true,Game.handler,Id.Item);}
 					if(getSpawnpoint()==1){Pilz[i] = new Pilz(851,5,60,60,true,Game.handler,Id.Item);}

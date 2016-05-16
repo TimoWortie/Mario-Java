@@ -85,6 +85,7 @@ public class Game extends Canvas implements Runnable{
 		Koopa.koopasinit();
 		Kugelwilli.kugelwillisinit();
 		//Monty.Montysinit();
+		System.out.println("test");
 		Pilz.Pilzsinit();
 //		for(Entity e:handler.entity){
 //			if(e.getId()==Id.player){
