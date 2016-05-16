@@ -8,7 +8,7 @@ import Main.Id;
 
 public class Entity {
 	
-	int x,y,breite,höhe,velX,velY,timer;
+	int x,y,breite,höhe,velX,velY,timer,timer2;
 	boolean solid;
 	boolean shouldRemove = false;
 	Handler handler;
@@ -18,6 +18,9 @@ public class Entity {
 	public boolean falling = true;
 	public boolean klein=false;
 	public boolean hit=false;
+	public boolean tot=false;
+	protected boolean tot1=false;
+	
 
 	
 	public Entity(int x,int y,int breite,int höhe,boolean solid,Handler handler,Id id){
