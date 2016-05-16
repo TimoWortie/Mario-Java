@@ -33,7 +33,7 @@ public class Game extends Canvas implements Runnable{
 	public static Launcher launcher = new Launcher();
 	
 	
-	private BufferedImage image,background;
+	private BufferedImage image,image2,background;
 	public static Spritesheet sheet;
 
 	
@@ -48,6 +48,7 @@ public class Game extends Canvas implements Runnable{
 		addKeyListener(new KeyLuigi());
 		try {
 			image = ImageIO.read(getClass().getResource("/level.png"));
+			image2 = ImageIO.read(getClass().getResource("/level2.png"));
 			background = ImageIO.read(getClass().getResource("/Background.png"));
 		} catch (IOException e) {}
 		handler.createlevel(image);
@@ -99,7 +100,7 @@ public class Game extends Canvas implements Runnable{
 		thread.start();
 	}
 	
-	public synchronized void stop(){
+	public synchronized static void stop(){
 		if(!running) return;
 		running = false;
 		try {

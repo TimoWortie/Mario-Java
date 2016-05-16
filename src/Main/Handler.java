@@ -140,7 +140,7 @@ public class Handler {
 				blue = (pixel) & 0xff;
 				
 				
-				if(red==0&&green==0&&blue==1){ addTile(new Block(x*64,y*64,Spritesheet.a*60,Spritesheet.b*60,true,this,Id.wall));}
+				if(red==0&&green==0&&blue==1){ addTile(new Block(x*64,y*64,Spritesheet.a*68,Spritesheet.b*64,true,this,Id.wall));}
 				if(red==111&&green==11&&blue==11){ addTile(new Bodenblock(x*64,y*64,Spritesheet.a*100,Spritesheet.b*100,true,this,Id.wall));}
 				
 				if(red==111&&green==0&&blue==0){ addTile(new Pipe(x*64-10,y*64-77,Spritesheet.a*150,Spritesheet.b*150,true,this,Id.pipe));}
