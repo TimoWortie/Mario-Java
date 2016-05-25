@@ -22,6 +22,52 @@ public class Entity {
 	public boolean hit = false;
 	public boolean tot = false;
 	protected boolean tot1 = false;
+	public boolean isJumping() {
+		return jumping;
+	}
+
+
+
+	public void setJumping(boolean jumping) {
+		this.jumping = jumping;
+	}
+
+
+
+	public boolean isFalling() {
+		return falling;
+	}
+
+
+
+	public float getGravity() {
+		return gravity;
+	}
+
+
+
+	public void setGravity(float gravity) {
+		this.gravity = gravity;
+	}
+
+
+
+	public void setFalling(boolean falling) {
+		this.falling = falling;
+	}
+
+
+
+	public boolean isTot1() {
+		return tot1;
+	}
+
+
+
+	public void setTot1(boolean tot1) {
+		this.tot1 = tot1;
+	}
+
 	protected boolean klein2=false;
 	
 

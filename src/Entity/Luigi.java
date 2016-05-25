@@ -47,278 +47,76 @@ public class Luigi extends Entity {
 			if (hit == false) {
 				if (stunned == false) {
 					if (klein == false) {
-						if (moving == -1 && !jumping && !falling) {
-							g.drawImage(luigi[0].getBufferedImage(), x, y, breite, höhe, null);
-						}
-						if (moving == 1 && !jumping && !falling) {
-							g.drawImage(luigi[frame].getBufferedImage(), x, y, breite, höhe, null);
-						}
-						if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
-							g.drawImage(luigi[11].getBufferedImage(), x, y, breite, höhe, null);
-						}
-						if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
-							g.drawImage(luigi[13].getBufferedImage(), x, y, breite, höhe, null);
-						}
+						//Normaler State
+							Zeichnung(g);
+							g.setColor(Color.white);
+							g.drawRect(x + 33, y + 13, 38, 5);
+							g.setColor(Color.red);
+							g.drawRect(getX() + 33, getY() + 96, 34, 5);
+							g.setColor(Color.green);
+							g.drawRect(getX() + 70, getY() + 25, 5, 62);
+							g.setColor(Color.CYAN);
+							g.drawRect(getX() + 26, getY() + 25, 5, 62);
+							g.setColor(Color.MAGENTA);
+							g.drawRect(getX() + 26, getY() + 10, 49, höhe - 10);
 
-						if (moving == -2 && !jumping && !falling) {
-							g.drawImage(luigi[5].getBufferedImage(), x, y, breite, höhe, null);
-						}
-						if (moving == 2 && !jumping && !falling) {
-							g.drawImage(luigi[frame + 6].getBufferedImage(), x, y, breite, höhe, null);
-						}
-						if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
-							g.drawImage(luigi[12].getBufferedImage(), x, y, breite, höhe, null);
-						}
-						if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
-							g.drawImage(luigi[14].getBufferedImage(), x, y, breite, höhe, null);
-						}
+						} else {
+							//Kleiner State
+							Zeichnung2(g);
+							g.setColor(Color.white);
+							g.drawRect(x + 33, y + 33, 38, 5);
+							g.setColor(Color.red);
+							g.drawRect(getX() + 33, getY() + 96, 34, 5);
+							g.setColor(Color.green);
+							g.drawRect(getX() + 70, getY() + 45, 5, 42);
+							g.setColor(Color.CYAN);
+							g.drawRect(getX() + 26, getY() + 45, 5, 42);
+							g.setColor(Color.MAGENTA);
+							g.drawRect(getX() + 26, getY() + 30, 49, höhe - 30);
 
-						g.setColor(Color.white);
-						g.drawRect(x + 33, y + 13, 38, 5);
-						g.setColor(Color.red);
-						g.drawRect(getX() + 33, getY() + 96, 34, 5);
-						g.setColor(Color.green);
-						g.drawRect(getX() + 70, getY() + 25, 5, 62);
-						g.setColor(Color.CYAN);
-						g.drawRect(getX() + 26, getY() + 25, 5, 62);
-						g.setColor(Color.MAGENTA);
-						g.drawRect(getX() + 26, getY() + 10, 49, höhe - 10);
-
+						}
 					} else {
-						if (moving == -1 && !jumping && !falling) {
-							g.drawImage(luigi2[0].getBufferedImage(), x, y, breite, höhe, null);
-						}
-						if (moving == 1 && !jumping && !falling) {
-							g.drawImage(luigi2[frameklein].getBufferedImage(), x, y, breite, höhe, null);
-						}
-						if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
-							g.drawImage(luigi2[10].getBufferedImage(), x, y, breite, höhe, null);
-						}
-						if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
-							g.drawImage(luigi2[12].getBufferedImage(), x, y, breite, höhe, null);
-						}
-
-						if (moving == -2 && !jumping && !falling) {
-							g.drawImage(luigi2[5].getBufferedImage(), x, y, breite, höhe, null);
-						}
-						if (moving == 2 && !jumping && !falling) {
-							g.drawImage(luigi2[frameklein + 5].getBufferedImage(), x, y, breite, höhe, null);
-						}
-						if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
-							g.drawImage(luigi2[11].getBufferedImage(), x, y, breite, höhe, null);
-						}
-						if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
-							g.drawImage(luigi2[13].getBufferedImage(), x, y, breite, höhe, null);
-						}
-						g.setColor(Color.white);
-						g.drawRect(x + 33, y + 33, 38, 5);
-						g.setColor(Color.red);
-						g.drawRect(getX() + 33, getY() + 96, 34, 5);
-						g.setColor(Color.green);
-						g.drawRect(getX() + 70, getY() + 45, 5, 42);
-						g.setColor(Color.CYAN);
-						g.drawRect(getX() + 26, getY() + 45, 5, 42);
-						g.setColor(Color.MAGENTA);
-						g.drawRect(getX() + 26, getY() + 30, 49, höhe - 30);
-
+						//Stunned State
+						if (moving == 2 || moving == -2) {g.drawImage(stunned1.getBufferedImage(), x, y, breite, höhe, null);}
+						if (moving == 1 || moving == -1) {g.drawImage(stunned2.getBufferedImage(), x, y, breite, höhe, null);}
 					}
-				} else {
-					if (moving == 2 || moving == -2) {
-						g.drawImage(stunned1.getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 || moving == -1) {
-						g.drawImage(stunned2.getBufferedImage(), x, y, breite, höhe, null);
-					}
-				}
 			}
 
-			if (hit == true) {
-				if (timer2 < 30) {
-					g.drawImage(leer.getBufferedImage(), x, y, breite, höhe, null);
-				} else if (timer2 < 60) {
-					if (moving == -1 && !jumping && !falling) {
-						g.drawImage(luigi2[0].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
-						g.drawImage(luigi2[10].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
-						g.drawImage(luigi2[12].getBufferedImage(), x, y, breite, höhe, null);
-					}
-
-					if (moving == -2 && !jumping && !falling) {
-						g.drawImage(luigi2[5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein + 5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
-						g.drawImage(luigi2[11].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
-						g.drawImage(luigi2[13].getBufferedImage(), x, y, breite, höhe, null);
-					}
-
-				} else if (timer2 < 90) {
-					g.drawImage(leer.getBufferedImage(), x, y, breite, höhe, null);
-
-				} else if (timer2 < 120) {
-					if (moving == -1 && !jumping && !falling) {
-						g.drawImage(luigi2[0].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
-						g.drawImage(luigi2[10].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
-						g.drawImage(luigi2[12].getBufferedImage(), x, y, breite, höhe, null);
-					}
-
-					if (moving == -2 && !jumping && !falling) {
-						g.drawImage(luigi2[5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein + 5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
-						g.drawImage(luigi2[11].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
-						g.drawImage(luigi2[13].getBufferedImage(), x, y, breite, höhe, null);
-					}
-
-				} else if (timer2 < 150) {
-					g.drawImage(leer.getBufferedImage(), x, y, breite, höhe, null);
-
-				} else if (timer2 < 180) {
-					if (moving == -1 && !jumping && !falling) {
-						g.drawImage(luigi2[0].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
-						g.drawImage(luigi2[10].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
-						g.drawImage(luigi2[12].getBufferedImage(), x, y, breite, höhe, null);
-					}
-
-					if (moving == -2 && !jumping && !falling) {
-						g.drawImage(luigi2[5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein + 5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
-						g.drawImage(luigi2[11].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
-						g.drawImage(luigi2[13].getBufferedImage(), x, y, breite, höhe, null);
-					}
-
-				} else if (timer2 < 210) {
-					g.drawImage(leer.getBufferedImage(), x, y, breite, höhe, null);
-
-				} else if (timer2 < 240) {
-					if (moving == -1 && !jumping && !falling) {
-						g.drawImage(luigi2[0].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
-						g.drawImage(luigi2[10].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
-						g.drawImage(luigi2[12].getBufferedImage(), x, y, breite, höhe, null);
-					}
-
-					if (moving == -2 && !jumping && !falling) {
-						g.drawImage(luigi2[5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein + 5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
-						g.drawImage(luigi2[11].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
-						g.drawImage(luigi2[13].getBufferedImage(), x, y, breite, höhe, null);
-					}
-
-				} else if (timer2 < 270) {
-					g.drawImage(leer.getBufferedImage(), x, y, breite, höhe, null);
-
-				} else if (timer2 < 300) {
-					if (moving == -1 && !jumping && !falling) {
-						g.drawImage(luigi2[0].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
-						g.drawImage(luigi2[10].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
-						g.drawImage(luigi2[12].getBufferedImage(), x, y, breite, höhe, null);
-					}
-
-					if (moving == -2 && !jumping && !falling) {
-						g.drawImage(luigi2[5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein + 5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
-						g.drawImage(luigi2[11].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
-						g.drawImage(luigi2[13].getBufferedImage(), x, y, breite, höhe, null);
-					}
-
-				} else if (timer2 < 330) {
-					g.drawImage(leer.getBufferedImage(), x, y, breite, höhe, null);
-
-				} else if (timer2 < 350) {
-					if (moving == -1 && !jumping && !falling) {
-						g.drawImage(luigi2[0].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {
-						g.drawImage(luigi2[10].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {
-						g.drawImage(luigi2[12].getBufferedImage(), x, y, breite, höhe, null);
-					}
-
-					if (moving == -2 && !jumping && !falling) {
-						g.drawImage(luigi2[5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && !falling) {
-						g.drawImage(luigi2[frameklein + 5].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {
-						g.drawImage(luigi2[11].getBufferedImage(), x, y, breite, höhe, null);
-					}
-					if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {
-						g.drawImage(luigi2[13].getBufferedImage(), x, y, breite, höhe, null);
+				if (hit == true) {
+					//Invincible State
+					if (timer2 < 30) {
+						g.drawImage(leer.getBufferedImage(), x, y, breite, höhe, null);
+					} else if (timer2 < 60) {
+						Zeichnung2(g);
+					} else if (timer2 < 90) {
+						g.drawImage(leer.getBufferedImage(), x, y, breite, höhe, null);
+					} else if (timer2 < 120) {
+						Zeichnung2(g);
+					} else if (timer2 < 150) {
+						g.drawImage(leer.getBufferedImage(), x, y, breite, höhe, null);
+					} else if (timer2 < 180) {
+						Zeichnung2(g);
+					} else if (timer2 < 210) {
+						g.drawImage(leer.getBufferedImage(), x, y, breite, höhe, null);
+					} else if (timer2 < 240) {
+						Zeichnung2(g);
+					} else if (timer2 < 270) {
+						g.drawImage(leer.getBufferedImage(), x, y, breite, höhe, null);
+					} else if (timer2 < 300) {
+						Zeichnung2(g);
+					} else if (timer2 < 330) {
+						g.drawImage(leer.getBufferedImage(), x, y, breite, höhe, null);
+					} else if (timer2 < 350) {
+						Zeichnung2(g);
 					}
 				}
-			}
 		} else {
-			if (timertot < 20) {
-				g.drawImage(tot2.getBufferedImage(), x, y, breite, höhe, null);
-			} else if (timertot < 40) {
-				g.drawImage(tot3.getBufferedImage(), x, y, breite, höhe, null);
-			}
+				//Tot State
+				if (timertot < 20) {
+					g.drawImage(tot2.getBufferedImage(), x, y, breite, höhe, null);
+				} else if (timertot < 40) {
+					g.drawImage(tot3.getBufferedImage(), x, y, breite, höhe, null);
+				}
 		}
 	}
 
@@ -399,7 +197,6 @@ public class Luigi extends Entity {
 						}
 						
 						if(getTopEn().intersects(ene.getBottom())){
-							System.out.println("test");
 							setVelX(0);
 							klein = true;
 							hit = true;
@@ -414,6 +211,8 @@ public class Luigi extends Entity {
 						timer3 += 1;
 					} else {
 						hit = false;
+						timer2=0;
+						timer3=0;
 					}
 				}
 
@@ -432,10 +231,15 @@ public class Luigi extends Entity {
 					if (getBottom().intersects(en.getBounds())) {
 						Game.player.setStunned(true);
 						en.setTimerstunned(0);
+						if(en.isJumping()){
+							en.setJumping(false);
+							en.setFalling(true);
+						}
+						en.setGravity(0);
 
 						Game.handler.ChangeMusic(7, 1, false);
 						setVelY(0);
-						y = y - 60;
+						y = y - 40;
 						jumping = true;
 						falling = false;
 						gravity = 5.0f;
@@ -478,11 +282,11 @@ public class Luigi extends Entity {
 						falling = true;
 					}
 
-					if (getLeft().intersects(t.getBounds())) {
+					if (getLeft().intersects(t.getRight())) {
 						setVelX(0);
 						x = t.getX() + 40;
 					}
-					if (getRight().intersects(t.getBounds())) {
+					if (getRight().intersects(t.getLeft())) {
 						setVelX(0);
 						x = t.getX() - 75;
 					}
@@ -629,5 +433,31 @@ public class Luigi extends Entity {
 	public boolean getStunned() {
 		// TODO Auto-generated method stub
 		return stunned;
+	}
+	
+	
+	public void Zeichnung(Graphics g){
+		if (moving == -1 && !jumping && !falling) {g.drawImage(luigi[0].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == 1 && !jumping && !falling) {g.drawImage(luigi[frame].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {g.drawImage(luigi[11].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {g.drawImage(luigi[13].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == -2 && !jumping && !falling) {g.drawImage(luigi[5].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == 2 && !jumping && !falling) {g.drawImage(luigi[frame + 6].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {g.drawImage(luigi[12].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {g.drawImage(luigi[14].getBufferedImage(), x, y, breite, höhe, null);}
+
+		
+		
+		
+	}
+	public void Zeichnung2(Graphics g){
+		if (moving == -1 && !jumping && !falling) {g.drawImage(luigi2[0].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == 1 && !jumping && !falling) {g.drawImage(luigi2[frameklein].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == 1 && jumping && !falling || moving == -1 && jumping && !falling) {g.drawImage(luigi2[10].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == 1 && !jumping && falling || moving == -1 && !jumping && falling) {g.drawImage(luigi2[12].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == -2 && !jumping && !falling) {g.drawImage(luigi2[5].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == 2 && !jumping && !falling) {g.drawImage(luigi2[frameklein + 5].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == 2 && jumping && !falling || moving == -2 && jumping && !falling) {g.drawImage(luigi2[11].getBufferedImage(), x, y, breite, höhe, null);}
+		if (moving == 2 && !jumping && falling || moving == -2 && !jumping && falling) {g.drawImage(luigi2[13].getBufferedImage(), x, y, breite, höhe, null);}
 	}
 }

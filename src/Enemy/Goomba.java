@@ -16,7 +16,7 @@ public class Goomba extends Enemy{
 	public static Random r = new Random();
 	public static int j;
 	private Sprite[] goombasprite = new Sprite[4];
-	public static Goomba[] goomba = new Goomba[10];
+	public static Goomba[] goomba = new Goomba[100];
 	
 	
 	public Goomba(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {

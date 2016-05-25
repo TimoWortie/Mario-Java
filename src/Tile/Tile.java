@@ -65,6 +65,12 @@ public class Tile {
 		return new Rectangle(x,y,breite,höhe);
 	}
 	
+	public Rectangle getRight(){
+		return new Rectangle(x+breite-15,y+5,15,höhe-10);
+	}
+	public Rectangle getLeft(){
+		return new Rectangle(x,y+5,15,höhe-10);
+	}
 	public Rectangle getBottom(){
 		return new Rectangle(x,y+höhe-15,breite,15);
 	}

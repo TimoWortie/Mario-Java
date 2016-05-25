@@ -18,6 +18,14 @@ public class Block extends Tile{
 	
 	public void render(Graphics g){
 		g.drawImage(block.getBufferedImage(),x,y,breite,höhe,null);
+		g.setColor(Color.white);
+		g.drawRect(x,y,breite,höhe);
+		g.setColor(Color.red);
+		g.drawRect(x+breite-15,y+5,15,höhe-10);
+		g.setColor(Color.green);
+		g.drawRect(x,y+5,15,höhe-10);
+		g.setColor(Color.CYAN);
+		g.drawRect(x,y+höhe-15,breite,15);
 	}
 	
 	
