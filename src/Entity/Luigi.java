@@ -15,10 +15,9 @@ import Tile.Tile;
 import gfx.Sprite;
 
 public class Luigi extends Entity {
-	int frame, framedelay, framedelayklein, frameklein;
+	private int frame, framedelay, framedelayklein, frameklein,y2, y3;
 	public static int moving = -1;
-	public static Sprite[] luigi = new Sprite[15];
-	public static Sprite[] luigi2 = new Sprite[15];
+	public static Sprite[] luigi = new Sprite[15],luigi2 = new Sprite[15];
 	private Sprite leer, tot2, tot3, stunned1, stunned2;
 	public boolean stunned;
 
@@ -123,6 +122,14 @@ public class Luigi extends Entity {
 	public void tick() {
 		x += velX;
 		y += velY;
+		
+		if (x < 10 && x > 0) {
+			y3 = y;
+		}
+		if (x + breite < 2) {
+			x = Game.getFrameBreite() + 120;
+			y = y3;
+		}
 
 		if (tot == false) {
 			if (stunned == true) {
@@ -312,25 +319,10 @@ public class Luigi extends Entity {
 			}
 
 			if (jumping) {
-				gravity -= 0.5f;
-				setVelY((int) -gravity);
-				if (gravity <= 0.0f) {
-					falling = true;
-					jumping = false;
-				}
+				jumping(0.5f);
 			}
 			if (falling) {
-				gravity += 0.5f;
-				for (Tile t : handler.tile) {
-					if (t.getId() == Id.wall) {
-						if (getBottom().intersects(t.getBounds())) {
-							gravity = 0f;
-							jumping = false;
-							falling = false;
-						}
-					}
-				}
-				setVelY((int) gravity);
+				falling();
 			}
 			framedelay++;
 			framedelayklein++;

@@ -84,38 +84,13 @@ public class Goomba extends Enemy{
 			setAsRemoved();
 			}
 		
-		
-		
+		FrameDelay2(10);
+		FrameDelay(9);
 		if(falling){
-			gravity+=0.5f;
-			for(Tile t:handler.tile){
-				if(t.getId()==Id.wall){
-					if(getBottom().intersects(t.getBounds())){
-						gravity = 0f;
-						falling = false;
-					}
-				}
-			}
-			setVelY((int)gravity);
-		}
-		
-		setFramedelay2(getFramedelay2()+1);
-		if(getFramedelay2()>=10){
-			setFrame2(getFrame2() + 1);
-			setFramedelay2(0);
-			if(getFrame2()==10){
-				erscheinen=true;
-			}
-		}
-		setFramedelay(getFramedelay() + 1);
-		if(getFramedelay()>=9){
-			setFrame(getFrame() + 1);
-			setFramedelay(0);
-			if(getFrame()==2){
-				setFrame(0);
-			}
+			falling();
 		}
 	}
+
 	public static void Goombasinit(){
 		setCounter(getCounter()+1);
 		if(getCounter()==500){

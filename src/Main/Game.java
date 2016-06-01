@@ -95,7 +95,6 @@ public class Game extends Canvas implements Runnable{
 		Koopa.koopasinit();
 //		Kugelwilli.kugelwillisinit();
 		Monty.Montysinit();
-		Flower.flowersinit();
 		Pilz.Pilzsinit();
 		}
 	}
