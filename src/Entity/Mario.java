@@ -416,8 +416,6 @@ public class Mario extends Entity {
 
 				jumping(0.5f);
 
-				jumping=true;
-
 			}
 			if (falling) {
 				gravity += 0.3f;

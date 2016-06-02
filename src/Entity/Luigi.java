@@ -397,6 +397,7 @@ public class Luigi extends Entity {
 
 		} else {
 			setVelX(0);
+
 			timertot++;
 			if (timertot >= 40) {
 				timertot = 0;
@@ -404,22 +405,20 @@ public class Luigi extends Entity {
 			if (tot1 == false) {
 				Game.handler.ChangeMusic(3, 1, false);
 				falling = false;
-				jumping = true;
+				jumping=true;
 				gravity = 10.0f;
 				tot1 = true;
 			}
-
-
-			
-
-			if (jumping){
+			if(jumping){
 
 				jumping(0.5f);
-			}
-			if (falling){
-				falling();
-			}
 
+			}
+			if (falling) {
+				gravity += 0.3f;
+
+				setVelY((int) gravity);
+			}
 		}
 		
 
