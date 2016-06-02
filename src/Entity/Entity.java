@@ -11,69 +11,16 @@ public class Entity {
 
 	protected int x, y, breite, höhe, velX, velY, timer3, timer2, timertot, timerstunned;
 
-	boolean solid;
 	boolean shouldRemove = false;
 	Handler handler;
 	Id id;
-	public int flowershoot=0;
 	public float gravity = 0f;
-	public boolean jumping = false;
-	public boolean falling = true;
-	public boolean klein = false;
-	public boolean hit = false;
-	public boolean tot = false;
+	public boolean jumping = false,falling = true,klein = false,hit = false,tot = false;
 	protected boolean tot1 = false;
-	
-	public boolean isJumping() {
-		return jumping;
-	}
-
-
-
-	public void setJumping(boolean jumping) {
-		this.jumping = jumping;
-	}
-
-
-
-	public boolean isFalling() {
-		return falling;
-	}
-
-
-
-	public float getGravity() {
-		return gravity;
-	}
-
-
-
-	public void setGravity(float gravity) {
-		this.gravity = gravity;
-	}
-
-
-
-	public void setFalling(boolean falling) {
-		this.falling = falling;
-	}
-
-
-
-	public boolean isTot1() {
-		return tot1;
-	}
-
-
-
-	public void setTot1(boolean tot1) {
-		this.tot1 = tot1;
-	}
 
 	protected boolean klein2=false;
 	
-
-	public Entity(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
+	public Entity(int x, int y, int breite, int höhe, Handler handler, Id id) {
 		this.x = x;
 		this.y = y;
 		this.breite = breite;
@@ -81,17 +28,22 @@ public class Entity {
 		this.handler = handler;
 		this.id = id;
 	}
-
-
-
+	
+	public boolean isJumping() {
+		return jumping;
+	}
+	public void setJumping(boolean jumping) {
+		this.jumping = jumping;
+	}
+	public void setGravity(float gravity) {
+		this.gravity = gravity;
+	}
+	public void setFalling(boolean falling) {
+		this.falling = falling;
+	}
 	public Id getId() {
 		return id;
 	}
-
-	public void setId(Id id) {
-		this.id = id;
-	}
-
 	public void render(Graphics g) {
 	}
 
@@ -137,10 +89,6 @@ public class Entity {
 
 	public void setVelY(int velY) {
 		this.velY = velY;
-	}
-
-	public boolean isSolid() {
-		return solid;
 	}
 
 	public Rectangle getBounds() {
@@ -218,13 +166,7 @@ public class Entity {
 		this.shouldRemove = true;
 	}
 
-	public void pause(int time) {
-		try {
-			Thread.sleep(time);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+
 
 	public void jumping(float grav){
 		gravity -= grav;
@@ -250,4 +192,5 @@ public class Entity {
 			setVelY((int) gravity);
 		}
 	}
+
 }

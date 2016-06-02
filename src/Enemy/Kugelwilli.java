@@ -12,14 +12,14 @@ import gfx.Sprite;
 
 public class Kugelwilli extends Enemy{
 	public static Random r = new Random();
-	public static int j;
+	public static int j,counterkugelwilli;
 	private static boolean losgeschickt;
 	private Sprite kugel;
 	public static Kugelwilli[] kugelwilli = new Kugelwilli[10];
 	
 
-	public Kugelwilli(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
-		super(x, y, breite, höhe, solid, handler, id);
+	public Kugelwilli(int x, int y, int breite, int höhe, Handler handler, Id id) {
+		super(x, y, breite, höhe, handler, id);
 	}
 	public void render(Graphics g){
 		if(Mouse.map==2){
@@ -46,26 +46,26 @@ public class Kugelwilli extends Enemy{
 		
 	}
 	public static void kugelwillisinit(){
-		setCounter(getCounter()+1);
-		if(getCounter()==800){
+		counterkugelwilli++;
+		if(counterkugelwilli==800){
 			if(j<kugelwilli.length){
 				for(int i=0;i<kugelwilli.length;i++){
 					losgeschickt=true;
 	
 					if(Mouse.map==2){
 						
-						kugelwilli[i] = new Kugelwilli(1155,360,60,60,true,Game.handler,Id.enemy);
+						kugelwilli[i] = new Kugelwilli(1155,360,60,60,Game.handler,Id.enemy);
 						}
 					
 						if(Mouse.map==1){
 						
-						kugelwilli[i] = new Kugelwilli(1155,1360,60,60,true,Game.handler,Id.enemy);
+						kugelwilli[i] = new Kugelwilli(1155,1360,60,60,Game.handler,Id.enemy);
 						}
 				}
 			Game.handler.addEnemy(kugelwilli[j]);
 			j++;
 			}
-			setCounter(0);
+			counterkugelwilli=0;
 		}
 	}
 	

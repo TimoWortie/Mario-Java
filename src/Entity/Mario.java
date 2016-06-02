@@ -23,8 +23,8 @@ public class Mario extends Entity {
 	private Sprite leer, tot3, tot2, stunned1, stunned2;
 	public boolean stunned = false;
 
-	public Mario(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
-		super(x, y, breite, höhe, solid, handler, id);
+	public Mario(int x, int y, int breite, int höhe, Handler handler, Id id) {
+		super(x, y, breite, höhe, handler, id);
 
 	}
 
@@ -240,7 +240,7 @@ public class Mario extends Entity {
 
 						setVelY(0);
 						y = y - 40;
-						jumping = true;
+						jumping(0.5f);
 						falling = false;
 						gravity = 5.0f;
 					}
@@ -413,7 +413,11 @@ public class Mario extends Entity {
 				tot1 = true;
 			}
 			if(jumping){
+
 				jumping(0.5f);
+
+				jumping=true;
+
 			}
 			if (falling) {
 				gravity += 0.3f;

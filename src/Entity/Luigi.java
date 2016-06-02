@@ -21,8 +21,8 @@ public class Luigi extends Entity {
 	private Sprite leer, tot2, tot3, stunned1, stunned2;
 	public boolean stunned;
 
-	public Luigi(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
-		super(x, y, breite, höhe, solid, handler, id);
+	public Luigi(int x, int y, int breite, int höhe, Handler handler, Id id) {
+		super(x, y, breite, höhe, handler, id);
 	}
 
 	public void render(Graphics g) {
@@ -130,6 +130,8 @@ public class Luigi extends Entity {
 			x = Game.getFrameBreite() + 120;
 			y = y3;
 		}
+
+
 		if (x < Game.getFrameBreite() + 70 && x > Game.getFrameBreite() + 60) {
 			y2 = y;
 		}
@@ -137,6 +139,8 @@ public class Luigi extends Entity {
 			x = -3;
 			y = y2;
 		}
+
+
 
 		if (tot == false) {
 			if (stunned == true) {
@@ -405,13 +409,15 @@ public class Luigi extends Entity {
 				tot1 = true;
 			}
 
-			if (jumping) {
+
+			
+
+			if (jumping){
+
 				jumping(0.5f);
 			}
-			if (falling) {
-				gravity += 0.3f;
-
-				setVelY((int) gravity);
+			if (falling){
+				falling();
 			}
 
 		}
@@ -424,7 +430,6 @@ public class Luigi extends Entity {
 	}
 
 	public boolean getStunned() {
-		// TODO Auto-generated method stub
 		return stunned;
 	}
 	

@@ -17,11 +17,12 @@ public class Koopa extends Enemy{
 	private Sprite[] koopasprite = new Sprite[4];
 	public static Koopa[] koopa = new Koopa[100];
 	public static int b;
-	public static int spawnzeit;
+	public static int spawnzeit,counterkoopa;
 	public static boolean gecountet=false;
 	
-	public Koopa(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
-		super(x, y, breite, höhe, solid, handler, id);
+	
+	public Koopa(int x, int y, int breite, int höhe, Handler handler, Id id) {
+		super(x, y, breite, höhe, handler, id);
 	}
 	
 	public void render(Graphics g){
@@ -82,8 +83,8 @@ public class Koopa extends Enemy{
 			setSchonentschieden(true);
 		}
 		
-		FrameDelay2(10);
-		FrameDelay(9);
+		FrameDelay2(10,10);
+		FrameDelay(9,2);
 		if(x+breite<0||x>1262){
 			setAsRemoved();
 			}
@@ -93,29 +94,29 @@ public class Koopa extends Enemy{
 	}
 	
 	public static void koopasinit(){
-		setCounter2(getCounter2()+1);
+		counterkoopa++;
 		if(!gecountet){
 			spawnzeit = r.nextInt(10)+5;
 			gecountet=true;
 		}
-		if(getCounter2()/60==spawnzeit){
+		if(counterkoopa/60==spawnzeit){
 			if(b<koopa.length){
 				for(int i=0;i<koopa.length;i++){
 					setSpawnpoint2(r.nextInt(2));
 					if(Mouse.map==1){
-						if(getSpawnpoint2()==0){koopa[i] = new Koopa(396,5,60,60,true,Game.handler,Id.enemy);}
-						if(getSpawnpoint2()==1){koopa[i] = new Koopa(851,5,60,60,true,Game.handler,Id.enemy);}
+						if(getSpawnpoint2()==0){koopa[i] = new Koopa(396,5,60,60,Game.handler,Id.enemy);}
+						if(getSpawnpoint2()==1){koopa[i] = new Koopa(851,5,60,60,Game.handler,Id.enemy);}
 					}
 					if(Mouse.map==2){
-						if(getSpawnpoint2()==0){koopa[i] = new Koopa(16,155,60,60,true,Game.handler,Id.enemy);}
-						if(getSpawnpoint2()==1){koopa[i] = new Koopa(1155,535,60,60,true,Game.handler,Id.enemy);}
+						if(getSpawnpoint2()==0){koopa[i] = new Koopa(16,155,60,60,Game.handler,Id.enemy);}
+						if(getSpawnpoint2()==1){koopa[i] = new Koopa(1155,535,60,60,Game.handler,Id.enemy);}
 					}
 					gecountet=false;
 					}
 			Game.handler.addEnemy(koopa[b]);
 			b++;
 			}
-			setCounter2(0);
+			counterkoopa=0;
 		}
 	}
 }
