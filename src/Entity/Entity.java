@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 
 import Main.Handler;
 import Main.Id;
+import Tile.Tile;
 
 public class Entity {
 
@@ -22,6 +23,7 @@ public class Entity {
 	public boolean hit = false;
 	public boolean tot = false;
 	protected boolean tot1 = false;
+	
 	public boolean isJumping() {
 		return jumping;
 	}
@@ -224,4 +226,28 @@ public class Entity {
 		}
 	}
 
+	public void jumping(float grav){
+		gravity -= grav;
+		setVelY((int) -gravity);
+		if (gravity <= 0.0f) {
+			falling = true;
+			jumping = false;
+		}
+	}
+	
+	public void falling(){
+		if (falling) {
+			gravity += 0.5f;
+			for (Tile t : handler.tile) {
+				if (t.getId() == Id.wall) {
+					if (getBottom().intersects(t.getBounds())) {
+						gravity = 0f;
+						jumping = false;
+						falling = false;
+					} 
+				}
+			}
+			setVelY((int) gravity);
+		}
+	}
 }

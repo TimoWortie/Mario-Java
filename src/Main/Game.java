@@ -33,7 +33,6 @@ public class Game extends Canvas implements Runnable{
 	public static Handler handler = new Handler();
 	public static Mario player = new Mario(1000,500,100,100,true,handler,Id.player);
 	public static Luigi luigi = new Luigi(500,500,100,100,true,handler,Id.Luigi);
-	public static Camera cam;
 	public static Launcher launcher = new Launcher();
 	
 	
@@ -45,9 +44,8 @@ public class Game extends Canvas implements Runnable{
 	public void init(){
 		handler.addEntity(player);
 		sheet = new Spritesheet("/Spritesheet.png");
-		cam = new Camera();
 		handler.addEntity(luigi);
-
+//		handler.ChangeMusic(1, 2, false);
 		addMouseListener(new Mouse());
 		addKeyListener(new Key());
 		addKeyListener(new KeyLuigi());
@@ -59,7 +57,7 @@ public class Game extends Canvas implements Runnable{
 			endscreenluigi = ImageIO.read(getClass().getResource("/Luigigewinnt.png"));
 		} catch (IOException e) {}
 		
-		handler.ChangeMusic(1, 1, false);
+		
 	}
 	
 	public void render(){
@@ -93,9 +91,8 @@ public class Game extends Canvas implements Runnable{
 		handler.tick();
 		Goomba.Goombasinit();
 		Koopa.koopasinit();
-//		Kugelwilli.kugelwillisinit();
+		Kugelwilli.kugelwillisinit();
 		Monty.Montysinit();
-		Flower.flowersinit();
 		Pilz.Pilzsinit();
 		}
 	}

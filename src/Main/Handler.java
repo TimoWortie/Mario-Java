@@ -36,7 +36,7 @@ public class Handler {
 		}else if(oldMusicID==newMusicID){
 			
 		}else{
-			manager.stopSound(oldMusicID);
+			
 			manager.playSound(newMusicID);
 		}
 		//if(!Game.DEBUG) manager.fadeInSound(newMusicID);

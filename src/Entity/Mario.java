@@ -17,11 +17,9 @@ import Tile.Tile;
 import gfx.Sprite;
 
 public class Mario extends Entity {
-	int frame, framedelay, framedelayklein, frameklein;
+	private int frame, framedelay, framedelayklein, frameklein,y2, y3;
 	public static int moving = -1;
-	private Sprite[] mario = new Sprite[15];
-	private Sprite[] mario2 = new Sprite[14];
-	private int y2, y3;
+	private Sprite[] mario = new Sprite[15],mario2 = new Sprite[14];
 	private Sprite leer, tot3, tot2, stunned1, stunned2;
 	public boolean stunned = false;
 
@@ -157,7 +155,7 @@ public class Mario extends Entity {
 						if (getBottom().intersects(ene.getTop()) && ene.getId() != Id.Monty) {
 							setVelY(0);
 							y = y - 40;
-							jumping = true;
+							jumping(0.5f);
 							falling = false;
 							gravity = 5.0f;
 							ene.setAsRemoved();
@@ -189,7 +187,7 @@ public class Mario extends Entity {
 						if (getBottom().intersects(ene.getTop()) && ene.getId() != Id.Monty) {
 							setVelY(0);
 							y = y - 40;
-							jumping = true;
+							jumping(0.5f);
 							falling = false;
 							gravity = 5.0f;
 							ene.setAsRemoved();
@@ -311,28 +309,11 @@ public class Mario extends Entity {
 				}
 			}
 			
-			
-
-			if (jumping) {
-				gravity -= 0.5f;
-				setVelY((int) -gravity);
-				if (gravity <= 0.0f) {
-					falling = true;
-					jumping = false;
-				}
+			if(jumping){
+				jumping(0.5f);
 			}
-			if (falling) {
-				gravity += 0.5f;
-				for (Tile t : handler.tile) {
-					if (t.getId() == Id.wall) {
-						if (getBottom().intersects(t.getBounds())) {
-							gravity = 0f;
-							jumping = false;
-							falling = false;
-						} 
-					}
-				}
-				setVelY((int) gravity);
+			if(falling){
+				falling();
 			}
 			framedelay++;
 			framedelayklein++;
@@ -388,20 +369,19 @@ public class Mario extends Entity {
 				Mario.moving = 2;
 			}
 
-			if (x < 10 && x > 0) {
-				y3 = y;
-			}
-			if (x + breite < 2) {
-				x = Game.getFrameBreite() + 120;
-				y = y3;
-			}
-
 			if (x < Game.getFrameBreite() + 70 && x > Game.getFrameBreite() + 60) {
 				y2 = y;
 			}
 			if (x > Game.getFrameBreite() + 130) {
 				x = -3;
 				y = y2;
+			}
+			if (x < 10 && x > 0) {
+				y3 = y;
+			}
+			if (x + breite < 2) {
+				x = Game.getFrameBreite() + 120;
+				y = y3;
 			}
 
 			if (y > 500 || Monty.montywirdlosgeschicktluigi) {
@@ -428,19 +408,12 @@ public class Mario extends Entity {
 			if (tot1 == false) {
 				Game.handler.ChangeMusic(3, 1, false);
 				falling = false;
-				jumping = true;
+				jumping=true;
 				gravity = 10.0f;
 				tot1 = true;
 			}
-
-			if (jumping) {
-				gravity -= 0.5f;
-				setVelY((int) -gravity);
-				if (gravity <= 0.0f) {
-					falling = true;
-					jumping = false;
-				}
-
+			if(jumping){
+				jumping(0.5f);
 			}
 			if (falling) {
 				gravity += 0.3f;

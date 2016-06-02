@@ -4,7 +4,7 @@ public enum SoundID {
     //template      (   id, name,           vol),
      
     //Music
-    app        		(   1,  "app",        2),
+    song        		(   1,  "song",        2),
     world1          (   2,  "athletic",     3),
 
      
@@ -22,7 +22,7 @@ public enum SoundID {
     private String suffix = ".wav";
     private String name;
     // musicvol // effectvol // mastervol//
-    private int[] volList = { -20, -10, -20};
+    private int[] volList = { -20, -10, -5};
     private int vol;
      
     SoundID(int id, String name, int vol) {
