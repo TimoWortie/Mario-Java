@@ -23,8 +23,8 @@ public class Mario extends Entity {
 	private Sprite leer, tot3, tot2, stunned1, stunned2;
 	public boolean stunned = false;
 
-	public Mario(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
-		super(x, y, breite, höhe, solid, handler, id);
+	public Mario(int x, int y, int breite, int höhe, Handler handler, Id id) {
+		super(x, y, breite, höhe, handler, id);
 
 	}
 

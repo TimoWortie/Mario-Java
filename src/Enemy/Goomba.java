@@ -14,13 +14,13 @@ import gfx.Sprite;
 public class Goomba extends Enemy{
 	
 	public static Random r = new Random();
-	public static int j;
+	public static int j,countergoomba;
 	private Sprite[] goombasprite = new Sprite[4];
 	public static Goomba[] goomba = new Goomba[100];
 	
 	
-	public Goomba(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
-		super(x, y, breite, höhe, solid, handler, id);
+	public Goomba(int x, int y, int breite, int höhe, Handler handler, Id id) {
+		super(x, y, breite, höhe, handler, id);
 	}
 
 	public void render(Graphics g){
@@ -84,32 +84,32 @@ public class Goomba extends Enemy{
 			setAsRemoved();
 			}
 		
-		FrameDelay2(10);
-		FrameDelay(9);
+		FrameDelay2(10,10);
+		FrameDelay(9,2);
 		if(falling){
 			falling();
 		}
 	}
 
 	public static void Goombasinit(){
-		setCounter(getCounter()+1);
-		if(getCounter()==500){
+		countergoomba++;
+		if(countergoomba==500){
 			if(j<goomba.length){
 				for(int i=0;i<goomba.length;i++){
 					setSpawnpoint(r.nextInt(2));
 					if(Mouse.map==1){
-					if(getSpawnpoint()==0){goomba[i] = new Goomba(396,5,60,60,true,Game.handler,Id.enemy);}
-					if(getSpawnpoint()==1){goomba[i] = new Goomba(851,5,60,60,true,Game.handler,Id.enemy);}
+					if(getSpawnpoint()==0){goomba[i] = new Goomba(396,5,60,60,Game.handler,Id.enemy);}
+					if(getSpawnpoint()==1){goomba[i] = new Goomba(851,5,60,60,Game.handler,Id.enemy);}
 					}
 					if(Mouse.map==2){
-						if(getSpawnpoint()==0){goomba[i] = new Goomba(16,155,60,60,true,Game.handler,Id.enemy);}
-						if(getSpawnpoint()==1){goomba[i] = new Goomba(1155,535,60,60,true,Game.handler,Id.enemy);}
+						if(getSpawnpoint()==0){goomba[i] = new Goomba(16,155,60,60,Game.handler,Id.enemy);}
+						if(getSpawnpoint()==1){goomba[i] = new Goomba(1155,535,60,60,Game.handler,Id.enemy);}
 						}
 				}
 			Game.handler.addEnemy(goomba[j]);
 			j++;
 			}
-			setCounter(0);
+			countergoomba=0;
 		}
 	}
 }

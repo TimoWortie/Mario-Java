@@ -13,8 +13,8 @@ public class Monty extends Enemy{
 	public static int montylosschicken,montyfacing=1;
 	public static boolean montywirdlosgeschickt,montywirdlosgeschicktluigi;
 
-	public Monty(int x, int y, int breite, int höhe, boolean solid, Handler handler, Id id) {
-		super(x, y, breite, höhe, solid, handler, id);
+	public Monty(int x, int y, int breite, int höhe, Handler handler, Id id) {
+		super(x, y, breite, höhe, handler, id);
 	}
 	
 	public void render(Graphics g){
@@ -38,22 +38,15 @@ public class Monty extends Enemy{
 		}else{
 			monty.setAsRemoved();
 		}
-		setFramedelay(getFramedelay() + 1);
-		if(getFramedelay()>=9){
-			setFrame(getFrame() + 1);
-			setFramedelay(0);
-			if(getFrame()==2){
-				setFrame(0);
-			}
-		}
+		FrameDelay(9,2);
 	}
 	
 	public static void Montysinit(){
 				if(montywirdlosgeschickt){
 					if(montyfacing==1){
-					monty = new Monty(-121,590,121,121,true,Game.handler,Id.Monty);
+					monty = new Monty(-121,590,121,121,Game.handler,Id.Monty);
 					}else{
-					monty = new Monty(1262,590,121,121,true,Game.handler,Id.Monty);
+					monty = new Monty(1262,590,121,121,Game.handler,Id.Monty);
 					}
 					Game.handler.addEnemy(monty);
 					montywirdlosgeschickt=false;

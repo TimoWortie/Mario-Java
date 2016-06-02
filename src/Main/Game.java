@@ -31,21 +31,18 @@ public class Game extends Canvas implements Runnable{
 	public static boolean running = false;
 	public static Thread thread = new Thread();
 	public static Handler handler = new Handler();
-	public static Mario player = new Mario(1000,500,100,100,true,handler,Id.player);
-	public static Luigi luigi = new Luigi(500,500,100,100,true,handler,Id.Luigi);
-	public static Camera cam;
+	public static Mario player = new Mario(1000,500,100,100,handler,Id.player);
+	public static Luigi luigi = new Luigi(500,500,100,100,handler,Id.Luigi);
 	public static Launcher launcher = new Launcher();
-	
 	
 	public static BufferedImage image,image2,endscreenmario,endscreenluigi;
 	private BufferedImage background;
 	public static Spritesheet sheet;
-
+	public static Goomba goomba;
 	
 	public void init(){
 		handler.addEntity(player);
 		sheet = new Spritesheet("/Spritesheet.png");
-		cam = new Camera();
 		handler.addEntity(luigi);
 
 		addMouseListener(new Mouse());
