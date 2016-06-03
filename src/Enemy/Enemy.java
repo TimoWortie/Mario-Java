@@ -115,7 +115,7 @@ public class Enemy {
 		this.shouldRemove = true;
 	}
 	public void falling(){
-		if(falling){
+		falling=true;
 			gravity+=0.5f;
 			for(Tile t:handler.tile){
 				if(t.getId()==Id.wall){
@@ -123,7 +123,6 @@ public class Enemy {
 						gravity = 0f;
 						falling = false;
 					}
-				}
 			}
 			setVelY((int)gravity);
 		}

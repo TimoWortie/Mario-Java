@@ -16,8 +16,7 @@ public class Koopa extends Enemy{
 	public static Random r = new Random();
 	private Sprite[] koopasprite = new Sprite[4];
 	public static Koopa[] koopa = new Koopa[100];
-	public static int b;
-	public static int spawnzeit,counterkoopa;
+	public static int spawnzeit,counterkoopa,b;
 	public static boolean gecountet=false;
 	
 	

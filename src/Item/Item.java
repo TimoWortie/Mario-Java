@@ -5,21 +5,18 @@ import java.awt.Rectangle;
 
 import Main.Handler;
 import Main.Id;
+import Tile.Tile;
 
 public class Item {
 	
 	int x,y,breite,höhe,velX,velY;
-	boolean solid;
-	boolean shouldRemove = false;
+	boolean solid,shouldRemove = false;
 	Handler handler;
 	Id id;
 	public float gravity = 0f;
-	public boolean falling = false;
-	public boolean schonentschieden=false;
-	public boolean erscheinen=false;
+	public boolean schonentschieden=false,erscheinen=false,falling = false;
 	private int framedelay,framedelay2,frame,frame2,zufallszahl;
-	public static int spawnpoint,spawnpoint2;
-	public static int counter,counter2;
+	public static int spawnpoint,spawnpoint2,counter,counter2;
 
 
 	public Item(int x,int y,int breite,int höhe,boolean solid,Handler handler,Id id){
@@ -173,21 +170,45 @@ public class Item {
 		return new Rectangle(x,y+höhe-6,breite,5);
 	}
 	
-	public Rectangle getTop(){
-		return new Rectangle(x+10,y,breite-20,20);
-	}
-	public Rectangle getRight(){
-		return new Rectangle(x+breite-30,y+10,30,höhe-20);
-	}
-	public Rectangle getLeft(){
-		return new Rectangle(x,y+10,30,höhe-20);
-	}
-	
 	public boolean shouldRemove() {
 		return shouldRemove;
 	}
 
 	public void setAsRemoved() {
 		this.shouldRemove = true;
+	}
+	public void falling(){
+		falling=true;
+			gravity+=0.5f;
+			for(Tile t:handler.tile){
+				if(t.getId()==Id.wall){
+					if(getBottom().intersects(t.getBounds())){
+						gravity = 0f;
+						falling = false;
+					}
+			}
+			setVelY((int)gravity);
+		}
+	}
+	public void FrameDelay2(int größergleich,int frames){
+		framedelay2++;
+		if(framedelay2>=größergleich){
+			frame2++;
+			framedelay2=0;
+			if(frame2==frames){
+				erscheinen=true;
+			}
+		}
+	}
+	public void FrameDelay(int größergleich,int frames){
+		framedelay++;
+		if(framedelay>=größergleich){
+			frame++;
+			framedelay=0;
+			if(frame==frames){
+				frame=0;
+			}
+		}
+
 	}
 }
