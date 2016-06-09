@@ -16,7 +16,6 @@ public class Mouse implements MouseListener{
 	public void mouseClicked(MouseEvent e) {
 		int xmouse =e.getX();
 		int ymouse =e.getY();
-		
 	}
 
 	
@@ -40,15 +39,15 @@ public class Mouse implements MouseListener{
 				Game.handler.createlevel(Game.image);
 			}
 		}
-		if(x>178&&x<451&&y>516&&y<559){
-		}
 		if(x>590&&x<719&&y>403&&y<437){
 			Launcher.seite=2;
 		}
 		if(x>125&&x<373&&y>639&&y<671){
 			Launcher.seite=1;
 		}
-	
+		if(x>515&&x<793&&y>465&&y<490){
+			System.exit(0);
+		}
 		
 		
 		if(Launcher.seite==2&&x>725&&x<1074&&y>142&&y<282){
