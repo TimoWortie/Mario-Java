@@ -16,7 +16,6 @@ public class Goomba extends Enemy{
 	public static Random r = new Random();
 	public static int j,countergoomba;
 	private Sprite[] goombasprite = new Sprite[4];
-	public static Goomba[] goomba = new Goomba[100];
 	
 	
 	public Goomba(int x, int y, int breite, int höhe, Handler handler, Id id) {
@@ -91,22 +90,22 @@ public class Goomba extends Enemy{
 		}
 	}
 
-	public static void Goombasinit(){
+	public static void Goombasinit(Goomba[] g){
 		countergoomba++;
 		if(countergoomba==500){
-			if(j<goomba.length){
-				for(int i=0;i<goomba.length;i++){
+			if(j<g.length){
+				for(int i=0;i<g.length;i++){
 					setSpawnpoint(r.nextInt(2));
 					if(Mouse.map==1){
-					if(getSpawnpoint()==0){goomba[i] = new Goomba(396,5,60,60,Game.handler,Id.enemy);}
-					if(getSpawnpoint()==1){goomba[i] = new Goomba(851,5,60,60,Game.handler,Id.enemy);}
+					if(getSpawnpoint()==0){g[i] = new Goomba(396,5,60,60,Game.handler,Id.enemy);}
+					if(getSpawnpoint()==1){g[i] = new Goomba(851,5,60,60,Game.handler,Id.enemy);}
 					}
 					if(Mouse.map==2){
-						if(getSpawnpoint()==0){goomba[i] = new Goomba(16,155,60,60,Game.handler,Id.enemy);}
-						if(getSpawnpoint()==1){goomba[i] = new Goomba(1155,535,60,60,Game.handler,Id.enemy);}
+						if(getSpawnpoint()==0){g[i] = new Goomba(16,155,60,60,Game.handler,Id.enemy);}
+						if(getSpawnpoint()==1){g[i] = new Goomba(1155,535,60,60,Game.handler,Id.enemy);}
 						}
 				}
-			Game.handler.addEnemy(goomba[j]);
+			Game.handler.addEnemy(g[j]);
 			j++;
 			}
 			countergoomba=0;

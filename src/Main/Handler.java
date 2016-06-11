@@ -21,7 +21,6 @@ public class Handler {
 	public LinkedList <Entity> entity = new LinkedList <Entity>();
 	public LinkedList <Tile> tile = new LinkedList <Tile>();
 	public LinkedList <Enemy> enemy = new LinkedList <Enemy>();
-
 //	public LinkedList <Item> item = new LinkedList <Item>();
 	private int red,green,blue;
 

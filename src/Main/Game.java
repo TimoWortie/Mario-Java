@@ -31,7 +31,7 @@ public class Game extends Canvas implements Runnable{
 	public static boolean running = false;
 	public static Thread thread = new Thread();
 	public static Handler handler = new Handler();
-
+	public static Goomba[] goomba = new Goomba[100];
 	public static Mario player = new Mario(1000,500,100,100,handler,Id.player);
 	public static Luigi luigi = new Luigi(500,500,100,100,handler,Id.Luigi);
 
@@ -84,12 +84,10 @@ public class Game extends Canvas implements Runnable{
 	}
 	
 	public void tick(){
-		if(launcher.launching){
-		}else if(player.tot&&player.getY()>Game.getFrameHöhe()||luigi.tot&&luigi.getY()>Game.getFrameHöhe()){
-			
+		if(launcher.launching){	
 		}else{
 		handler.tick();
-		Goomba.Goombasinit();
+		Goomba.Goombasinit(goomba);
 		Koopa.koopasinit();
 		Kugelwilli.kugelwillisinit();
 		Monty.Montysinit();

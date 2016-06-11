@@ -16,6 +16,7 @@ public class Key implements KeyListener{
 	public static boolean run = false,d=false,shift=false,a=false;
 	
 	public void keyPressed(KeyEvent e) {
+		if(!Game.launcher.launching){
 		int key = e.getKeyCode();
 		for(Entity en:Game.handler.entity){
 			if(en.tot==false){
@@ -34,19 +35,20 @@ public class Key implements KeyListener{
 				en.gravity=17.0f;
 			}
 			}
-		 }
-
-
-			
+		}
+		
+		if(key==e.VK_ESCAPE){
+			Game.launcher.launching=true;
+		}
 
 		if(key==e.VK_SHIFT){
 			 shift = true;
-		}
-		}	}
+		}}}}
 	}
 	
 	
 	public void keyReleased(KeyEvent e) {
+		if(!Game.launcher.launching){
 		int key = e.getKeyCode();
 		for(Entity en:Game.handler.entity){
 		if(key==e.VK_D){
@@ -63,16 +65,10 @@ public class Key implements KeyListener{
 			shift = false;
 		}
 	  }
-	}
+	}}
 	
 	
 	public void keyTyped(KeyEvent e) {
-		int key = e.getKeyCode();
-		for(Entity en:Game.handler.entity){
-			if(key==e.VK_F){
-				
-			}
-			}
 	}
 
 }
