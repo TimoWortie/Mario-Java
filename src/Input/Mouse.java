@@ -10,7 +10,7 @@ import Main.Game;
 public class Mouse implements MouseListener{
     	
 		public static int map=1;
-		private boolean mapausgewählt;
+		public static boolean mapausgewählt;
 		
 	
 	public void mouseClicked(MouseEvent e) {
@@ -37,6 +37,7 @@ public class Mouse implements MouseListener{
 			Game.launcher.launching=false;
 			if(!mapausgewählt){
 				Game.handler.createlevel(Game.image);
+				mapausgewählt=true;
 			}
 		}
 		if(x>590&&x<719&&y>403&&y<437){
