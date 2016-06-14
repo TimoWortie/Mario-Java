@@ -1,6 +1,5 @@
 package Main;
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -9,6 +8,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import Enemy.Enemy;
 import Enemy.Goomba;
 import Enemy.Koopa;
 import Enemy.Kugelwilli;
@@ -19,10 +19,8 @@ import Entity.Mario;
 import Input.Key;
 import Input.KeyLuigi;
 import Input.Mouse;
-import Item.Flower;
 import Item.Pilz;
 import Launcher.Launcher;
-import Audio.SoundManager;
 import gfx.Spritesheet;
 
 
@@ -43,8 +41,8 @@ public class Game extends Canvas implements Runnable{
 	
 	public void init(){
 		handler.addEntity(player);
-		sheet = new Spritesheet("/Spritesheet.png");
 		handler.addEntity(luigi);
+		sheet = new Spritesheet("/Spritesheet.png");
 //		handler.ChangeMusic(1, 2, false);
 		addMouseListener(new Mouse());
 		addKeyListener(new Key());
@@ -85,6 +83,18 @@ public class Game extends Canvas implements Runnable{
 	
 	public void tick(){
 		if(launcher.launching){	
+			for(Enemy ene:handler.enemy){
+				ene.setAsRemoved();
+			}
+			Goomba.j=0;
+			Koopa.b=0;
+			player.setX(1000); player.setY(500);
+			luigi.setX(500); luigi.setY(500);
+			
+			for(Entity en:handler.entity){
+				en.klein=false;
+				en.tot=false;
+			}
 		}else{
 		handler.tick();
 		Goomba.Goombasinit(goomba);
