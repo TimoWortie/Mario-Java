@@ -121,7 +121,17 @@ public class Luigi extends Entity {
 	public void tick() {
 		x += velX;
 		y += velY;
-		
+		if(hit==true){
+			if (timer3 < 400) {
+				
+				timer2++;
+				timer3 += 1;
+			} else {
+				hit = false;
+				timer2=0;
+				timer3=0;
+			}
+		}
 		if (x < 10 && x > 0) {
 			y3 = y;
 		}
@@ -139,7 +149,13 @@ public class Luigi extends Entity {
 			y = y2;
 		}
 
-
+		if(y<0){
+            setVelY(0);
+            y = 0;
+            jumping = false;
+            falling = true;
+            gravity = 0;
+        }
 
 		if (tot == false) {
 			if (stunned == true) {
@@ -219,21 +235,9 @@ public class Luigi extends Entity {
 							hit = true;
 							Game.handler.ChangeMusic(6, 1, false);
 						}
-					}
+					}}
 
-				} else {
-					if (timer3 < 400) {
-						
-						timer2++;
-						timer3 += 1;
-					} else {
-						hit = false;
-						timer2=0;
-						timer3=0;
-					}
 				}
-
-			}
 
 			for (Entity en : handler.entity) {
 				if (en.getId() == Id.player) {
