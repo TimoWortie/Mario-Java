@@ -1,0 +1,160 @@
+[Files]
+File0=SoundID.class
+File1=SoundManager$Sound.class
+File2=SoundManager.class
+File3=..\Enemy\Enemy.class
+File4=..\Enemy\Goomba.class
+File5=..\Enemy\Koopa.class
+File6=..\Enemy\Kugelwilli.class
+File7=..\Enemy\Monty.class
+File8=..\Entity\Entity.class
+File9=..\Entity\Luigi.class
+File10=..\Entity\Mario.class
+
+[Box:  - Audio.SoundID]
+X=20
+Y=40
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=0
+FontSize=10
+FontName=MS Sans Serif
+
+[Box:  - Audio.SoundManager]
+X=849
+Y=84
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=0
+FontSize=10
+FontName=MS Sans Serif
+
+[Box:  - Audio.SoundManager$Sound]
+X=798
+Y=498
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=0
+FontSize=10
+FontName=MS Sans Serif
+
+[Box:  - Enemy.Enemy]
+X=619
+Y=879
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=0
+FontSize=10
+FontName=MS Sans Serif
+
+[Box:  - Enemy.Goomba]
+X=7
+Y=570
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=0
+FontSize=10
+FontName=MS Sans Serif
+
+[Box:  - Enemy.Koopa]
+X=212
+Y=870
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=0
+FontSize=10
+FontName=MS Sans Serif
+
+[Box:  - Enemy.Kugelwilli]
+X=1317
+Y=75
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=0
+FontSize=10
+FontName=MS Sans Serif
+
+[Box:  - Enemy.Monty]
+X=310
+Y=213
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=0
+FontSize=10
+FontName=MS Sans Serif
+
+[Box:  - Entity.Entity]
+X=1158
+Y=426
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=0
+FontSize=10
+FontName=MS Sans Serif
+
+[Box:  - Entity.Luigi]
+X=1544
+Y=339
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=0
+FontSize=10
+FontName=MS Sans Serif
+
+[Box:  - Entity.Mario]
+X=1303
+Y=1412
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=0
+FontSize=10
+FontName=MS Sans Serif
+
+[Diagram]
+comments=0
+OffsetX=0
+OffsetY=0
+Visibility=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=0
+ShowConnections=0
+Fontname=MS Sans Serif
+Fontsize=10
+ShowObjectDiagram=0
+
+[Connections]
+V0=Audio.SoundID#Audio.SoundID#AssociationDirected####1#0#0
+V1=Audio.SoundID#Audio.SoundID#Aggregation####1#0#0
+V2=Audio.SoundManager#Audio.SoundManager$Sound#AssociationDirected####0#0#0
+V3=Audio.SoundManager$Sound#Audio.SoundManager#AssociationDirected####0#0#0
+V4=Enemy.Goomba#Enemy.Enemy#Inheritends####0#0#0
+V5=Enemy.Goomba#Enemy.Goomba#Aggregation####1#0#0
+V6=Enemy.Koopa#Enemy.Enemy#Inheritends####0#0#0
+V7=Enemy.Koopa#Enemy.Koopa#Aggregation####1#0#0
+V8=Enemy.Kugelwilli#Enemy.Enemy#Inheritends####0#0#0
+V9=Enemy.Kugelwilli#Enemy.Kugelwilli#Aggregation####1#0#0
+V10=Enemy.Monty#Enemy.Enemy#Inheritends####0#0#0
+V11=Enemy.Monty#Enemy.Monty#AssociationDirected####1#0#0
+V12=Entity.Luigi#Entity.Entity#Inheritends####0#0#0
+
+[Interactive]
+I0=
+
+[Window]
+Left=25
+Top=25
+Width=1666
+Height=503
+

@@ -17,7 +17,7 @@ public class Entity {
 	public float gravity = 0f;
 	public boolean jumping = false,falling = true,klein = false,hit = false,tot = false;
 	protected boolean tot1 = false;
-
+	public boolean stunned;
 	protected boolean klein2=false;
 	
 	public Entity(int x, int y, int breite, int höhe, Handler handler, Id id) {

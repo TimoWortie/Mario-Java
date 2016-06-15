@@ -19,7 +19,7 @@ public class Luigi extends Entity {
 	public static int moving = -1;
 	public static Sprite[] luigi = new Sprite[15],luigi2 = new Sprite[15];
 	private Sprite leer, tot2, tot3, stunned1, stunned2;
-	public boolean stunned;
+	
 
 	public Luigi(int x, int y, int breite, int höhe, Handler handler, Id id) {
 		super(x, y, breite, höhe, handler, id);
@@ -122,7 +122,17 @@ public class Luigi extends Entity {
 	public void tick() {
 		x += velX;
 		y += velY;
-		
+		if(hit==true){
+			if (timer3 < 400) {
+				
+				timer2++;
+				timer3 += 1;
+			} else {
+				hit = false;
+				timer2=0;
+				timer3=0;
+			}
+		}
 		if (x < 10 && x > 0) {
 			y3 = y;
 		}
@@ -140,7 +150,13 @@ public class Luigi extends Entity {
 			y = y2;
 		}
 
-
+		if(y<0){
+            setVelY(0);
+            y = 0;
+            jumping = false;
+            falling = true;
+            gravity = 0;
+        }
 
 		if (tot == false) {
 			if (stunned == true) {
@@ -183,7 +199,6 @@ public class Luigi extends Entity {
 							klein = true;
 						}
 						if(getTopEn().intersects(ene.getBottom())){
-							System.out.println("test");
 							setVelX(0);
 							klein = true;
 							hit = true;
@@ -222,16 +237,6 @@ public class Luigi extends Entity {
 						}
 					}
 
-				} else {
-					if (timer3 < 400) {
-						
-						timer2++;
-						timer3 += 1;
-					} else {
-						hit = false;
-						timer2=0;
-						timer3=0;
-					}
 				}
 
 			}
@@ -257,7 +262,11 @@ public class Luigi extends Entity {
 
 						Game.handler.ChangeMusic(7, 1, false);
 						setVelY(0);
-						y = y - 40;
+						if (this.klein == false) {
+							y = y - 40;
+							}else{
+								y=y-20;
+							}
 						jumping = true;
 						falling = false;
 						gravity = 5.0f;
