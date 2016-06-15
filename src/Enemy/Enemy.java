@@ -100,7 +100,7 @@ public class Enemy {
 		return new Rectangle(x,y+höhe-6,breite,5);
 	}
 	public Rectangle getTop(){
-		return new Rectangle(x+10,y,breite-20,20);
+		return new Rectangle(x+5,y,breite-10,20);
 	}
 	public Rectangle getRight(){
 		return new Rectangle(x+breite-30,y+10,30,höhe-20);
