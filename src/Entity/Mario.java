@@ -17,7 +17,7 @@ public class Mario extends Entity {
     public static int moving = -1;
     private Sprite[] mario = new Sprite[15],mario2 = new Sprite[14];
     private Sprite leer, tot3, tot2, stunned1, stunned2;
-    public boolean stunned = false;
+    
     public Mario(int x, int y, int breite, int höhe, Handler handler, Id id) {
         super(x, y, breite, höhe, handler, id);
     }

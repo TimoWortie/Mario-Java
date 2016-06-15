@@ -19,7 +19,6 @@ public class Luigi extends Entity {
 	public static int moving = -1;
 	public static Sprite[] luigi = new Sprite[15],luigi2 = new Sprite[15];
 	private Sprite leer, tot2, tot3, stunned1, stunned2;
-	public boolean stunned;
 
 	public Luigi(int x, int y, int breite, int höhe, Handler handler, Id id) {
 		super(x, y, breite, höhe, handler, id);

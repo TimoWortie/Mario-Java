@@ -94,6 +94,8 @@ public class Game extends Canvas implements Runnable{
 			for(Entity en:handler.entity){
 				en.klein=false;
 				en.tot=false;
+				en.stunned=false;
+				en.hit=false;
 			}
 		}else{
 		handler.tick();
