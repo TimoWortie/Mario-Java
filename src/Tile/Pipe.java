@@ -18,9 +18,9 @@ public class Pipe extends Tile{
 
 	public void render(Graphics g){
 		g.drawImage(pipe.getBufferedImage(), x, y,breite,höhe, null);
-		g.setColor(Color.red);
-		g.drawRect(x,y,breite,höhe);
-		g.setColor(Color.green);
-		g.drawRect(x,y+höhe-15,breite,15);
+//		g.setColor(Color.red);
+//		g.drawRect(x,y,breite,höhe);
+//		g.setColor(Color.green);
+//		g.drawRect(x,y+höhe-15,breite,15);
 	}
 }

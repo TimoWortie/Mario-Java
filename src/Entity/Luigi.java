@@ -47,30 +47,30 @@ public class Luigi extends Entity {
 					if (klein == false) {
 						//Normaler State
 							Zeichnung(g);
-							g.setColor(Color.white);
-							g.drawRect(x + 33, y + 13, 38, 5);
-							g.setColor(Color.red);
-							g.drawRect(getX() + 33, getY() + 96, 34, 5);
-							g.setColor(Color.green);
-							g.drawRect(getX() + 70, getY() + 25, 5, 62);
-							g.setColor(Color.CYAN);
-							g.drawRect(getX() + 26, getY() + 25, 5, 62);
-							g.setColor(Color.MAGENTA);
-							g.drawRect(getX() + 26, getY() + 10, 49, höhe - 10);
+//							g.setColor(Color.white);
+//							g.drawRect(x + 33, y + 13, 38, 5);
+//							g.setColor(Color.red);
+//							g.drawRect(getX() + 33, getY() + 96, 34, 5);
+//							g.setColor(Color.green);
+//							g.drawRect(getX() + 70, getY() + 25, 5, 62);
+//							g.setColor(Color.CYAN);
+//							g.drawRect(getX() + 26, getY() + 25, 5, 62);
+//							g.setColor(Color.MAGENTA);
+//							g.drawRect(getX() + 26, getY() + 10, 49, höhe - 10);
 
 						} else {
 							//Kleiner State
 							Zeichnung2(g);
-							g.setColor(Color.white);
-							g.drawRect(x + 33, y + 33, 38, 5);
-							g.setColor(Color.red);
-							g.drawRect(getX() + 33, getY() + 96, 34, 5);
-							g.setColor(Color.green);
-							g.drawRect(getX() + 70, getY() + 45, 5, 42);
-							g.setColor(Color.CYAN);
-							g.drawRect(getX() + 26, getY() + 45, 5, 42);
-							g.setColor(Color.MAGENTA);
-							g.drawRect(getX() + 26, getY() + 30, 49, höhe - 30);
+//							g.setColor(Color.white);
+//							g.drawRect(x + 33, y + 33, 38, 5);
+//							g.setColor(Color.red);
+//							g.drawRect(getX() + 33, getY() + 96, 34, 5);
+//							g.setColor(Color.green);
+//							g.drawRect(getX() + 70, getY() + 45, 5, 42);
+//							g.setColor(Color.CYAN);
+//							g.drawRect(getX() + 26, getY() + 45, 5, 42);
+//							g.setColor(Color.MAGENTA);
+//							g.drawRect(getX() + 26, getY() + 30, 49, höhe - 30);
 
 						}
 					} else {
