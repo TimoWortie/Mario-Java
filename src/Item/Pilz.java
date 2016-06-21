@@ -16,7 +16,6 @@ public class Pilz extends Item{
 	public static Random r = new Random();
 	public static int j;
 	private Sprite Pilzsprite;
-	public static Pilz[] pilz = new Pilz[10];
 	private boolean playsound;
 	
 	
@@ -82,25 +81,25 @@ public class Pilz extends Item{
 	public static void Pilzsinit(){
 		setCounter2(getCounter2()+1);
 		if(getCounter2()==5000){
-			if(j<pilz.length){
-				for(int i=0;i<pilz.length;i++){
+			if(j<Game.pilz.length){
+				for(int i=0;i<Game.pilz.length;i++){
 					setSpawnpoint(r.nextInt(2));
 					System.out.println("test");
 					if(Mouse.map==1){
 					if(getSpawnpoint()==0){
-						pilz[i] = new Pilz(396,5,60,60,true,Game.handler,Id.pilz);
+						Game.pilz[i] = new Pilz(396,5,60,60,true,Game.handler,Id.pilz);
 						}
 					}
-					if(getSpawnpoint()==1){pilz[i] = new Pilz(851,5,60,60,true,Game.handler,Id.pilz);}
+					if(getSpawnpoint()==1){Game.pilz[i] = new Pilz(851,5,60,60,true,Game.handler,Id.pilz);}
 					
 					if(Mouse.map==2){
-						if(getSpawnpoint()==0){pilz[i] = new Pilz(16,155,60,60,true,Game.handler,Id.pilz);}
-						if(getSpawnpoint()==1){pilz[i] = 
-						pilz[i]=new Pilz(1155,535,60,60,true,Game.handler,Id.pilz);}
+						if(getSpawnpoint()==0){Game.pilz[i] = new Pilz(16,155,60,60,true,Game.handler,Id.pilz);}
+						if(getSpawnpoint()==1){Game.pilz[i] = 
+								Game.pilz[i]=new Pilz(1155,535,60,60,true,Game.handler,Id.pilz);}
 						}
 					
 				}
-			Game.handler.addItem(pilz[j]);
+			Game.handler.addItem(Game.pilz[j]);
 			
 			
 			j++;

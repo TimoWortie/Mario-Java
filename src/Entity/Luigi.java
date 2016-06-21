@@ -149,14 +149,20 @@ public class Luigi extends Entity {
 			y = y2;
 		}
 
-		if(y<0){
+		if(y<-20&&!klein){
             setVelY(0);
             y = 0;
             jumping = false;
             falling = true;
             gravity = 0;
         }
-
+		if(y<-40&&klein){
+            setVelY(0);
+            y = 0;
+            jumping = false;
+            falling = true;
+            gravity = 0;
+        }
 		if (tot == false) {
 			if (stunned == true) {
 				klein2 = true;

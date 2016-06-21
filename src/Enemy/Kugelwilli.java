@@ -15,7 +15,7 @@ public class Kugelwilli extends Enemy{
 	public static int j,counterkugelwilli;
 	private static boolean losgeschickt;
 	private Sprite kugel;
-	public static Kugelwilli[] kugelwilli = new Kugelwilli[10];
+	
 	
 
 	public Kugelwilli(int x, int y, int breite, int höhe, Handler handler, Id id) {
@@ -48,21 +48,21 @@ public class Kugelwilli extends Enemy{
 	public static void kugelwillisinit(){
 		counterkugelwilli++;
 		if(counterkugelwilli==800){
-			if(j<kugelwilli.length){
-				for(int i=0;i<kugelwilli.length;i++){
+			if(j<Game.kugelwilli.length){
+				for(int i=0;i<Game.kugelwilli.length;i++){
 					losgeschickt=true;
 	
 					if(Mouse.map==2){
 						
-						kugelwilli[i] = new Kugelwilli(1155,360,60,60,Game.handler,Id.enemy);
+						Game.kugelwilli[i] = new Kugelwilli(1155,360,60,60,Game.handler,Id.enemy);
 						}
 					
 						if(Mouse.map==1){
 						
-						kugelwilli[i] = new Kugelwilli(1155,1360,60,60,Game.handler,Id.enemy);
+							Game.kugelwilli[i] = new Kugelwilli(1155,1360,60,60,Game.handler,Id.enemy);
 						}
 				}
-			Game.handler.addEnemy(kugelwilli[j]);
+			Game.handler.addEnemy(Game.kugelwilli[j]);
 			j++;
 			}
 			counterkugelwilli=0;

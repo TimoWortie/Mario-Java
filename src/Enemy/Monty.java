@@ -11,7 +11,7 @@ import gfx.Sprite;
 public class Monty extends Enemy{
 	
 	private Sprite[] montysprite = new Sprite[4];
-	public static Monty monty;
+	
 	public static int montylosschicken,montyfacing=1;
 	public static boolean montywirdlosgeschickt,montywirdlosgeschicktluigi;
 
@@ -39,7 +39,7 @@ public class Monty extends Enemy{
 				setVelX(-2);
 			}
 		}else{
-			monty.setAsRemoved();
+			Game.monty.setAsRemoved();
 		}
 		if(Mouse.map==2){
 			montyfacing=2;
@@ -58,17 +58,17 @@ public class Monty extends Enemy{
 
 			if(Mouse.map==1){
 				if(montyfacing==1){
-					monty = new Monty(-121,590,121,121,Game.handler,Id.Monty);
+					Game.monty = new Monty(-121,590,121,121,Game.handler,Id.Monty);
 				}
 				if(montyfacing==2){
-					monty = new Monty(1262,590,121,121,Game.handler,Id.Monty);
+					Game.monty = new Monty(1262,590,121,121,Game.handler,Id.Monty);
 				}
 			}
 			if(Mouse.map==2){
-				monty = new Monty(1262,590,121,121,Game.handler,Id.Monty);
+				Game.monty = new Monty(1262,590,121,121,Game.handler,Id.Monty);
 
 			}
-			Game.handler.addEnemy(monty);
+			Game.handler.addEnemy(Game.monty);
 			montywirdlosgeschickt=false;
 		}
 				

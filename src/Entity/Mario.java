@@ -136,13 +136,23 @@ public class Mario extends Entity {
 			} else {
 				klein2 = false;
 			}
-			if(y<0){
+			
+			
+			if(y<-20&&!klein){
 	            setVelY(0);
 	            y = 0;
 	            jumping = false;
 	            falling = true;
 	            gravity = 0;
 	        }
+			if(y<-40&&klein){
+	            setVelY(0);
+	            y = 0;
+	            jumping = false;
+	            falling = true;
+	            gravity = 0;
+	        }
+			
 			for (Enemy ene : handler.enemy) {
 				if (hit == false) {
 					if (this.klein == false) {

@@ -15,7 +15,6 @@ public class Koopa extends Enemy{
 
 	public static Random r = new Random();
 	private Sprite[] koopasprite = new Sprite[4];
-	public static Koopa[] koopa = new Koopa[100];
 	public static int spawnzeit,counterkoopa,b;
 	public static boolean gecountet=false;
 	
@@ -99,20 +98,20 @@ public class Koopa extends Enemy{
 			gecountet=true;
 		}
 		if(counterkoopa/60==spawnzeit){
-			if(b<koopa.length){
-				for(int i=0;i<koopa.length;i++){
+			if(b<Game.koopa.length){
+				for(int i=0;i<Game.koopa.length;i++){
 					setSpawnpoint2(r.nextInt(2));
 					if(Mouse.map==1){
-						if(getSpawnpoint2()==0){koopa[i] = new Koopa(396,5,60,60,Game.handler,Id.enemy);}
-						if(getSpawnpoint2()==1){koopa[i] = new Koopa(851,5,60,60,Game.handler,Id.enemy);}
+						if(getSpawnpoint2()==0){Game.koopa[i] = new Koopa(396,5,60,60,Game.handler,Id.enemy);}
+						if(getSpawnpoint2()==1){Game.koopa[i] = new Koopa(851,5,60,60,Game.handler,Id.enemy);}
 					}
 					if(Mouse.map==2){
-						if(getSpawnpoint2()==0){koopa[i] = new Koopa(16,155,60,60,Game.handler,Id.enemy);}
-						if(getSpawnpoint2()==1){koopa[i] = new Koopa(1155,535,60,60,Game.handler,Id.enemy);}
+						if(getSpawnpoint2()==0){Game.koopa[i] = new Koopa(16,155,60,60,Game.handler,Id.enemy);}
+						if(getSpawnpoint2()==1){Game.koopa[i] = new Koopa(1155,535,60,60,Game.handler,Id.enemy);}
 					}
 					gecountet=false;
 					}
-			Game.handler.addEnemy(koopa[b]);
+			Game.handler.addEnemy(Game.koopa[b]);
 			b++;
 			}
 			counterkoopa=0;

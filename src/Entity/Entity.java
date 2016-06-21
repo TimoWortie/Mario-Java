@@ -9,7 +9,7 @@ import Tile.Tile;
 
 public class Entity {
 
-	protected int x, y, breite, höhe, velX, velY, timer3, timer2, timertot, timerstunned;
+	public int x, y, breite, höhe, velX, velY, timer3, timer2, timertot, timerstunned;
 
 	boolean shouldRemove = false;
 	Handler handler;
